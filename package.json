@@ -8,16 +8,20 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/faker": "5.5.9",
     "@types/jest": "^27.0.1",
+    "@types/leaflet-textpath": "^1.2.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "chart.js": "^4.0.1",
     "faker": "5.5.3",
     "leaflet": "^1.9.3",
+    "leaflet-geometryutil": "^0.10.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.0",
+    "react-leaflet-div-icon": "^1.1.0",
+    "react-leaflet-textpath": "^2.1.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
     "typescript": "^4.4.2",
@@ -27,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "next lint"
   },
   "eslintConfig": {
     "extends": [

@@ -1,20 +1,26 @@
-import { MapContainer, Polyline, Polygon, PolygonProps, MarkerProps, Marker, Popup, PolylineProps } from 'react-leaflet'
+import { MapContainer, Polyline, Polygon,  MarkerProps, Marker, Popup } from 'react-leaflet'
 import { CRS, LatLngBoundsLiteral, Icon, LatLngExpression } from "leaflet"
 import styled from 'styled-components';
-import { useRef, useEffect, useState, createRef } from 'react';
+import { createRef, useState } from 'react';
+import TextPath from 'react-leaflet-textpath';
+
+
+import { TestSlider } from './TestSlideComponent'
+import { MarkerCloud } from './MarkerCloud'
+
+import { 
+  baseLayer, 
+  middelRing,
+  innerRing,
+  frameworkLine } from './polygonData';
+import { TestMarker } from './TestMarker';
+import { PolyLineComponent } from './PolyLine';
+import { Polyline as PolyLineType } from "leaflet";
 
 const baseLayerBounds:LatLngBoundsLiteral = [
   [0,0],
   [750,1000]
 ]
-
-const FernsehturmMarkerOptions:MarkerProps = {
-  position: [400, 550]
-}
-const FernsehturmMarkerIcon = new Icon({
-  iconUrl: require('../assets/fernsehturm.png'),
-  iconSize: [35, 35]
-})
 
 const TSBMarkerOptions:MarkerProps = {
   position: [330, 470]
@@ -32,107 +38,6 @@ const CityLabMarkerIcon = new Icon({
   iconSize: [35, 35]
 })
 
-const baseLayer:PolygonProps = {
-  positions: [
-    [0,0],
-    [0,1000],
-    [750,1000],
-    [750,0],
-  ],
-  pathOptions: { 
-    color: 'white',
-    fillColor: 'white',
-    fillOpacity: 1,
-  }
-}
-
-const innerRingPolygon = [
-  [290, 0],
-  [320, 30],
-  [320, 450],
-  [290, 480],
-  [30, 480],
-  [0, 450],
-  [0, 30],
-  [30, 0],
-]
-
-const innerRingCenterVector = [220, 260];
-
-const innerRing:PolygonProps = {
-  positions: innerRingPolygon.map(pos => [pos[0] + innerRingCenterVector[0], pos[1] + innerRingCenterVector[1]]),
-  pathOptions: { 
-    color: 'white',
-    fillColor: 'white',
-    fillOpacity: 1
-  }
-}
-
-const middelRingPolygon = [
-  [540, 0],
-  [620, 80],
-  [620, 700],
-  [540, 780],
-  [80, 780],
-  [0, 700],
-  [0, 80],
-  [80, 0],
-]
-
-const middelRingCenterVector = [70, 110];
-const middelRing:PolygonProps = {
-  positions: middelRingPolygon.map(pos => [pos[0] + middelRingCenterVector[0], pos[1] + middelRingCenterVector[1]]),
-  pathOptions: { 
-    color: '#A0D3E4',
-    fillColor: '#A0D3E4',
-    fillOpacity: 1
-  }
-}
-
-const programmingLineCoordinates:LatLngExpression[] = [
-  [640, 20],
-  [600, 80],
-  [600, 120],
-  [520, 200],
-  [520, 700],
-  [440, 780],
-  [200, 780],
-  [160, 720],
-  [40, 720],
-  [20, 740],
-]
-
-const programmingLine:PolylineProps = {
-  positions: programmingLineCoordinates,
-  pathOptions: { 
-    color: 'red',
-    weight: 10
-  }
-}
-
-const frameworkLineCoordinates:LatLngExpression[] = [
-  [680, 940],
-  [680, 800],
-  [640, 760],
-  [560, 760],
-  [500, 700],
-  [500, 400],
-  [440, 340],
-  [240, 340],
-  [200, 380],
-  [200, 680],
-  [180, 700],
-  [20, 700],
-  [10, 710],
-]
-
-const frameworkLine:PolylineProps = {
-  positions: frameworkLineCoordinates,
-  pathOptions: { 
-    color: 'yellow',
-    weight: 10
-  }
-}
 
 const MapWrapper = styled.div`
   width: 90vw;
@@ -146,17 +51,18 @@ const MapWrapper = styled.div`
 `;
 
 
-export const LeafletMap = () => {let programmingLineRef = createRef<null | any>();
-  const [progLineObject, progLineObjectSet] = useState({})
+export const TechMap = () => {
+  const mapRef = createRef<null | any>();
+  const programmingLineRef = createRef<PolyLineType<any>>();
+  const [showTestSlider, showTestSliderSet]= useState(true)
 
-  useEffect(() => {
-    if(programmingLineRef.current) {
-      progLineObjectSet(programmingLineRef.current.children[0])
-      console.log(progLineObject)
-    } else {
-      console.log("EMPTY REF")
-    }
-  },[progLineObject, programmingLineRef])
+  const [slidePosition, slidePositionSet] = useState([290, 500]);
+  const [slideLabel, slideLabelSet] = useState("label-placeholder");
+  const [slideOrientation, slideOrientationSet] = useState("E");
+
+  console.log("ORIENTATION", slideOrientation)
+  console.log("Label", slideLabel)
+  
 
   const mapContainerStyles = { 
     height: '100%', 
@@ -174,18 +80,17 @@ export const LeafletMap = () => {let programmingLineRef = createRef<null | any>(
         maxZoom={5}
         scrollWheelZoom={false}
         style={mapContainerStyles}
+        ref={mapRef}
       >
-        <Polygon pathOptions={baseLayer.pathOptions} positions={baseLayer.positions} />
-        <Polygon pathOptions={middelRing.pathOptions} positions={middelRing.positions} />
-        <Polygon pathOptions={innerRing.pathOptions} positions={innerRing.positions} />
-
-        <Polyline 
-          pathOptions={programmingLine.pathOptions} 
-          positions={programmingLine.positions}
-          ref={programmingLineRef}  
-        />
+        <>
+          <Polygon pathOptions={baseLayer.pathOptions} positions={baseLayer.positions} />
+          <Polygon pathOptions={middelRing.pathOptions} positions={middelRing.positions} />
+          <Polygon pathOptions={innerRing.pathOptions} positions={innerRing.positions} />
+        </>
+        <PolyLineComponent ref={programmingLineRef}/>
         <Polyline pathOptions={frameworkLine.pathOptions} positions={frameworkLine.positions} />
 
+        <TestMarker position={slidePosition as LatLngExpression} label={slideLabel} orientation={slideOrientation} />
         <Marker position={TSBMarkerOptions.position} icon={TSBMarkerIcon}>
           <Popup>
             Hey, It's TSB
@@ -196,8 +101,17 @@ export const LeafletMap = () => {let programmingLineRef = createRef<null | any>(
             Yeah, found the CityLab
           </Popup>
         </Marker>
-        <Marker position={FernsehturmMarkerOptions.position} icon={FernsehturmMarkerIcon}/>
+        <MarkerCloud progLine={programmingLineRef} map={mapRef}/>
       </MapContainer>
+
+      <TestSlider 
+        position={slidePosition} 
+        changePosition={slidePositionSet} 
+        label={slideLabel} 
+        changeLabel={slideLabelSet} 
+        orientation={slideOrientation}
+        changeOrientation={slideOrientationSet} 
+        mapRef={mapRef}/>
     </MapWrapper>
   )
 }

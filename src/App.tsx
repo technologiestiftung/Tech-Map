@@ -1,6 +1,6 @@
 
 import './App.css';
-import { LeafletMap } from './leaflet';
+import { TechMap } from './leaflet';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         This is the TSB Tech-Map
       </header>
-      <LeafletMap/>
+      <TechMap/>
     </div>
   );
 }
