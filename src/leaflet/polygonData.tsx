@@ -1,19 +1,19 @@
-import { PolygonProps, PolylineProps } from 'react-leaflet'
-import { LatLngExpression } from "leaflet"
+import { PolygonProps, PolylineProps } from 'react-leaflet';
+import { LatLngExpression } from 'leaflet';
 
-export const baseLayer:PolygonProps = {
+export const baseLayer: PolygonProps = {
   positions: [
-    [0,0],
-    [0,1000],
-    [750,1000],
-    [750,0],
+    [0, 0],
+    [0, 1000],
+    [750, 1000],
+    [750, 0],
   ],
-  pathOptions: { 
+  pathOptions: {
     color: 'white',
     fillColor: 'white',
     fillOpacity: 1,
-  }
-}
+  },
+};
 
 export const innerRingPolygon = [
   [290, 0],
@@ -24,18 +24,18 @@ export const innerRingPolygon = [
   [0, 450],
   [0, 30],
   [30, 0],
-]
+];
 
 export const innerRingCenterVector = [220, 260];
 
-export const innerRing:PolygonProps = {
+export const innerRing: PolygonProps = {
   positions: innerRingPolygon.map(pos => [pos[0] + innerRingCenterVector[0], pos[1] + innerRingCenterVector[1]]),
-  pathOptions: { 
+  pathOptions: {
     color: 'white',
     fillColor: 'white',
-    fillOpacity: 1
-  }
-}
+    fillOpacity: 1,
+  },
+};
 
 export const middelRingPolygon = [
   [540, 0],
@@ -44,22 +44,22 @@ export const middelRingPolygon = [
   [540, 780],
   [80, 780],
   [0, 700],
-  [0, 80],
+    [0, 80],
   [80, 0],
-]
+];
 
 export const middelRingCenterVector = [70, 110];
 
-export const middelRing:PolygonProps = {
+export const middelRing: PolygonProps = {
   positions: middelRingPolygon.map(pos => [pos[0] + middelRingCenterVector[0], pos[1] + middelRingCenterVector[1]]),
-  pathOptions: { 
+  pathOptions: {
     color: '#A0D3E4',
     fillColor: '#A0D3E4',
-    fillOpacity: 1
-  }
-}
+    fillOpacity: 1,
+  },
+};
 
-export const programmingLineCoordinates:LatLngExpression[] = [
+export const programmingLineCoordinates: LatLngExpression[] = [
   [640, 20],
   [600, 80],
   [600, 120],
@@ -70,17 +70,17 @@ export const programmingLineCoordinates:LatLngExpression[] = [
   [160, 720],
   [40, 720],
   [20, 740],
-]
+];
 
-export const programmingLine:PolylineProps = {
+export const programmingLine: PolylineProps = {
   positions: programmingLineCoordinates,
-  pathOptions: { 
+  pathOptions: {
     color: 'red',
-    weight: 8
-  }
-}
+    weight: 8,
+  },
+};
 
-export const frameworkLineCoordinates:LatLngExpression[] = [
+export const frameworkLineCoordinates: LatLngExpression[] = [
   [680, 940],
   [680, 800],
   [640, 760],
@@ -94,17 +94,17 @@ export const frameworkLineCoordinates:LatLngExpression[] = [
   [180, 700],
   [20, 700],
   [10, 710],
-]
+];
 
-export const frameworkLine:PolylineProps = {
+export const frameworkLine: PolylineProps = {
   positions: frameworkLineCoordinates,
-  pathOptions: { 
+  pathOptions: {
     color: 'yellow',
-    weight: 8
-  }
-}
+    weight: 8,
+  },
+};
 
 export const lineData = {
   framework: frameworkLine,
-  programming: programmingLine
-}
+  programming: programmingLine,
+};

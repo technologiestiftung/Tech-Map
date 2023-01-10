@@ -1,33 +1,9 @@
 import { Chart } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  RadialLinearScale,
-  Filler,
-  LineController,
-  RadarController
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, RadialLinearScale, Filler, LineController, RadarController } from 'chart.js';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  RadialLinearScale,
-  Filler,
-  LineController,
-  RadarController
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, RadialLinearScale, Filler, LineController, RadarController);
 
-
-const data =  {
+const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
     {
@@ -47,7 +23,7 @@ const data =  {
     {
       type: 'radar' as const,
       label: 'A',
-      data: [0,0,0,0,0,0,0,0],
+      data: [0, 0, 0, 0, 0, 0, 0, 0],
       borderColor: 'black',
       backgroundColor: 'gray',
       borderWidth: 1,
@@ -77,34 +53,29 @@ const options = {
       beginAtZero: true,
       display: false,
       grid: {
-        display: false
+        display: false,
       },
     },
     y: {
       beginAtZero: true,
       display: false,
       grid: {
-        display: false
+        display: false,
       },
     },
   },
   plugins: {
     legend: {
       display: false,
-    }
-}
-}
+    },
+  },
+};
 
 export const Map = () => {
-
   return (
     <div>
       <h1>Here it comes</h1>
-      <Chart
-        type='line'
-        data={data}
-        options={options}
-        />
+      <Chart type='line' data={data} options={options} />
     </div>
-  )
-}
+  );
+};

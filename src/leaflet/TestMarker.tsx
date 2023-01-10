@@ -1,96 +1,104 @@
-import { LatLngExpression } from 'leaflet';
-import { useEffect, useState } from 'react';
+import { LatLngExpression } from 'leaflet'
+import { FC, useEffect, useState } from 'react'
 import { Circle } from 'react-leaflet'
-import TextPath from 'react-leaflet-textpath';
+import TextPath from 'react-leaflet-textpath'
+// The TextPath is a little clumsy for that usecase. maybe this would be a good alternative: https://medium.com/@nikjohn/creating-a-dynamic-jsx-marker-with-react-leaflet-f75fff2ddb9
 
-export const TestMarker = ({position, label, orientation}) => {
+interface TestMarkerProps {
+  position: LatLngExpression
+  label: string
+  orientation: string
+}
 
-  const [reversed, reversedSet] = useState<boolean>(false);
-  const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>(
-    [
-      [position[0],position[1] + 14], 
-      [position[0],position[1] + 100]
-    ]
-  );
+export const TestMarker: FC<TestMarkerProps> = ({ position, label, orientation }) => {
+  const [reversed, reversedSet] = useState<boolean>(false)
+  const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>([
+    [position[0], position[1] + 14],
+    [position[0], position[1] + 100],
+  ])
 
   const reversedLabel = label.split('').reverse().join('')
-  
+
   useEffect(() => {
     const createOrientationVector = () => {
-      const offset = 10;
-      const offsetVertical = 14;
-      const length = 200;
-  
-      switch(orientation) {
+      const offset = 10
+      const offsetVertical = 14
+      const length = 200
+
+      switch (orientation) {
         case 'NE':
           orientationVectorSet([
-            [position[0] + offset, position[1] + offset], 
-            [position[0] + length, position[1] + length]
+            [position[0] + offset, position[1] + offset],
+            [position[0] + length, position[1] + length],
           ])
           reversedSet(false)
-        break;
+          break
         case 'E':
           orientationVectorSet([
-            [position[0], position[1] + offsetVertical], 
-            [position[0], position[1] + length]
+            [position[0], position[1] + offsetVertical],
+            [position[0], position[1] + length],
           ])
           reversedSet(false)
-          break;
+          break
         case 'SE':
           orientationVectorSet([
-            [position[0] - offset, position[1] + offset], 
-            [position[0] - length, position[1] + length]
+            [position[0] - offset, position[1] + offset],
+            [position[0] - length, position[1] + length],
           ])
           reversedSet(false)
-        break;
+          break
         case 'NW':
           orientationVectorSet([
-            [position[0] + offset, position[1] - offset], 
-            [position[0] + length, position[1] - length]
+            [position[0] + offset, position[1] - offset],
+            [position[0] + length, position[1] - length],
           ])
           reversedSet(true)
-        break;
+          break
         case 'W':
           orientationVectorSet([
-            [position[0], position[1] - offsetVertical], 
-            [position[0], position[1] - length]
+            [position[0], position[1] - offsetVertical],
+            [position[0], position[1] - length],
           ])
           reversedSet(true)
-          break;
+          break
         case 'SW':
           orientationVectorSet([
-            [position[0] - offset, position[1] - offset], 
-            [position[0] - length, position[1] - length]
+            [position[0] - offset, position[1] - offset],
+            [position[0] - length, position[1] - length],
           ])
           reversedSet(true)
-        break;
-      default:
-        return
+          break
+        default:
+          return
       }
     }
     createOrientationVector()
   }, [orientation, position])
-  
 
-  return(
+  return (
     <>
       <Circle
         center={position}
-        pathOptions={{ color: 'red', fillColor: 'black', fillOpacity: 1, weight: 4 }}
+        pathOptions={{
+          color: 'red',
+          fillColor: 'black',
+          fillOpacity: 1,
+          weight: 4,
+        }}
         radius={8}
       />
       <TextPath
         positions={orientationVector}
         text={reversed ? reversedLabel : label}
         // @ts-ignore
-        color='#00000000'
+        color="#00000000"
         attributes={{
-          fill: "#3B3B3A",
-          class: "station-label",
+          fill: '#3B3B3A',
+          class: 'station-label',
           'font-size': '16',
-          rotate: reversed ? '180' : '0'
+          rotate: reversed ? '180' : '0',
         }}
-    />
+      />
     </>
   )
 }

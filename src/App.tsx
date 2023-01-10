@@ -1,16 +1,14 @@
-
+import { FC } from 'react';
 import './App.css';
 import { TechMap } from './leaflet';
 
-function App() {
+const App: FC = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        This is the TSB Tech-Map
-      </header>
-      <TechMap/>
+    <div className='App'>
+      <header className='App-header'>This is the TSB Tech-Map</header>
+      <TechMap />
     </div>
   );
-}
+};
 
 export default App;
