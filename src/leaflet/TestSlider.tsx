@@ -1,6 +1,6 @@
 import GeometryUtil from 'leaflet-geometryutil'
-import { LatLngExpression } from 'leaflet'
-import { FC, useState } from 'react'
+import { LatLngExpression, Map } from 'leaflet'
+import { FC, RefObject, useState } from 'react'
 import styled from 'styled-components'
 import { lineData } from './polygonData'
 
@@ -48,7 +48,7 @@ interface TestSliderProps {
   changeLabel: (arg: string) => void
   orientation: string
   changeOrientation: (arg: string) => void
-  mapRef: any
+  mapRef: RefObject<Map>
 }
 export const TestSlider: FC<TestSliderProps> = ({
   position,

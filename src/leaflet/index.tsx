@@ -1,7 +1,14 @@
 import { MapContainer, Polyline, Polygon, MarkerProps, Marker, Popup } from 'react-leaflet'
-import { CRS, LatLngBoundsLiteral, Icon, LatLngExpression } from 'leaflet'
+import {
+  CRS,
+  LatLngBoundsLiteral,
+  Icon,
+  LatLngExpression,
+  Polyline as PolyLineType,
+  Map,
+} from 'leaflet'
 import styled from 'styled-components'
-import { createRef, useState } from 'react'
+import { createRef, FC, useState } from 'react'
 
 import { TestSlider } from './TestSlider'
 import { MarkerCloud } from './MarkerCloud'
@@ -9,7 +16,6 @@ import { MarkerCloud } from './MarkerCloud'
 import { baseLayer, middelRing, innerRing, frameworkLine } from './polygonData'
 import { TestMarker } from './TestMarker'
 import { PolyLineComponent } from './PolyLine'
-import { Polyline as PolyLineType } from 'leaflet'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -47,14 +53,14 @@ const Button = styled.button`
   padding: 0.5rem;
 `
 
-export const TechMap = () => {
-  const mapRef = createRef<null | any>()
-  const programmingLineRef = createRef<PolyLineType<any>>()
-  const [showTestSlider, showTestSliderSet] = useState(true)
+export const TechMap: FC = () => {
+  const mapRef = createRef<null | Map>()
+  const programmingLineRef = createRef<PolyLineType>()
+  const [showTestSlider, showTestSliderSet] = useState<boolean>(true)
 
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([290, 500])
-  const [slideLabel, slideLabelSet] = useState('label-placeholder')
-  const [slideOrientation, slideOrientationSet] = useState('E')
+  const [slideLabel, slideLabelSet] = useState<string>('label-placeholder')
+  const [slideOrientation, slideOrientationSet] = useState<string>('E')
 
   const mapContainerStyles = {
     height: '100%',

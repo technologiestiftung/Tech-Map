@@ -10,7 +10,11 @@ interface TestMarkerProps {
   orientation: string
 }
 
-export const TestMarker: FC<TestMarkerProps> = ({ position, label, orientation }) => {
+export const TestMarker: FC<TestMarkerProps> = ({
+  position,
+  label,
+  orientation,
+}: TestMarkerProps) => {
   const [reversed, reversedSet] = useState<boolean>(false)
   const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>([
     [position[0], position[1] + 14],

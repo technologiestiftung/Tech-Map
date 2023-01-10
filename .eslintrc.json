@@ -26,7 +26,8 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "no-duplicate-imports": "error",
     "jsx-a11y/anchor-is-valid": ["error", {
     "components": ["Link"],        
     "specialLink": ["hrefLeft", "hrefRight"],
