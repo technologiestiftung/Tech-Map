@@ -1,4 +1,5 @@
-import { MapContainer, Polyline, Polygon, MarkerProps, Marker, Popup } from 'react-leaflet'
+import { MapContainer, Polyline, MarkerProps, ImageOverlay, Marker, Popup } from 'react-leaflet'
+
 import {
   CRS,
   LatLngBoundsLiteral,
@@ -13,7 +14,7 @@ import { createRef, FC, useState } from 'react'
 import { TestSlider } from './TestSlider'
 import { MarkerCloud } from './MarkerCloud'
 
-import { baseLayer, middelRing, innerRing, outerRing, frameworkLine } from './polygonData'
+import { frameworkLine } from './polygonData'
 import { TestMarker } from './TestMarker'
 import { PolyLineComponent } from './PolyLine'
 
@@ -46,7 +47,6 @@ const MapWrapper = styled.div`
   margin: auto;
   margin-top: 5rem;
   margin-bottom: 5rem;
-  border: solid 8px #5b8acb;
 `
 const Button = styled.button`
   margin: 1rem;
@@ -70,7 +70,7 @@ export const TechMap: FC = () => {
   return (
     <MapWrapper>
       <MapContainer
-        center={[375, 500]}
+        center={[375, 640]}
         crs={CRS.Simple}
         bounds={baseLayerBounds}
         maxBounds={baseLayerBounds}
@@ -80,24 +80,11 @@ export const TechMap: FC = () => {
         style={mapContainerStyles}
         ref={mapRef}
       >
-        <>
-          <Polygon pathOptions={baseLayer.pathOptions} positions={baseLayer.positions} />
-          <Polygon
-            pathOptions={outerRing.pathOptions}
-            positions={outerRing.positions}
-            weight={outerRing.weight}
-          />
-          <Polygon
-            pathOptions={middelRing.pathOptions}
-            positions={middelRing.positions}
-            weight={middelRing.weight}
-          />
-          <Polygon
-            pathOptions={innerRing.pathOptions}
-            positions={innerRing.positions}
-            weight={innerRing.weight}
-          />
-        </>
+        <ImageOverlay url={'./assets/Zonen.svg'} bounds={baseLayerBounds} />
+        {/* Here is an example of how to place custom html on the map */}
+        {/* {zoneLabelData.map((labelObject, i) => (
+          <Marker position={labelObject.position} key={i} icon={zoneLabelIcon(labelObject.text)} />
+        ))} */}
         <MarkerCloud progLine={programmingLineRef} map={mapRef} />
         <PolyLineComponent ref={programmingLineRef} />
         <Polyline pathOptions={frameworkLine.pathOptions} positions={frameworkLine.positions} />
