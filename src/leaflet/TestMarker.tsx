@@ -1,6 +1,6 @@
 import { LatLngExpression } from 'leaflet'
 import { FC, useEffect, useState } from 'react'
-import { Circle } from 'react-leaflet'
+import { Circle, useMapEvents } from 'react-leaflet'
 import TextPath from 'react-leaflet-textpath'
 // The TextPath is a little clumsy for that usecase. maybe this would be a good alternative: https://medium.com/@nikjohn/creating-a-dynamic-jsx-marker-with-react-leaflet-f75fff2ddb9
 
@@ -22,6 +22,16 @@ export const TestMarker: FC<TestMarkerProps> = ({
   ])
 
   const reversedLabel = label.split('').reverse().join('')
+
+  const [zoomLevel, setZoomLevel] = useState(0) // initial zoom level provided for MapContainer
+
+  const mapEvents = useMapEvents({
+    zoomend: () => {
+      setZoomLevel(mapEvents.getZoom())
+    },
+  })
+
+  console.log(zoomLevel)
 
   useEffect(() => {
     const createOrientationVector = () => {
@@ -99,7 +109,7 @@ export const TestMarker: FC<TestMarkerProps> = ({
         attributes={{
           fill: '#3B3B3A',
           class: 'station-label',
-          'font-size': '16',
+          'font-size': `${8 + zoomLevel * 4}`,
           rotate: reversed ? '180' : '0',
         }}
       />

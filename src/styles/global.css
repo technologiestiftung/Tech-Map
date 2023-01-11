@@ -1,0 +1,44 @@
+@font-face {
+  font-family: Clan;
+  src: local('Clan'), url(../fonts/ClanWebPro-News.woff) format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Clan;
+  src: local('Clan'), url(../fonts/ClanWebPro-Bold.woff) format('woff');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Clan;
+  src: local('Clan'), url(../fonts/ClanWebPro-MediumItalic.woff) format('woff');
+  font-style: italic;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+html {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: Clan;
+}
+
