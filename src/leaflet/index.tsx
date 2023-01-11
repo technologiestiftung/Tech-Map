@@ -13,13 +13,13 @@ import { createRef, FC, useState } from 'react'
 import { TestSlider } from './TestSlider'
 import { MarkerCloud } from './MarkerCloud'
 
-import { baseLayer, middelRing, innerRing, frameworkLine } from './polygonData'
+import { baseLayer, middelRing, innerRing, outerRing, frameworkLine } from './polygonData'
 import { TestMarker } from './TestMarker'
 import { PolyLineComponent } from './PolyLine'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
-  [750, 1000],
+  [720, 1280],
 ]
 
 const TSBMarkerOptions: MarkerProps = {
@@ -39,10 +39,10 @@ const CityLabMarkerIcon = new Icon({
 })
 
 const MapWrapper = styled.div`
-  width: 90vw;
-  height: 90vh;
-  max-width: 1000px;
-  max-height: 700px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1280px;
+  max-height: 720px;
   margin: auto;
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -82,9 +82,23 @@ export const TechMap: FC = () => {
       >
         <>
           <Polygon pathOptions={baseLayer.pathOptions} positions={baseLayer.positions} />
-          <Polygon pathOptions={middelRing.pathOptions} positions={middelRing.positions} />
-          <Polygon pathOptions={innerRing.pathOptions} positions={innerRing.positions} />
+          <Polygon
+            pathOptions={outerRing.pathOptions}
+            positions={outerRing.positions}
+            weight={outerRing.weight}
+          />
+          <Polygon
+            pathOptions={middelRing.pathOptions}
+            positions={middelRing.positions}
+            weight={middelRing.weight}
+          />
+          <Polygon
+            pathOptions={innerRing.pathOptions}
+            positions={innerRing.positions}
+            weight={innerRing.weight}
+          />
         </>
+        <MarkerCloud progLine={programmingLineRef} map={mapRef} />
         <PolyLineComponent ref={programmingLineRef} />
         <Polyline pathOptions={frameworkLine.pathOptions} positions={frameworkLine.positions} />
 
@@ -101,7 +115,6 @@ export const TechMap: FC = () => {
         <Marker position={CityLabMarkerOptions.position} icon={CityLabMarkerIcon}>
           <Popup>Yeah, found the CityLab</Popup>
         </Marker>
-        <MarkerCloud progLine={programmingLineRef} map={mapRef} />
       </MapContainer>
 
       <Button onClick={() => showTestSliderSet(!showTestSlider)}>
