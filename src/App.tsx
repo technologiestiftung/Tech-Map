@@ -10,7 +10,7 @@ const App: FC = (): JSX.Element => {
         <header className="App-header">This is the TSB Tech-Map</header>
         <Routes>
           <Route path="/" element={<TechMap />}></Route>
-          <Route path="/development" element={<TechMap development />}></Route>
+          <Route path="/generator" element={<TechMap development />}></Route>
         </Routes>
       </div>
     </Router>

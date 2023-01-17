@@ -68,6 +68,7 @@ const JSONDisplay = styled.pre`
   background: darkslategrey;
   color: orange;
   padding: 1rem;
+  width: 100%;
 `
 const StyledButton = styled.button``
 
@@ -98,15 +99,14 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
   const [activeLine, activeLineSet] = useState(Object.keys(lineData)[0])
 
   const [dataJSON, dataJSONSet] = useState({
-    title: 'Figma',
-    description:
-      'Figma ist unser Go-To-Tool, wenn es um grafische Arbeiten geht und deckt dabei den Workflow von Konzeption und Wireframing, über Prototyping bis zum Development-Handover des Visual Designs ab.',
+    title: label,
+    description: '',
     link: '',
     status: 'hauptzone',
-    technology: 'tools',
+    technology: activeLine,
     icon: {
       coordinates: position,
-      orientation: 'NE',
+      orientation: orientation,
     },
   })
 

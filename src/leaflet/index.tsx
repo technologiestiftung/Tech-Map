@@ -63,8 +63,8 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
   const mapRef = createRef<null | Map>()
   const programmingLineRef = createRef<PolyLineType>()
 
-  const [slidePosition, slidePositionSet] = useState<LatLngExpression>([290, 500])
-  const [slideLabel, slideLabelSet] = useState<string>('label-placeholder')
+  const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
+  const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
 
   const mapContainerStyles = {
