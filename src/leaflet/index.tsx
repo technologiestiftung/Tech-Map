@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import { createRef, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { TestSlider } from './TestSlider'
+import { MarkerGenerator } from './MarkerGenerator'
 import { MarkerCloud } from './MarkerCloud'
 
 import { baseLayer, middelRing, innerRing, frameworkLine } from './polygonData'
@@ -110,7 +110,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
       </MapContainer>
 
       {development && (
-        <TestSlider
+        <MarkerGenerator
           position={slidePosition}
           changePosition={slidePositionSet}
           label={slideLabel}
