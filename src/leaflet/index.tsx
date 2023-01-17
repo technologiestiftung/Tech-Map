@@ -12,10 +12,10 @@ import { createRef, FC, useState } from 'react'
 
 import { TestSlider } from './TestSlider'
 import { MarkerCloud } from './MarkerCloud'
-
 import { baseLayer, middelRing, innerRing, frameworkLine } from './polygonData'
 import { TestMarker } from './TestMarker'
 import { PolyLineComponent } from './PolyLine'
+import { Infobox } from './Infobox'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -69,6 +69,7 @@ export const TechMap: FC = () => {
 
   return (
     <MapWrapper>
+      <Infobox />
       <MapContainer
         center={[375, 500]}
         crs={CRS.Simple}
