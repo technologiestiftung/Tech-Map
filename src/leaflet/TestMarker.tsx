@@ -25,9 +25,9 @@ export const TestMarker: FC<TestMarkerProps> = ({
 
   useEffect(() => {
     const createOrientationVector = () => {
-      const offset = 10
-      const offsetVertical = 14
-      const length = 200
+      const offset = 30
+      const offsetVertical = 42
+      const length = 600
 
       switch (orientation) {
         case 'NE':
@@ -89,7 +89,7 @@ export const TestMarker: FC<TestMarkerProps> = ({
           fillOpacity: 1,
           weight: 4,
         }}
-        radius={8}
+        radius={20}
       />
       <TextPath
         positions={orientationVector}
