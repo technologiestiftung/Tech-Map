@@ -12,11 +12,11 @@ import { createRef, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { MarkerGenerator } from './MarkerGenerator'
-import { MarkerCloud } from './MarkerCloud'
+import { Markers } from './Markers'
 import { lineData } from './polygonData'
-import { TestMarker } from './TestMarker'
 import { Infobox } from './Infobox'
 import { SVGPathes } from './svgs/SVGPathes'
+import { Station } from './Markers/Station'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -76,8 +76,8 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
   const lineRefs = {
     programming: programmingLineRef,
     hardware: hardwareLineRef,
-    framework: frameworkLineRef,
-    tool: toolLineRef,
+    frameworks: frameworkLineRef,
+    tools: toolLineRef,
   }
 
   return (
@@ -95,7 +95,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
         style={mapContainerStyles}
         ref={mapRef}
       >
-        <MarkerCloud progLine={programmingLineRef} map={mapRef} />
+        <Markers progLine={programmingLineRef} map={mapRef} />
         <ImageOverlay
           url={'./assets/Zonen.svg'}
           bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
@@ -112,10 +112,13 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
         ))}
 
         {development && (
-          <TestMarker
+          <Station
             position={slidePosition as LatLngExpression}
             label={slideLabel}
             orientation={slideOrientation}
+            stationId="testmarker"
+            technologyLine="programming"
+            generator
           />
         )}
         <Marker position={TSBMarkerOptions.position} icon={TSBMarkerIcon}>

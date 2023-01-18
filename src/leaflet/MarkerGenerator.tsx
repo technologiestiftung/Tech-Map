@@ -103,7 +103,7 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
     description: '',
     link: '',
     status: 'hauptzone',
-    technology: activeLine,
+    technologyLine: activeLine,
     icon: {
       coordinates: position,
       orientation: orientation,
@@ -112,6 +112,10 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
 
   const update = (type, value) => {
     switch (type) {
+      case 'TITLE':
+        dataJSONSet({ ...dataJSON, title: value })
+        changeLabel(value)
+        break
       case 'POSITION':
         initialRangeSet(value)
         const coordinates = findCoordinates(value)
@@ -129,7 +133,7 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
         dataJSONSet({ ...dataJSON, link: value })
         break
       case 'TECHNOLOGY':
-        dataJSONSet({ ...dataJSON, technology: value })
+        dataJSONSet({ ...dataJSON, technologyLine: value })
         activeLineSet(value)
         break
       case 'ZONE':
@@ -181,7 +185,7 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
         </SliderInputWrapper>
         <InputWrapper>
           Title:
-          <input value={label} onChange={(e) => changeLabel(e.target.value)} />
+          <input value={label} onChange={(e) => update('TITLE', e.target.value)} />
         </InputWrapper>
         <OrientationWrapper>
           <RadioWrapper>

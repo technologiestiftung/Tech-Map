@@ -1,5 +1,5 @@
-import { PolygonProps, PolylineProps } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
+import { PolygonProps, PolylineProps } from 'react-leaflet'
+import { LatLngExpression } from 'leaflet'
 
 export const baseLayer: PolygonProps = {
   positions: [
@@ -13,20 +13,17 @@ export const baseLayer: PolygonProps = {
     fillColor: 'white',
     fillOpacity: 1,
   },
-};
+}
 
-
-const pathStringToCoordinates = (string):LatLngExpression[] => {
-  return string
-  .split(', ')
-  .map((element) => element
-    .split(' ')
-    .map((val, i) => {
-      return i 
-      ? 2048 - parseFloat(val)
-      : parseFloat(val)
-    })
-    .reverse())
+const pathStringToCoordinates = (string): LatLngExpression[] => {
+  return string.split(', ').map((element) =>
+    element
+      .split(' ')
+      .map((val, i) => {
+        return i ? 2048 - parseFloat(val) : parseFloat(val)
+      })
+      .reverse()
+  )
 }
 // This is an converted SVG-Path via https://betravis.github.io/shape-tools/path-to-polygon/
 export const frameworkPathString =
@@ -41,15 +38,13 @@ export const toolPathString =
 export const programmingPathString =
   '195.000 1797.000, 662.000 1797.000, 710.000 1749.000, 710.000 1663.500, 758.000 1615.500, 1288.000 1615.500, 1336.000 1567.500, 1336.000 1378.000, 1384.000 1330.000, 1590.000 1330.000, 1614.000 1306.000, 1614.000 803.500, 1662.000 755.500, 2448.000 755.500, 2496.000 707.500, 2496.000 456.500, 2448.000 408.500, 2320.000 408.500, 2272.000 360.500, 2272.000 134.000'
 
-
 const frameworkLine: PolylineProps = {
   positions: pathStringToCoordinates(frameworkPathString),
   pathOptions: {
     color: 'blue',
     weight: 0,
   },
-};
-
+}
 
 const programmingLine: PolylineProps = {
   positions: pathStringToCoordinates(programmingPathString),
@@ -57,7 +52,7 @@ const programmingLine: PolylineProps = {
     color: 'red',
     weight: 0,
   },
-};
+}
 
 const toolLine: PolylineProps = {
   positions: pathStringToCoordinates(toolPathString),
@@ -65,8 +60,7 @@ const toolLine: PolylineProps = {
     color: 'green',
     weight: 0,
   },
-};
-
+}
 
 const hardwareLine: PolylineProps = {
   positions: pathStringToCoordinates(hardwarePathString),
@@ -74,11 +68,11 @@ const hardwareLine: PolylineProps = {
     color: 'turquoise',
     weight: 0,
   },
-};
+}
 
 export const lineData = {
-  framework: frameworkLine,
+  frameworks: frameworkLine,
   programming: programmingLine,
   hardware: hardwareLine,
-  tool: toolLine,
-};
+  tools: toolLine,
+}

@@ -2,25 +2,33 @@ import { LatLngExpression } from 'leaflet'
 import { FC, useEffect, useState } from 'react'
 import { Circle, useMapEvents } from 'react-leaflet'
 import TextPath from 'react-leaflet-textpath'
-import styles from '../styles'
-// The TextPath is a little clumsy for that usecase. maybe this would be a good alternative: https://medium.com/@nikjohn/creating-a-dynamic-jsx-marker-with-react-leaflet-f75fff2ddb9
+import { TechnologyLine } from '../../data/digital-services'
 
-interface TestMarkerProps {
+import styles from '../../styles'
+
+interface StationProps {
   position: LatLngExpression
   label: string
   orientation: string
+  stationId: string
+  technologyLine: TechnologyLine
+  generator?: boolean
 }
 
-export const TestMarker: FC<TestMarkerProps> = ({
+export const Station: FC<StationProps> = ({
   position,
   label,
   orientation,
-}: TestMarkerProps) => {
+  stationId,
+  technologyLine,
+  generator,
+}: StationProps) => {
   const [reversed, reversedSet] = useState<boolean>(false)
   const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>([
     [position[0], position[1] + 14],
     [position[0], position[1] + 100],
   ])
+  const [rimColor, rimColorSet] = useState(styles.colors.corporateBlue)
 
   const reversedLabel = label.split('').reverse().join('')
 
@@ -31,8 +39,6 @@ export const TestMarker: FC<TestMarkerProps> = ({
       setZoomLevel(mapEvents.getZoom())
     },
   })
-
-  console.log(zoomLevel)
 
   useEffect(() => {
     const createOrientationVector = () => {
@@ -90,17 +96,31 @@ export const TestMarker: FC<TestMarkerProps> = ({
     createOrientationVector()
   }, [orientation, position])
 
+  useEffect(() => {
+    const newRimColor = generator
+      ? styles.colors.testMarker
+      : technologyLine === 'programming'
+      ? styles.colors.lineProgramming
+      : technologyLine === 'tools'
+      ? styles.colors.lineTools
+      : technologyLine === 'hardware'
+      ? styles.colors.lineHardware
+      : styles.colors.corporateBlue
+
+    rimColorSet(newRimColor)
+  }, [technologyLine, generator])
+
   return (
     <>
       <Circle
         center={position}
         pathOptions={{
-          color: 'red',
-          fillColor: styles.colors.white,
+          color: rimColor,
+          fillColor: generator ? rimColor : 'white',
           fillOpacity: 1,
-          weight: 4,
+          weight: 2,
         }}
-        radius={20}
+        radius={17}
       />
       <TextPath
         positions={orientationVector}
