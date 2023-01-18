@@ -9,8 +9,9 @@ import {
 } from 'leaflet'
 import styled from 'styled-components'
 import { createRef, FC, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import { TestSlider } from './TestSlider'
+import { MarkerGenerator } from './MarkerGenerator'
 import { MarkerCloud } from './MarkerCloud'
 import { lineData } from './polygonData'
 import { TestMarker } from './TestMarker'
@@ -47,21 +48,25 @@ const MapWrapper = styled.div`
   margin-top: 5rem;
   margin-bottom: 5rem;
 `
-const Button = styled.button`
-  margin: 1rem;
-  padding: 0.5rem;
+const BackLink = styled(Link)`
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
 `
 
-export const TechMap: FC = () => {
+interface TechMapProps {
+  development?: boolean
+}
+
+export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
   const mapRef = createRef<null | Map>()
   const programmingLineRef = createRef<PolyLineType>()
   const hardwareLineRef = createRef<PolyLineType>()
   const frameworkLineRef = createRef<PolyLineType>()
   const toolLineRef = createRef<PolyLineType>()
 
-  const [showTestSlider, showTestSliderSet] = useState<boolean>(true)
-  const [slidePosition, slidePositionSet] = useState<LatLngExpression>([290, 500])
-  const [slideLabel, slideLabelSet] = useState<string>('label-placeholder')
+  const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
+  const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
 
   const mapContainerStyles = {
@@ -106,7 +111,7 @@ export const TechMap: FC = () => {
           />
         ))}
 
-        {showTestSlider && (
+        {development && (
           <TestMarker
             position={slidePosition as LatLngExpression}
             label={slideLabel}
@@ -123,12 +128,8 @@ export const TechMap: FC = () => {
         <SVGPathes bounds={baseLayerBounds} />
       </MapContainer>
 
-      <Button onClick={() => showTestSliderSet(!showTestSlider)}>
-        {showTestSlider ? 'Hide Testslider' : 'Show Testslider'}
-      </Button>
-
-      {showTestSlider && (
-        <TestSlider
+      {development && (
+        <MarkerGenerator
           position={slidePosition}
           changePosition={slidePositionSet}
           label={slideLabel}
@@ -137,6 +138,12 @@ export const TechMap: FC = () => {
           changeOrientation={slideOrientationSet}
           mapRef={mapRef}
         />
+      )}
+      {development && (
+        <BackLink to="/">
+          <img src="./assets/arrow-left.svg" alt="arrow left" />
+          Main Page
+        </BackLink>
       )}
     </MapWrapper>
   )

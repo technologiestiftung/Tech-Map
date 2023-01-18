@@ -85,7 +85,7 @@ export const TestMarker: FC<TestMarkerProps> = ({
         center={position}
         pathOptions={{
           color: 'red',
-          fillColor: 'black',
+          fillColor: '#FFFFFF',
           fillOpacity: 1,
           weight: 4,
         }}
