@@ -34,7 +34,7 @@ export const Station: FC<StationProps> = ({
 
   const reversedLabel = label.split('').reverse().join('')
 
-  const [zoomLevel, setZoomLevel] = useState(0) // initial zoom level provided for MapContainer
+  const [zoomLevel, setZoomLevel] = useState(-2) // initial zoom level provided for MapContainer
 
   const mapEvents = useMapEvents({
     zoomend: () => {
