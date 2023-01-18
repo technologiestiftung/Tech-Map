@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
+import './styles/global.css'
 import { TechMap } from './leaflet'
 
 const App: FC = (): JSX.Element => {

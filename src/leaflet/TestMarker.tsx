@@ -2,6 +2,7 @@ import { LatLngExpression } from 'leaflet'
 import { FC, useEffect, useState } from 'react'
 import { Circle, useMapEvents } from 'react-leaflet'
 import TextPath from 'react-leaflet-textpath'
+import styles from '../styles'
 // The TextPath is a little clumsy for that usecase. maybe this would be a good alternative: https://medium.com/@nikjohn/creating-a-dynamic-jsx-marker-with-react-leaflet-f75fff2ddb9
 
 interface TestMarkerProps {
@@ -95,7 +96,7 @@ export const TestMarker: FC<TestMarkerProps> = ({
         center={position}
         pathOptions={{
           color: 'red',
-          fillColor: '#FFFFFF',
+          fillColor: styles.colors.white,
           fillOpacity: 1,
           weight: 4,
         }}
@@ -107,7 +108,6 @@ export const TestMarker: FC<TestMarkerProps> = ({
         // @ts-ignore
         color="#00000000"
         attributes={{
-          fill: '#3B3B3A',
           class: 'station-label',
           'font-size': `${8 + zoomLevel * 4}`,
           rotate: reversed ? '180' : '0',

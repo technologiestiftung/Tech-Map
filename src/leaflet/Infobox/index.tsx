@@ -1,15 +1,16 @@
 import { FC, useState } from 'react'
 import styled from 'styled-components'
+import styles from '../../styles'
 
 const Popover = styled.div`
   width: 100%;
   height: 90vh;
-  max-width: 18.5rem;
+  max-width: 22.5rem;
   max-height: 37rem;
   position: absolute;
   z-index: 2000;
   margin: 1.5rem 2rem;
-  background: #ffffff;
+  background: ${styles.colors.white};
   box-shadow: 0px 0px 1px rgba(59, 59, 58, 0.16), 0px 0px 24px rgba(59, 59, 58, 0.16);
   border-radius: 4px;
   overflow: hidden;
@@ -23,7 +24,7 @@ const Slider = styled.div<{ leftFrame }>`
 `
 
 const SlideContainer = styled.div`
-  min-width: 18.5rem;
+  min-width: 22.5rem;
   padding: 1.5rem;
   max-height: 39.5rem;
   overflow-y: scroll;
@@ -55,7 +56,7 @@ const Header = styled.h1<{ center? }>`
 const Subheader = styled.p`
   font-weight: 475;
   font-size: 1rem;
-  color: #6f6f6e;
+  color: ${styles.colors.gray_70};
 `
 
 const Title = styled.h2`
@@ -73,8 +74,8 @@ const ZoneLabel = styled.h3`
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 0.5rem;
-  background: #f6f6f6;
-  color: #375aa5;
+  background: ${styles.colors.gray_05};
+  color: ${styles.colors.corporateBlue};
   font-weight: 450;
   font-size: 14px;
   height: 1.5rem;
@@ -90,13 +91,13 @@ const LineLabel = styled(ZoneLabel)<{ zone }>`
   margin-bottom: 0.5rem;
   background: ${(props) =>
     props.zone == 'tools'
-      ? '#91C882'
+      ? styles.colors.lineTools
       : props.zone == 'hardware'
-      ? '#41B496'
+      ? styles.colors.lineHardware
       : props.zone == 'programming'
-      ? '#E60032'
-      : '#1E3791'};
-  color: #f6f6f6;
+      ? styles.colors.lineProgramming
+      : styles.colors.corporateBlue};
+  color: ${styles.colors.white};
   padding: 0 0.5rem;
   width: fit-content;
   text-transform: uppercase;
@@ -117,7 +118,7 @@ const BackButton = styled.button`
   padding: 0;
   margin-bottom: 2.25rem;
   background: none;
-  color: #1e3791;
+  color: ${styles.colors.corporateBlue};
   font-size: 12px;
 `
 
