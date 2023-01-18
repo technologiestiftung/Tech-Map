@@ -10,7 +10,7 @@
 
 # production
 /build
-/public
+/src/fonts
 
 # fonts
 /src/fonts
