@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 const Popover = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   max-width: 18.5rem;
-  max-height: 39.5rem;
+  max-height: 37rem;
   position: absolute;
   z-index: 2000;
   margin: 1.5rem 2rem;
