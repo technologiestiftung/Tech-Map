@@ -12,12 +12,11 @@ import { createRef, FC, useState } from 'react'
 
 import { TestSlider } from './TestSlider'
 import { MarkerCloud } from './MarkerCloud'
-import { baseLayer, middelRing, innerRing, frameworkLine } from './polygonData'
+import { baseLayer, middelRing, innerRing, frameworkLine, lineData } from './polygonData'
 import { TestMarker } from './TestMarker'
 import { PolyLineComponent } from './PolyLine'
 import { Infobox } from './Infobox'
 import { SVGPathes } from './svgs/SVGPathes'
-import { lineData } from './polygonData'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
