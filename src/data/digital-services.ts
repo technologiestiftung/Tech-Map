@@ -6,18 +6,15 @@ interface Icon {
 }
 
 export type TechnologyLine = 'tools' | 'frameworks' | 'programming' | 'hardware'
+export type Zone = 'hauptzone' | 'neue zone' | 'haltezone' | 'wunschzone'
 
-interface Technology {
+export interface Technology {
   title: string
   description: string
   link: string
-  status: string
+  status: Zone
   technologyLine: TechnologyLine
   icon: Icon
-}
-export interface Zone {
-  title: 'Hauptzone' | 'Neue Zone' | 'Haltezone' | 'Wunschzone'
-  description: string
 }
 
 interface Description {
@@ -25,7 +22,7 @@ interface Description {
   subTitle: string
   disclaimer: string
   status: string
-  zones: Zone[]
+  zones: { [id: string]: string }
 }
 
 interface Content {
@@ -41,13 +38,16 @@ export const content: Content = {
       'Auf dieser Karte verorten wir die  wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.',
     status:
       'Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.',
-    zones: [
-      {
-        title: 'Hauptzone',
-        description:
-          'Die Technologien, die sich über einen längeren Zeitraum und mehrere Projekt hinweg als stabil erwiesen haben sammeln wir hier unter diesem Punkt.',
-      },
-    ],
+    zones: {
+      hauptzone:
+        'Die Technologien, die sich über einen längeren Zeitraum und mehrere Projekt hinweg als stabil erwiesen haben sammeln wir hier unter diesem Punkt.',
+      'neue zone':
+        'Technologien, die erste Male benutzt wurden aber Potential besitzen nach weiterem testen ins Standartrepertoir aufgenommen zu werden',
+      haltezone:
+        'Info Haltezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+      wartezone:
+        'Info Wartezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+    },
   },
   technologies: {
     arduino: {

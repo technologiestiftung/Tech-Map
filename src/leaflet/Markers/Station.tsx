@@ -13,6 +13,7 @@ interface StationProps {
   stationId: string
   technologyLine: TechnologyLine
   generator?: boolean
+  activeTechIdSet?: (id: string) => void
 }
 
 export const Station: FC<StationProps> = ({
@@ -22,6 +23,7 @@ export const Station: FC<StationProps> = ({
   stationId,
   technologyLine,
   generator,
+  activeTechIdSet,
 }: StationProps) => {
   const [reversed, reversedSet] = useState<boolean>(false)
   const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>([
@@ -44,7 +46,7 @@ export const Station: FC<StationProps> = ({
     const createOrientationVector = () => {
       const offset = 30
       const offsetVertical = 42
-      const length = 600
+      const length = 300
 
       switch (orientation) {
         case 'NE':
@@ -56,7 +58,7 @@ export const Station: FC<StationProps> = ({
           break
         case 'E':
           orientationVectorSet([
-            [position[0], position[1] + offsetVertical],
+            [position[0] - 3, position[1] + offsetVertical],
             [position[0], position[1] + length],
           ])
           reversedSet(false)
@@ -77,7 +79,7 @@ export const Station: FC<StationProps> = ({
           break
         case 'W':
           orientationVectorSet([
-            [position[0], position[1] - offsetVertical],
+            [position[0] - 3, position[1] - offsetVertical],
             [position[0], position[1] - length],
           ])
           reversedSet(true)
@@ -121,6 +123,11 @@ export const Station: FC<StationProps> = ({
           weight: 2,
         }}
         radius={17}
+        eventHandlers={{
+          click: () => {
+            activeTechIdSet(stationId)
+          },
+        }}
       />
       <TextPath
         positions={orientationVector}
@@ -129,8 +136,13 @@ export const Station: FC<StationProps> = ({
         color="#00000000"
         attributes={{
           class: 'station-label',
-          'font-size': `${8 + zoomLevel * 4}`,
+          'font-size': `${8 + (zoomLevel + 2) * 4}`,
           rotate: reversed ? '180' : '0',
+        }}
+        eventHandlers={{
+          click: () => {
+            activeTechIdSet(stationId)
+          },
         }}
       />
     </>

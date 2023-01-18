@@ -55,10 +55,10 @@ const BackLink = styled(Link)`
 `
 
 interface TechMapProps {
-  development?: boolean
+  generator?: boolean
 }
 
-export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
+export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const mapRef = createRef<null | Map>()
   const programmingLineRef = createRef<PolyLineType>()
   const hardwareLineRef = createRef<PolyLineType>()
@@ -68,6 +68,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
+  const [activeTechId, activeTechIdSet] = useState<string | null>(null)
 
   const mapContainerStyles = {
     height: '100%',
@@ -82,7 +83,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
 
   return (
     <MapWrapper>
-      <Infobox />
+      <Infobox activeTechId={activeTechId} />
       <MapContainer
         center={[1024, 2048]}
         crs={CRS.Simple}
@@ -95,7 +96,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
         style={mapContainerStyles}
         ref={mapRef}
       >
-        <Markers progLine={programmingLineRef} map={mapRef} />
+        <Markers activeTechIdSet={activeTechIdSet} />
         <ImageOverlay
           url={'./assets/Zonen.svg'}
           bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
@@ -111,7 +112,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
           />
         ))}
 
-        {development && (
+        {generator && (
           <Station
             position={slidePosition as LatLngExpression}
             label={slideLabel}
@@ -131,7 +132,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
         <SVGPathes bounds={baseLayerBounds} />
       </MapContainer>
 
-      {development && (
+      {generator && (
         <MarkerGenerator
           position={slidePosition}
           changePosition={slidePositionSet}
@@ -142,7 +143,7 @@ export const TechMap: FC<TechMapProps> = ({ development }: TechMapProps) => {
           mapRef={mapRef}
         />
       )}
-      {development && (
+      {generator && (
         <BackLink to="/">
           <img src="./assets/arrow-left.svg" alt="arrow left" />
           Main Page

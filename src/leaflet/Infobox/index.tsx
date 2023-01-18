@@ -1,6 +1,7 @@
-import { FC, useState } from 'react'
+import { FC, Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import styles from '../../styles'
+import { Technology, content } from '../../data/digital-services'
 
 const Popover = styled.div`
   width: 100%;
@@ -71,6 +72,8 @@ const LabeledTitle = styled.div`
 `
 
 const ZoneLabel = styled.h3`
+  display: flex;
+  align-items: center;
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 0.5rem;
@@ -107,7 +110,7 @@ const Paragraph = styled.p<{ marginLeft? }>`
   margin-bottom: 2rem;
   margin-left: ${(props) => (props.marginLeft ? '.5rem' : 0)};
   font-size: 14px;
-  color: #3b3b3a;
+  color: ${styles.colors.text};
 `
 
 const BackButton = styled.button`
@@ -125,8 +128,18 @@ const BackButton = styled.button`
 const ButtonLabel = styled.span``
 const ButtonIcon = styled.img``
 
-export const Infobox: FC = () => {
-  const [leftFrame, leftFrameSet] = useState(false)
+interface InfoBoxProps {
+  activeTechId: string
+}
+
+export const Infobox: FC<InfoBoxProps> = ({ activeTechId }: InfoBoxProps) => {
+  const [leftFrame, leftFrameSet] = useState<boolean>(true)
+  const [activeTechObj, activeTechObjSet] = useState<Technology | null>(null)
+
+  useEffect(() => {
+    activeTechObjSet(content.technologies[activeTechId])
+    leftFrameSet(activeTechId ? false : true)
+  }, [activeTechId])
 
   return (
     <Popover>
@@ -148,40 +161,36 @@ export const Infobox: FC = () => {
             Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten
             wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.
           </Paragraph>
-          <ZoneLabel>Hauptzone</ZoneLabel>
-          <Paragraph marginLeft>
-            Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten
-            wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.
-          </Paragraph>
-          <ZoneLabel>Neue Zone</ZoneLabel>
-          <Paragraph marginLeft>
-            Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten
-            wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.
-          </Paragraph>
+          {Object.keys(content.description.zones).map((zone) => (
+            <Fragment key={zone}>
+              <ZoneLabel>{zone}</ZoneLabel>
+              <Paragraph marginLeft>{content.description.zones[zone]}</Paragraph>
+            </Fragment>
+          ))}
         </SlideContainer>
-        <SlideContainer>
-          <BackButton onClick={() => leftFrameSet(true)}>
-            <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
-            <ButtonLabel>Zurück zum Index</ButtonLabel>
-          </BackButton>
-          <Header center>Figma</Header>
-          <LabeledTitle>
-            <Title>Description</Title>
-            <LineLabel zone="tools">Tools</LineLabel>
-          </LabeledTitle>
-          <Paragraph>
-            Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten
-            wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.
-          </Paragraph>
-          <LabeledTitle>
-            <Title>Status</Title>
-            <ZoneLabel>Adopt</ZoneLabel>
-          </LabeledTitle>
-          <Paragraph>
-            Die Technologien, die sich über einen längeren Zeitraum und mehrere Projekt hinweg als
-            stabil erwiesen haben sammeln wir hier unter diesem Punkt.
-          </Paragraph>
-        </SlideContainer>
+        {activeTechObj && (
+          <SlideContainer>
+            <BackButton onClick={() => leftFrameSet(true)}>
+              <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
+              <ButtonLabel>Zurück zum Index</ButtonLabel>
+            </BackButton>
+            <Header center>{activeTechObj.title}</Header>
+            <LabeledTitle>
+              <Title>Description</Title>
+              <LineLabel zone={activeTechObj.technologyLine}>
+                {activeTechObj.technologyLine}
+              </LineLabel>
+            </LabeledTitle>
+            <Paragraph>{activeTechObj.description}</Paragraph>
+            <LabeledTitle>
+              <Title>Status</Title>
+              <ZoneLabel>{activeTechObj.status}</ZoneLabel>
+            </LabeledTitle>
+            <Paragraph>
+              {content.description.zones[content.technologies[activeTechId].status]}
+            </Paragraph>
+          </SlideContainer>
+        )}
       </Slider>
     </Popover>
   )
