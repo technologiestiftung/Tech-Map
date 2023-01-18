@@ -132,7 +132,7 @@ export const Infobox: FC = () => {
       <Slider leftFrame={leftFrame}>
         <SlideContainer>
           <LogoArea>
-            <Logo src={'./assets/tsb-logo.png'} alt="Logo" />
+            <Logo src={'assets/tsb-logo.png'} alt="Logo" />
             <HeaderDivider>
               <Header>Tech Map</Header>
               <Subheader>Digital Service Team</Subheader>
@@ -160,7 +160,7 @@ export const Infobox: FC = () => {
         </SlideContainer>
         <SlideContainer>
           <BackButton onClick={() => leftFrameSet(true)}>
-            <ButtonIcon src={'./assets/arrow-left.svg'} alt="arrow left" />
+            <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
             <ButtonLabel>Zurück zum Index</ButtonLabel>
           </BackButton>
           <Header center>Figma</Header>
