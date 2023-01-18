@@ -36,7 +36,7 @@ export const MarkerCloud: FC<MarkerCloudProps> = ({ progLine, map }: MarkerCloud
               fillOpacity: 1,
               weight: 4,
             }}
-            radius={8}
+            radius={20}
             key={i}
           />
         ))}
