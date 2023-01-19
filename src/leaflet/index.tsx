@@ -1,5 +1,5 @@
 import { MapContainer, Polyline, MarkerProps, Marker, Popup, ImageOverlay } from 'react-leaflet'
-import {
+import L, {
   CRS,
   LatLngBoundsLiteral,
   Icon,
@@ -8,7 +8,7 @@ import {
   Polyline as PolyLineType,
 } from 'leaflet'
 import styled from 'styled-components'
-import { createRef, FC, useState } from 'react'
+import { createRef, FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { MarkerGenerator } from './MarkerGenerator'
@@ -17,6 +17,7 @@ import { lineData } from './polygonData'
 import { Infobox } from './Infobox'
 import { SVGPathes } from './svgs/SVGPathes'
 import { Station } from './Markers/Station'
+import { LineLabel } from './Label'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -69,6 +70,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
   const [activeTechId, activeTechIdSet] = useState<string | null>(null)
+  const [zoomLevel, zoomLevelSet] = useState(-2)
 
   const mapContainerStyles = {
     height: '100%',
@@ -81,6 +83,16 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
     tools: toolLineRef,
   }
 
+  useEffect(() => {
+    if (mapRef.current) {
+      mapRef.current.options.zoomSnap = 0.25
+      if (zoomLevel === -2) {
+        mapRef.current.setZoom(-1.75)
+        zoomLevelSet(-1.75)
+      }
+    }
+  }, [zoomLevel, mapRef])
+
   return (
     <MapWrapper>
       <Infobox activeTechId={activeTechId} />
@@ -89,14 +101,52 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         crs={CRS.Simple}
         bounds={baseLayerBounds}
         maxBounds={baseLayerBounds}
-        zoom={-2}
+        zoom={-1.75}
         maxZoom={5}
-        minZoom={-2}
+        minZoom={-1.75}
         scrollWheelZoom={false}
         style={mapContainerStyles}
         ref={mapRef}
       >
         <Markers activeTechIdSet={activeTechIdSet} />
+        <LineLabel
+          zoomLevel={zoomLevel}
+          position={[1898, 2260]}
+          label={'Programmiersprachen'}
+          line={'programming'}
+        />
+        <LineLabel
+          zoomLevel={zoomLevel}
+          position={[239, 50]}
+          label={'Programmiersprachen'}
+          line={'programming'}
+        />
+        <LineLabel zoomLevel={zoomLevel} position={[175, 2010]} label={'Tools'} line={'tools'} />
+        <LineLabel zoomLevel={zoomLevel} position={[1705, 140]} label={'Tools'} line={'tools'} />
+        <LineLabel
+          zoomLevel={zoomLevel}
+          position={[861, 120]}
+          label={'Hardware'}
+          line={'hardware'}
+        />
+        <LineLabel
+          zoomLevel={zoomLevel}
+          position={[1863, 3898]}
+          label={'Hardware'}
+          line={'hardware'}
+        />
+        <LineLabel
+          zoomLevel={zoomLevel}
+          position={[1936, 1400]}
+          label={'Frameworks'}
+          line={'frameworks'}
+        />
+        <LineLabel
+          zoomLevel={zoomLevel}
+          position={[171, 3790]}
+          label={'Frameworks'}
+          line={'frameworks'}
+        />
         <ImageOverlay
           url={'./assets/Zonen.svg'}
           bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}

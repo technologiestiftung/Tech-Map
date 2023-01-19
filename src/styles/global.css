@@ -73,3 +73,17 @@ button {
 .leaflet-container {background: #DBDBDB}
 .leaflet-leaflet-interactive {z-index: 1000 !important}
 .leaflet-image-layer {z-index: 0 !important}
+
+.invisible-marker {
+  text-transform: uppercase;
+  font-family: Clan;
+  font-weight: 700;
+  color: #FFFFFF;
+  transform: translateY(10%);
+}
+
+.line-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
