@@ -1,5 +1,5 @@
 import { MapContainer, Polyline, MarkerProps, Marker, Popup, ImageOverlay } from 'react-leaflet'
-import L, {
+import {
   CRS,
   LatLngBoundsLiteral,
   Icon,
@@ -18,6 +18,7 @@ import { Infobox } from './Infobox'
 import { SVGPathes } from './svgs/SVGPathes'
 import { Station } from './Markers/Station'
 import { LineLabel } from './Label'
+import content, { TechnologyLine } from '../data/digital-services'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -109,44 +110,18 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         ref={mapRef}
       >
         <Markers activeTechIdSet={activeTechIdSet} />
-        <LineLabel
-          zoomLevel={zoomLevel}
-          position={[1898, 2260]}
-          label={'Programmiersprachen'}
-          line={'programming'}
-        />
-        <LineLabel
-          zoomLevel={zoomLevel}
-          position={[239, 50]}
-          label={'Programmiersprachen'}
-          line={'programming'}
-        />
-        <LineLabel zoomLevel={zoomLevel} position={[175, 2010]} label={'Tools'} line={'tools'} />
-        <LineLabel zoomLevel={zoomLevel} position={[1705, 140]} label={'Tools'} line={'tools'} />
-        <LineLabel
-          zoomLevel={zoomLevel}
-          position={[861, 120]}
-          label={'Hardware'}
-          line={'hardware'}
-        />
-        <LineLabel
-          zoomLevel={zoomLevel}
-          position={[1863, 3898]}
-          label={'Hardware'}
-          line={'hardware'}
-        />
-        <LineLabel
-          zoomLevel={zoomLevel}
-          position={[1936, 1400]}
-          label={'Frameworks'}
-          line={'frameworks'}
-        />
-        <LineLabel
-          zoomLevel={zoomLevel}
-          position={[171, 3790]}
-          label={'Frameworks'}
-          line={'frameworks'}
-        />
+
+        {Object.keys(lineData).map((lineKey) =>
+          [0, 1].map((index) => (
+            <LineLabel
+              key={lineKey + index}
+              position={lineData[lineKey].labels[index]}
+              label={content.description.lines[lineKey]}
+              line={lineKey as TechnologyLine}
+            />
+          ))
+        )}
+
         <ImageOverlay
           url={'./assets/Zonen.svg'}
           bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
@@ -156,8 +131,8 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         {Object.keys(lineData).map((key) => (
           <Polyline
             key={key}
-            pathOptions={lineData[key].pathOptions}
-            positions={lineData[key].positions}
+            pathOptions={lineData[key].line.pathOptions}
+            positions={lineData[key].line.positions}
             ref={lineRefs[key]}
           />
         ))}
@@ -172,6 +147,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
             generator
           />
         )}
+
         <Marker position={TSBMarkerOptions.position} icon={TSBMarkerIcon}>
           <Popup>Hey, It&apos;s TSB</Popup>
         </Marker>

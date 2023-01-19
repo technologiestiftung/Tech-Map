@@ -6,8 +6,8 @@ import { lineData } from './polygonData'
 export const PolyLineComponent = forwardRef<PolyLineType>((_props, forwardedref) => (
   <>
     <Polyline
-      pathOptions={lineData.programming.pathOptions}
-      positions={lineData.programming.positions}
+      pathOptions={lineData.programming.line.pathOptions}
+      positions={lineData.programming.line.positions}
       ref={forwardedref}
     />
   </>

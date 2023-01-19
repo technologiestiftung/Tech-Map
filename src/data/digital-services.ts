@@ -22,7 +22,8 @@ interface Description {
   subTitle: string
   disclaimer: string
   status: string
-  zones: { [id: string]: string }
+  zones: { [key in Zone]: string }
+  lines: { [key in TechnologyLine]: string }
 }
 
 interface Content {
@@ -45,8 +46,14 @@ export const content: Content = {
         'Technologien, die erste Male benutzt wurden aber Potential besitzen nach weiterem testen ins Standartrepertoir aufgenommen zu werden',
       haltezone:
         'Info Haltezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
-      wartezone:
+      wunschzone:
         'Info Wartezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+    },
+    lines: {
+      tools: 'Tools',
+      frameworks: 'Frameworks',
+      programming: 'Programmiersprachen',
+      hardware: 'Hardware',
     },
   },
   technologies: {

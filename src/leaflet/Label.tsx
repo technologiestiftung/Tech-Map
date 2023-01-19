@@ -8,7 +8,6 @@ interface LabelProps {
   position: LatLngExpression
   label: string
   line: TechnologyLine
-  zoomLevel: number
 }
 export const LineLabel: FC<LabelProps> = ({ position, label, line }: LabelProps) => {
   const defineText = (zoomLevel) => {
@@ -27,7 +26,7 @@ export const LineLabel: FC<LabelProps> = ({ position, label, line }: LabelProps)
     },
   })
 
-  const width = label.length * 29 + 40
+  const width = label.length * 29 + 50
 
   const color =
     line == 'programming'

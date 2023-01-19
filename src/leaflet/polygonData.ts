@@ -1,3 +1,4 @@
+import { TechnologyLine } from './../data/digital-services'
 import { PolygonProps, PolylineProps } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet'
 
@@ -70,9 +71,44 @@ const hardwareLine: PolylineProps = {
   },
 }
 
-export const lineData = {
-  frameworks: frameworkLine,
-  programming: programmingLine,
-  hardware: hardwareLine,
-  tools: toolLine,
+const frameworkLabels: LatLngExpression[] = [
+  [1936, 1400],
+  [171, 3790],
+]
+const programmingLabels: LatLngExpression[] = [
+  [1898, 2260],
+  [239, 50],
+]
+const toolLabels: LatLngExpression[] = [
+  [175, 2010],
+  [1705, 140],
+]
+const hardwareLabels: LatLngExpression[] = [
+  [861, 120],
+  [1863, 3898],
+]
+
+type LineData = {
+  [key in TechnologyLine]: {
+    line: PolylineProps
+    labels: LatLngExpression[]
+  }
+}
+export const lineData: LineData = {
+  frameworks: {
+    line: frameworkLine,
+    labels: frameworkLabels,
+  },
+  programming: {
+    line: programmingLine,
+    labels: programmingLabels,
+  },
+  hardware: {
+    line: hardwareLine,
+    labels: hardwareLabels,
+  },
+  tools: {
+    line: toolLine,
+    labels: toolLabels,
+  },
 }
