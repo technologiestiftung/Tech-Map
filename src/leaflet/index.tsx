@@ -1,4 +1,4 @@
-import { MapContainer, Polyline, ImageOverlay } from 'react-leaflet'
+import { MapContainer, Polyline, ImageOverlay, ZoomControl } from 'react-leaflet'
 import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineType } from 'leaflet'
 import styled from 'styled-components'
 import { createRef, FC, useEffect, useState } from 'react'
@@ -83,6 +83,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         zoom={-1.75}
         maxZoom={5}
         minZoom={-1.75}
+        zoomControl={false}
         scrollWheelZoom={false}
         style={mapContainerStyles}
         ref={mapRef}
@@ -129,6 +130,8 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         <HeadquaterIcon />
 
         <SVGPathes bounds={baseLayerBounds} />
+
+        <ZoomControl position="bottomright" />
       </MapContainer>
 
       {generator && (
