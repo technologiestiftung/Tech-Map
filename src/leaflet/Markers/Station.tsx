@@ -136,6 +136,7 @@ export const Station: FC<StationProps> = ({
         text={reversed ? reversedLabel : label}
         // @ts-ignore
         color="#00000000"
+        weight="15"
         attributes={{
           class: 'station-label',
           'font-size': `${8 + (zoomLevel + 3) * 4}`,

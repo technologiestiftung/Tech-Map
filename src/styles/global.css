@@ -87,3 +87,7 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.station-label {
+  transform: translateY(-11px);
+}
