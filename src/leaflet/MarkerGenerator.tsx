@@ -145,7 +145,7 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
   const findCoordinates = (value): LatLngExpression => {
     const latLng = GeometryUtil.interpolateOnLine(
       mapRef?.current,
-      lineData[activeLine].positions,
+      lineData[activeLine].line.positions,
       value / 100
     ).latLng
     return [latLng.lat, latLng.lng]

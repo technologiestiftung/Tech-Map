@@ -89,5 +89,6 @@ button {
 }
 
 .station-label {
-  transform: translateY(-11px);
+  position: absolute;
+  transform: translateY(-13px);
 }

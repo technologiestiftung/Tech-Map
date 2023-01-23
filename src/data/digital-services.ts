@@ -66,6 +66,14 @@ export const content: Content = {
       technologyLine: 'hardware',
       icon: { coordinates: [1153.1538978526582, 2516.3060969315156], orientation: 'E' },
     },
+    esp32: {
+      title: 'ESP32',
+      description: 'lorem ipsum',
+      link: '',
+      status: 'neue zone',
+      technologyLine: 'hardware',
+      icon: { coordinates: [1284, 2785.353673693966], orientation: 'SW' },
+    },
     figma: {
       title: 'Figma',
       description:
@@ -104,6 +112,14 @@ export const content: Content = {
       status: 'neue zone',
       technologyLine: 'frameworks',
       icon: { coordinates: [1396.8039365208926, 1844.5], orientation: 'W' },
+    },
+    vscode: {
+      title: 'VS Code',
+      description: 'lorem ipsum',
+      link: '',
+      status: 'neue zone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 2059.6665915655126], orientation: 'SE' },
     },
   },
 }

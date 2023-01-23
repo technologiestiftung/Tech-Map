@@ -1,12 +1,5 @@
-import { MapContainer, Polyline, MarkerProps, Marker, Popup, ImageOverlay } from 'react-leaflet'
-import {
-  CRS,
-  LatLngBoundsLiteral,
-  Icon,
-  LatLngExpression,
-  Map,
-  Polyline as PolyLineType,
-} from 'leaflet'
+import { MapContainer, Polyline, ImageOverlay } from 'react-leaflet'
+import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineType } from 'leaflet'
 import styled from 'styled-components'
 import { createRef, FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -19,27 +12,12 @@ import { SVGPathes } from './svgs/SVGPathes'
 import { Station } from './Markers/Station'
 import { LineLabel } from './Label'
 import content, { TechnologyLine } from '../data/digital-services'
+import { HeadquaterIcon } from './HeadquaterIcon'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
   [2048, 4096],
 ]
-
-const TSBMarkerOptions: MarkerProps = {
-  position: [900, 2100],
-}
-const TSBMarkerIcon = new Icon({
-  iconUrl: '../assets/tsb-logo-bw.png',
-  iconSize: [20, 20],
-})
-
-const CityLabMarkerOptions: MarkerProps = {
-  position: [1000, 1850],
-}
-const CityLabMarkerIcon = new Icon({
-  iconUrl: '../assets/citylab-logo-bw.png',
-  iconSize: [20, 20],
-})
 
 const MapWrapper = styled.div`
   width: 100vw;
@@ -148,12 +126,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           />
         )}
 
-        <Marker position={TSBMarkerOptions.position} icon={TSBMarkerIcon}>
-          <Popup>Hey, It&apos;s TSB</Popup>
-        </Marker>
-        <Marker position={CityLabMarkerOptions.position} icon={CityLabMarkerIcon}>
-          <Popup>Yeah, found the CityLab</Popup>
-        </Marker>
+        <HeadquaterIcon />
 
         <SVGPathes bounds={baseLayerBounds} />
       </MapContainer>
