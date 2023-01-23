@@ -10,5 +10,6 @@ export default {
     lineHardware: '#41B496',
     text: '#3B3B3A',
     corporateBlue: '#1E3791',
+    corporateBlueMedium: '#375AA5',
   },
 }

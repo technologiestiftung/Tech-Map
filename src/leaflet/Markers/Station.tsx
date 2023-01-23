@@ -14,6 +14,7 @@ interface StationProps {
   technologyLine: TechnologyLine
   generator?: boolean
   activeTechIdSet?: (id: string) => void
+  activeTechId?: string
 }
 
 export const Station: FC<StationProps> = ({
@@ -24,6 +25,7 @@ export const Station: FC<StationProps> = ({
   technologyLine,
   generator,
   activeTechIdSet,
+  activeTechId,
 }: StationProps) => {
   const [reversed, reversedSet] = useState<boolean>(false)
   const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>([
@@ -117,12 +119,12 @@ export const Station: FC<StationProps> = ({
       <Circle
         center={position}
         pathOptions={{
-          color: rimColor,
+          color: activeTechId === stationId ? styles.colors.corporateBlueMedium : rimColor,
           fillColor: generator ? rimColor : 'white',
           fillOpacity: 1,
-          weight: 2,
+          weight: Math.max(1, (zoomLevel + 2) * 3),
         }}
-        radius={17}
+        radius={18}
         eventHandlers={{
           click: () => {
             activeTechIdSet(stationId)
@@ -136,8 +138,9 @@ export const Station: FC<StationProps> = ({
         color="#00000000"
         attributes={{
           class: 'station-label',
-          'font-size': `${8 + (zoomLevel + 2) * 4}`,
+          'font-size': `${8 + (zoomLevel + 3) * 4}`,
           rotate: reversed ? '180' : '0',
+          fill: activeTechId === stationId ? styles.colors.corporateBlueMedium : styles.colors.text,
         }}
         eventHandlers={{
           click: () => {

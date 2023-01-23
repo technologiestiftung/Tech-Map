@@ -6,9 +6,10 @@ import { content } from '../../data/digital-services'
 
 interface MarkersProps {
   activeTechIdSet: (id: string) => void
+  activeTechId: string
 }
 
-export const Markers: FC<MarkersProps> = ({ activeTechIdSet }: MarkersProps) => {
+export const Markers: FC<MarkersProps> = ({ activeTechIdSet, activeTechId }: MarkersProps) => {
   const stations = Object.keys(content.technologies).map((key) => {
     return { ...content.technologies[key], id: key }
   })
@@ -24,6 +25,7 @@ export const Markers: FC<MarkersProps> = ({ activeTechIdSet }: MarkersProps) => 
           orientation={station.icon.orientation}
           technologyLine={station.technologyLine}
           activeTechIdSet={activeTechIdSet}
+          activeTechId={activeTechId}
         />
       ))}
     </>

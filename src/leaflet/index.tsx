@@ -109,7 +109,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         style={mapContainerStyles}
         ref={mapRef}
       >
-        <Markers activeTechIdSet={activeTechIdSet} />
+        <Markers activeTechIdSet={activeTechIdSet} activeTechId={activeTechId} />
 
         {Object.keys(lineData).map((lineKey) =>
           [0, 1].map((index) => (
