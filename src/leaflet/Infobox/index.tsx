@@ -130,9 +130,10 @@ const ButtonIcon = styled.img``
 
 interface InfoBoxProps {
   activeTechId: string
+  activeInstitute: string
 }
 
-export const Infobox: FC<InfoBoxProps> = ({ activeTechId }: InfoBoxProps) => {
+export const Infobox: FC<InfoBoxProps> = ({ activeTechId, activeInstitute }: InfoBoxProps) => {
   const [leftFrame, leftFrameSet] = useState<boolean>(true)
   const [activeTechObj, activeTechObjSet] = useState<Technology | null>(null)
 
@@ -149,7 +150,9 @@ export const Infobox: FC<InfoBoxProps> = ({ activeTechId }: InfoBoxProps) => {
             <Logo src={'assets/tsb-logo.png'} alt="Logo" />
             <HeaderDivider>
               <Header>Tech Map</Header>
-              <Subheader>Digital Service Team</Subheader>
+              <Subheader>
+                {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
+              </Subheader>
             </HeaderDivider>
           </LogoArea>
           <Paragraph>

@@ -1,35 +1,4 @@
-import { LatLngExpression } from 'leaflet'
-
-interface Icon {
-  coordinates: LatLngExpression
-  orientation: 'NE' | 'E' | 'SE' | 'NW' | 'W' | 'SW'
-}
-
-export type TechnologyLine = 'tools' | 'frameworks' | 'programming' | 'hardware'
-export type Zone = 'hauptzone' | 'neue zone' | 'haltezone' | 'wunschzone'
-
-export interface Technology {
-  title: string
-  description: string
-  link: string
-  status: Zone
-  technologyLine: TechnologyLine
-  icon: Icon
-}
-
-interface Description {
-  title: string
-  subTitle: string
-  disclaimer: string
-  status: string
-  zones: { [key in Zone]: string }
-  lines: { [key in TechnologyLine]: string }
-}
-
-export interface Content {
-  description: Description
-  technologies: { [id: string]: Technology }
-}
+import { Content } from './digital-services'
 
 export const content: Content = {
   description: {
@@ -57,14 +26,13 @@ export const content: Content = {
     },
   },
   technologies: {
-    arduino: {
-      title: 'Arduino',
-      description:
-        'Arduino designs, manufactures, and supports electronic devices and software, allowing people around the world to easily access advanced technologies that interact with the physical world. Our products are straightforward, simple, and powerful, ready to satisfy users’ needs from students to makers and all the way to professional developers.',
-      link: 'https://www.arduino.cc/',
+    asana: {
+      title: 'Asana',
+      description: 'lorem ipsum',
+      link: '',
       status: 'hauptzone',
-      technologyLine: 'hardware',
-      icon: { coordinates: [1153.1538978526582, 2516.3060969315156], orientation: 'E' },
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 1969.8626897066902], orientation: 'SE' },
     },
     esp32: {
       title: 'ESP32',

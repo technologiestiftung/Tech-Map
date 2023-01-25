@@ -50,6 +50,9 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
   const [activeTechId, activeTechIdSet] = useState<string | null>(null)
   const [zoomLevel, zoomLevelSet] = useState(-2)
+  const [activeInstitute, activeInstituteSet] = useState<'digitalServices' | 'cityLab'>(
+    'digitalServices'
+  )
 
   const mapContainerStyles = {
     height: '100%',
@@ -74,7 +77,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
   return (
     <MapWrapper>
-      <Infobox activeTechId={activeTechId} />
+      <Infobox activeTechId={activeTechId} activeInstitute={activeInstitute} />
       <MapContainer
         center={[1024, 2048]}
         crs={CRS.Simple}
@@ -88,7 +91,11 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         style={mapContainerStyles}
         ref={mapRef}
       >
-        <Markers activeTechIdSet={activeTechIdSet} activeTechId={activeTechId} />
+        <Markers
+          activeTechIdSet={activeTechIdSet}
+          activeTechId={activeTechId}
+          activeInstitute={activeInstitute}
+        />
 
         {Object.keys(lineData).map((lineKey) =>
           [0, 1].map((index) => (
@@ -127,7 +134,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           />
         )}
 
-        <HeadquaterIcon />
+        <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
 
         <SVGPathes bounds={baseLayerBounds} />
 

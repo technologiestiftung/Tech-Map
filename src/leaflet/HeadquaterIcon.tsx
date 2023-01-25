@@ -1,8 +1,13 @@
 import { Icon } from 'leaflet'
-import { useState } from 'react'
-import { Marker, MarkerProps, Popup, useMapEvents } from 'react-leaflet'
+import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { Marker, MarkerProps, useMapEvents } from 'react-leaflet'
 
-export const HeadquaterIcon = () => {
+interface HeadquaterIconProps {
+  activeInstituteSet: Dispatch<SetStateAction<'cityLab' | 'digitalServices'>>
+}
+export const HeadquaterIcon: FC<HeadquaterIconProps> = ({
+  activeInstituteSet,
+}: HeadquaterIconProps) => {
   const [iconSize, iconSizeSet] = useState(20)
 
   const mapEvents = useMapEvents({
@@ -31,12 +36,20 @@ export const HeadquaterIcon = () => {
 
   return (
     <>
-      <Marker position={TSBMarkerOptions.position} icon={TSBMarkerIcon}>
-        <Popup>Hey, It&apos;s TSB</Popup>
-      </Marker>
-      <Marker position={CityLabMarkerOptions.position} icon={CityLabMarkerIcon}>
-        <Popup>Yeah, found the CityLab</Popup>
-      </Marker>
+      <Marker
+        position={TSBMarkerOptions.position}
+        icon={TSBMarkerIcon}
+        eventHandlers={{
+          click: () => activeInstituteSet('digitalServices'),
+        }}
+      />
+      <Marker
+        position={CityLabMarkerOptions.position}
+        icon={CityLabMarkerIcon}
+        eventHandlers={{
+          click: () => activeInstituteSet('cityLab'),
+        }}
+      />
     </>
   )
 }
