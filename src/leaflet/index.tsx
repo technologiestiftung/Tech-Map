@@ -1,7 +1,7 @@
 import { MapContainer, Polyline, ImageOverlay, ZoomControl } from 'react-leaflet'
 import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineType } from 'leaflet'
 import styled from 'styled-components'
-import { createRef, FC, useEffect, useState } from 'react'
+import { createRef, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { MarkerGenerator } from './MarkerGenerator'
@@ -44,7 +44,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
   const [activeTechId, activeTechIdSet] = useState<string | null>(null)
-  const [zoomLevel, zoomLevelSet] = useState(-2)
   const [activeInstitute, activeInstituteSet] = useState<'digitalServices' | 'cityLab'>(
     'digitalServices'
   )
@@ -61,16 +60,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
     tools: toolLineRef,
   }
 
-  useEffect(() => {
-    if (mapRef.current) {
-      mapRef.current.options.zoomSnap = 0.25
-      if (zoomLevel === -2) {
-        mapRef.current.setZoom(-1.75)
-        zoomLevelSet(-1.75)
-      }
-    }
-  }, [zoomLevel, mapRef])
-
   return (
     <MapWrapper>
       <Infobox activeTechId={activeTechId} activeInstitute={activeInstitute} />
@@ -80,7 +69,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         bounds={baseLayerBounds}
         maxBounds={baseLayerBounds}
         zoom={-1.75}
-        maxZoom={5}
+        maxZoom={2}
         minZoom={-1.75}
         zoomControl={false}
         scrollWheelZoom={false}

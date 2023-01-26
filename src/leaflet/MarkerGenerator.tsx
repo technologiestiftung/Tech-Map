@@ -7,7 +7,9 @@ import { lineData } from './polygonData'
 const SliderWrapper = styled.div`
   display: flex;
   gap: 2rem;
-  margin-top: 2rem;
+  margin: 2rem auto;
+  justify-content: center;
+  width: 100vw;
 `
 
 const Column = styled.div`
@@ -16,6 +18,7 @@ const Column = styled.div`
   align-items: flex-start;
   margin: 0 auto 2rem;
   flex: 1;
+  max-width: 600px;
 `
 
 const OrientationWrapper = styled.div`

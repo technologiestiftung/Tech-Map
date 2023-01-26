@@ -73,7 +73,7 @@ const hardwareLine: PolylineProps = {
 
 const frameworkLabels: LatLngExpression[] = [
   [1936, 1400],
-  [171, 3790],
+  [171, 3690],
 ]
 const programmingLabels: LatLngExpression[] = [
   [1898, 2260],
@@ -85,7 +85,7 @@ const toolLabels: LatLngExpression[] = [
 ]
 const hardwareLabels: LatLngExpression[] = [
   [861, 120],
-  [1863, 3898],
+  [1864, 3750],
 ]
 
 type LineData = {

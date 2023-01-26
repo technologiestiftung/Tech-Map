@@ -83,6 +83,15 @@ export const content: Content = {
       technologyLine: 'tools',
       icon: { coordinates: [1114.7941992048732, 2476], orientation: 'W' },
     },
+    tester: {
+      title: 'Longer Label',
+      description:
+        'Figma ist unser Go-To-Tool, wenn es um grafische Arbeiten geht und deckt dabei den Workflow von Konzeption und Wireframing, über Prototyping bis zum Development-Handover des Visual Designs ab.',
+      link: 'https://www.figma.com/de/',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1050.7941992048732, 2476], orientation: 'W' },
+    },
     html: {
       title: 'HTML/CSS3',
       description:

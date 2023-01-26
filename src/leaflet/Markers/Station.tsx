@@ -1,7 +1,7 @@
-import { LatLngExpression } from 'leaflet'
+import { divIcon, LatLngExpression } from 'leaflet'
 import { FC, useEffect, useState } from 'react'
-import { Circle, useMapEvents } from 'react-leaflet'
-import TextPath from 'react-leaflet-textpath'
+import * as ReactDOMServer from 'react-dom/server'
+import { Circle, Marker, useMapEvents } from 'react-leaflet'
 import { TechnologyLine } from '../../data/digital-services'
 
 import styles from '../../styles'
@@ -27,16 +27,11 @@ export const Station: FC<StationProps> = ({
   activeTechIdSet,
   activeTechId,
 }: StationProps) => {
-  const [reversed, reversedSet] = useState<boolean>(false)
-  const [orientationVector, orientationVectorSet] = useState<LatLngExpression[]>([
-    [position[0], position[1] + 14],
-    [position[0], position[1] + 100],
-  ])
   const [rimColor, rimColorSet] = useState(styles.colors.corporateBlue)
+  const [transformation, transformationSet] = useState<string>(`rotate(0) translate3d(30%, 0, 0)`)
 
-  const reversedLabel = label.split('').reverse().join('')
-
-  const [zoomLevel, setZoomLevel] = useState(-2) // initial zoom level provided for MapContainer
+  const [zoomLevel, setZoomLevel] = useState(-1.75) // initial zoom level provided for MapContainer
+  const [circleWeight, circleWeightSet] = useState(Math.max(1, (zoomLevel + 2) * 3))
 
   const mapEvents = useMapEvents({
     zoomend: () => {
@@ -45,53 +40,49 @@ export const Station: FC<StationProps> = ({
   })
 
   useEffect(() => {
-    const createOrientationVector = () => {
-      const offset = 35
-      // const offsetNE = [offset - (zoomLevel + 2) * 5, offset - (zoomLevel + 2) * 5]
-      const offsetNE = [(zoomLevel + 2) * 10, (zoomLevel + 2) * 10]
-      const offsetSE = [-offset - (3 - (zoomLevel + 3)) * 5, offset + (3 - (zoomLevel + 3)) * 5]
-      const offsetNW = [offset - (7 - (zoomLevel + 3)) * 5, -offset + (7 - (zoomLevel + 3)) * 5]
-      const offsetSW = [-offset - (3 - (zoomLevel + 3)) * 5, -offset - (3 - (zoomLevel + 3)) * 5]
-      const length = 300
+    const XOffset = 32 * Math.pow(2, zoomLevel)
+    const YOffset =
+      zoomLevel < -1
+        ? 2.5
+        : zoomLevel === -1
+        ? 0
+        : zoomLevel === 0
+        ? -6
+        : zoomLevel === 1
+        ? -16
+        : zoomLevel === 2
+        ? -36
+        : 60
 
-      let startPoint: LatLngExpression = [0, 0]
-      switch (orientation) {
-        case 'NE':
-          startPoint = [position[0] + offsetNE[0], position[1] + offsetNE[1]]
-          orientationVectorSet([startPoint, [startPoint[0] + length, startPoint[1] + length]])
-          reversedSet(false)
-          break
-        case 'E':
-          startPoint = [position[0] - 3, position[1] + offset]
-          orientationVectorSet([startPoint, [startPoint[0], startPoint[1] + length]])
-          reversedSet(false)
-          break
-        case 'SE':
-          startPoint = [position[0] + offsetSE[0], position[1] + offsetSE[1]]
-          orientationVectorSet([startPoint, [startPoint[0] - length, startPoint[1] + length]])
-          reversedSet(false)
-          break
-        case 'NW':
-          startPoint = [position[0] + offsetNW[0], position[1] + offsetNW[1]]
-          orientationVectorSet([startPoint, [startPoint[0] + length, startPoint[1] - length]])
-          reversedSet(true)
-          break
-        case 'W':
-          startPoint = [position[0] - 3, position[1] - offset]
-          orientationVectorSet([startPoint, [startPoint[0], startPoint[1] - length]])
-          reversedSet(true)
-          break
-        case 'SW':
-          startPoint = [position[0] + offsetSW[0], position[1] + offsetSW[1]]
-          orientationVectorSet([startPoint, [startPoint[0] - length, startPoint[1] - length]])
-          reversedSet(true)
-          break
-        default:
-          return
-      }
+    switch (orientation) {
+      case 'NE':
+        transformationSet(`rotate(${'-45deg'}) translate3d(${XOffset}px, ${YOffset}px, 0)`)
+        break
+      case 'E':
+        transformationSet(`rotate(0) translate3d(${XOffset}px, ${YOffset}px, 0)`)
+        break
+      case 'SE':
+        transformationSet(`rotate(${'45deg'}) translate3d(${XOffset}px, ${YOffset}px, 0)`)
+        break
+      case 'NW':
+        transformationSet(
+          `rotate(${'45deg'}) translate3d(calc(-100% - ${XOffset}px), ${YOffset}px, 0)`
+        )
+        break
+      case 'W':
+        transformationSet(`rotate(0) translate3d(calc(-100% - ${XOffset}px ), ${YOffset}px, 0)`)
+        break
+      case 'SW':
+        transformationSet(
+          `rotate(${'-45deg'}) translate3d(calc(-100% - ${XOffset}px), ${YOffset}px, 0)`
+        )
+        break
+      default:
+        break
     }
-    createOrientationVector()
-  }, [orientation, position, zoomLevel])
+
+    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3))
+  }, [orientation, position, zoomLevel, circleWeight])
 
   useEffect(() => {
     const newRimColor = generator
@@ -105,7 +96,28 @@ export const Station: FC<StationProps> = ({
       : styles.colors.corporateBlue
 
     rimColorSet(newRimColor)
-  }, [technologyLine, generator])
+    setZoomLevel(mapEvents.getZoom())
+  }, [technologyLine, generator, mapEvents])
+
+  const stationDivIcon = divIcon({
+    className: 'custom-station',
+    html: ReactDOMServer.renderToString(
+      <span
+        className="custom-station-label"
+        style={{
+          width: 'max-content',
+          position: 'absolute',
+          transformOrigin: 'left',
+          transform: transformation,
+          fontSize: `${16 * Math.pow(2, zoomLevel)}px`,
+          color:
+            activeTechId === stationId ? styles.colors.corporateBlueMedium : styles.colors.text,
+        }}
+      >
+        {label}
+      </span>
+    ),
+  })
 
   return (
     <>
@@ -115,7 +127,7 @@ export const Station: FC<StationProps> = ({
           color: activeTechId === stationId ? styles.colors.corporateBlueMedium : rimColor,
           fillColor: generator ? rimColor : 'white',
           fillOpacity: 1,
-          weight: Math.max(1, (zoomLevel + 2) * 3),
+          weight: circleWeight,
         }}
         radius={18}
         eventHandlers={{
@@ -124,20 +136,9 @@ export const Station: FC<StationProps> = ({
           },
         }}
       />
-      <TextPath
-        positions={orientationVector}
-        text={reversed ? reversedLabel : label}
-        // @ts-ignore
-        color="#00000000"
-        weight="15"
-        offset={orientation != 'E' && orientation != 'W' ? 12 : 0}
-        attributes={{
-          orientation: '20',
-          class: 'station-label',
-          'font-size': `${2 + (zoomLevel + 3) * 5}`,
-          rotate: reversed ? '180' : '0',
-          fill: activeTechId === stationId ? styles.colors.corporateBlueMedium : styles.colors.text,
-        }}
+      <Marker
+        position={position}
+        icon={stationDivIcon}
         eventHandlers={{
           click: () => {
             activeTechIdSet(stationId)
