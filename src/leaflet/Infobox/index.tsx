@@ -4,13 +4,11 @@ import styles from '../../styles'
 import { Technology, content } from '../../data/digital-services'
 
 const Popover = styled.div`
-  width: 100%;
-  height: 90vh;
+  width: 30rem;
+  height: 100vh;
   max-width: 22.5rem;
-  max-height: 37rem;
   position: absolute;
   z-index: 2000;
-  margin: 1.5rem 2rem;
   background: ${styles.colors.white};
   box-shadow: 0px 0px 1px rgba(59, 59, 58, 0.16), 0px 0px 24px rgba(59, 59, 58, 0.16);
   border-radius: 4px;
@@ -27,7 +25,7 @@ const Slider = styled.div<{ leftFrame }>`
 const SlideContainer = styled.div`
   min-width: 22.5rem;
   padding: 1.5rem;
-  max-height: 39.5rem;
+  max-height: 100vh;
   overflow-y: scroll;
 `
 

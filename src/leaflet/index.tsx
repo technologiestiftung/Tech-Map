@@ -20,13 +20,8 @@ const baseLayerBounds: LatLngBoundsLiteral = [
 ]
 
 const MapWrapper = styled.div`
-  width: 100vw;
+  width: calc(100vw - 22.5rem);
   height: 100vh;
-  max-width: 1280px;
-  max-height: 640px;
-  margin: auto;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
 `
 const BackLink = styled(Link)`
   margin: 1rem auto;
@@ -57,6 +52,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const mapContainerStyles = {
     height: '100%',
     width: '100%',
+    marginLeft: '22.5rem',
   }
   const lineRefs = {
     programming: programmingLineRef,
