@@ -1,3 +1,9 @@
+
+![](https://img.shields.io/badge/Built%20with%20%E2%9D%A4%EF%B8%8F-at%20Technologiestiftung%20Berlin-blue)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 # TSB Tech-map
 
 This is an open source React application that displays the technologies, tools, and hardware used by different teams of Technologiestifung Berlin in the form of a subway map. It uses a Leaflet map to provide an interactive and visual representation.
@@ -77,3 +83,14 @@ yarn start
 
 ## Adding New Stations
 To add new stations to the subway map, you can use 'http://localhost:3000/generator', which opens a UI for positioning the station. Simply copy and paste the generated JSON into the respective file in the src/data folder.
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
