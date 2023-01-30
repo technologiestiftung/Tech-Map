@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "marcoka2000",
+      "name": "Marco",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6945881?v=4",
+      "profile": "http://marcoka.de",
+      "contributions": [
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "Tech-Map",
+  "projectOwner": "technologiestiftung"
+}
