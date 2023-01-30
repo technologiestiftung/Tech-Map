@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "ThorstenDiekhof",
+      "name": "ThorstenDiekhof",
+      "avatar_url": "https://avatars.githubusercontent.com/u/121924163?v=4",
+      "profile": "https://github.com/ThorstenDiekhof",
+      "contributions": [
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "Tech-Map",
+  "projectOwner": "technologiestiftung"
+}
