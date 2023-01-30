@@ -47,6 +47,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const frameworkLineRef = createRef<PolyLineType>()
   const toolLineRef = createRef<PolyLineType>()
 
+  const [infoboxVisible, infoboxVisibleSet] = useState<boolean>(true)
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
@@ -54,6 +55,11 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const [activeInstitute, activeInstituteSet] = useState<'digitalServices' | 'cityLab'>(
     'digitalServices'
   )
+
+  const setTechId = (id: string) => {
+    infoboxVisibleSet(true)
+    activeTechIdSet(id)
+  }
 
   const mapContainerStyles = {
     height: '100%',
@@ -68,7 +74,12 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
   return (
     <MapWrapper>
-      <Infobox activeTechId={activeTechId} activeInstitute={activeInstitute} />
+      <Infobox
+        activeTechId={activeTechId}
+        activeInstitute={activeInstitute}
+        infoboxVisible={infoboxVisible}
+        infoboxVisibleSet={infoboxVisibleSet}
+      />
       <MapContainer
         center={[1024, 2048]}
         crs={CRS.Simple}
@@ -83,7 +94,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         ref={mapRef}
       >
         <Markers
-          activeTechIdSet={activeTechIdSet}
+          activeTechIdSet={setTechId}
           activeTechId={activeTechId}
           activeInstitute={activeInstitute}
         />
