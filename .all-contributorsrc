@@ -7,6 +7,15 @@
   "commitConvention": "angular",
   "contributors": [
     {
+      "login": "ThorstenDiekhof",
+      "name": "ThorstenDiekhof",
+      "avatar_url": "https://avatars.githubusercontent.com/u/121924163?v=4",
+      "profile": "https://github.com/ThorstenDiekhof",
+      "contributions": [
+        "review"
+      ]
+    },
+    { 
       "login": "marcoka2000",
       "name": "Marco",
       "avatar_url": "https://avatars.githubusercontent.com/u/6945881?v=4",
@@ -14,7 +23,7 @@
       "contributions": [
         "design"
       ]
-    }
+    },
   ],
   "contributorsPerLine": 7,
   "skipCi": true,

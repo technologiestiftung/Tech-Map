@@ -8,9 +8,9 @@ import { MarkerGenerator } from './MarkerGenerator'
 import { Markers } from './Markers'
 import { lineData } from './polygonData'
 import { Infobox } from './Infobox'
-import { SVGPathes } from './svgs/SVGPathes'
+import { DisplayLines } from './svgs/DisplayLines'
 import { Station } from './Markers/Station'
-import { LineLabel } from './Label'
+import { LineLabel } from './LineLabel'
 import content, { TechnologyLine } from '../data/digital-services'
 import { HeadquaterIcon } from './HeadquaterIcon'
 
@@ -121,7 +121,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
         <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
 
-        <SVGPathes bounds={baseLayerBounds} />
+        <DisplayLines bounds={baseLayerBounds} />
 
         <ZoomControl position="bottomright" />
       </MapContainer>
