@@ -21,7 +21,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/50147356?v=4",
       "profile": "https://github.com/ZenVega",
       "contributions": [
-        "code", "ideas", "content"
+        "code",
+        "ideas",
+        "content"
       ]
     },
     {
@@ -30,7 +32,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/6945881?v=4",
       "profile": "http://marcoka.de",
       "contributions": [
-        "design", "ideas", "content"
+        "design",
+        "ideas",
+        "content"
       ]
     },
     {
@@ -40,6 +44,15 @@
       "profile": "https://www.technologiestiftung-berlin.de",
       "contributions": [
         "ideas",
+        "content"
+      ]
+    },
+    {
+      "login": "JTaIoT",
+      "name": "JTaIoT",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114985716?v=4",
+      "profile": "https://github.com/JTaIoT",
+      "contributions": [
         "content"
       ]
     }
