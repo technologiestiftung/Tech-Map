@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Built%20with%20%E2%9D%A4%EF%B8%8F-at%20Technologiestiftung%20Berlin-blue)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # TSB Tech-map
@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ThorstenDiekhof"><img src="https://avatars.githubusercontent.com/u/121924163?v=4?s=100" width="100px;" alt="ThorstenDiekhof"/><br /><sub><b>ThorstenDiekhof</b></sub></a><br /><a href="https://github.com/technologiestiftung/Tech-Map/pulls?q=is%3Apr+reviewed-by%3AThorstenDiekhof" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ZenVega"><img src="https://avatars.githubusercontent.com/u/50147356?v=4?s=100" width="100px;" alt="Urs Schmidt"/><br /><sub><b>Urs Schmidt</b></sub></a><br /><a href="https://github.com/technologiestiftung/Tech-Map/commits?author=ZenVega" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://marcoka.de"><img src="https://avatars.githubusercontent.com/u/6945881?v=4?s=100" width="100px;" alt="Marco"/><br /><sub><b>Marco</b></sub></a><br /><a href="#design-marcoka2000" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.technologiestiftung-berlin.de"><img src="https://avatars.githubusercontent.com/u/2190327?v=4?s=100" width="100px;" alt="Matthieu Rigal"/><br /><sub><b>Matthieu Rigal</b></sub></a><br /><a href="#ideas-MRigal" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-MRigal" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
