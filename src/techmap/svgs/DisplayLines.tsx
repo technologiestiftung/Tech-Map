@@ -55,11 +55,11 @@ export const toolPath = () => {
 
 const pathes = [toolPath, programmingPath, frameworkPath, hardwarePath]
 
-interface SVGPathesProps {
+interface DisplayLinesProps {
   bounds: LatLngBoundsExpression
 }
 
-export const SVGPathes: FC<SVGPathesProps> = ({ bounds }) => {
+export const DisplayLines: FC<DisplayLinesProps> = ({ bounds }) => {
   return (
     <>
       {pathes.map((path, i) => (
