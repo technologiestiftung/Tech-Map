@@ -20,8 +20,15 @@ const baseLayerBounds: LatLngBoundsLiteral = [
 ]
 
 const MapWrapper = styled.div`
-  width: calc(100vw - 22.5rem);
+  width: 100vw;
   height: 100vh;
+  display: flex;
+`
+
+const GeneratorWrapper = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 `
 const BackLink = styled(Link)`
   margin: 1rem auto;
@@ -51,7 +58,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const mapContainerStyles = {
     height: '100%',
     width: '100%',
-    marginLeft: '22.5rem',
   }
   const lineRefs = {
     programming: programmingLineRef,
@@ -107,7 +113,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
             ref={lineRefs[key]}
           />
         ))}
-
         {generator && (
           <Station
             position={slidePosition as LatLngExpression}
@@ -127,21 +132,21 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
       </MapContainer>
 
       {generator && (
-        <MarkerGenerator
-          position={slidePosition}
-          changePosition={slidePositionSet}
-          label={slideLabel}
-          changeLabel={slideLabelSet}
-          orientation={slideOrientation}
-          changeOrientation={slideOrientationSet}
-          mapRef={mapRef}
-        />
-      )}
-      {generator && (
-        <BackLink to="/">
-          <img src="./assets/arrow-left.svg" alt="arrow left" />
-          Main Page
-        </BackLink>
+        <GeneratorWrapper>
+          <MarkerGenerator
+            position={slidePosition}
+            changePosition={slidePositionSet}
+            label={slideLabel}
+            changeLabel={slideLabelSet}
+            orientation={slideOrientation}
+            changeOrientation={slideOrientationSet}
+            mapRef={mapRef}
+          />
+          <BackLink to="/">
+            <img src="./assets/arrow-left.svg" alt="arrow left" />
+            Main Page
+          </BackLink>
+        </GeneratorWrapper>
       )}
     </MapWrapper>
   )

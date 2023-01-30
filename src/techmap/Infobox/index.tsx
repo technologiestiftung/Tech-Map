@@ -2,17 +2,26 @@ import { FC, Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import styles from '../../styles'
 import { Technology, content } from '../../data/digital-services'
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 const Popover = styled.div`
   width: 30rem;
-  height: 100vh;
+  height: calc(100vh - 2rem);
   max-width: 22.5rem;
-  position: absolute;
   z-index: 2000;
   background: ${styles.colors.white};
   box-shadow: 0px 0px 1px rgba(59, 59, 58, 0.16), 0px 0px 24px rgba(59, 59, 58, 0.16);
   border-radius: 4px;
   overflow: hidden;
+  position: absolute;
+  margin: 1rem;
+  padding-top: 1rem;
+
+  @media (min-width: 1044px) {
+    position: relative;
+    height: 100vh;
+  }
 `
 
 const Slider = styled.div<{ leftFrame }>`
@@ -23,7 +32,7 @@ const Slider = styled.div<{ leftFrame }>`
 `
 
 const SlideContainer = styled.div`
-  min-width: 22.5rem;
+  min-width: 20.5rem;
   padding: 1.5rem;
   max-height: 100vh;
   overflow-y: scroll;
@@ -142,6 +151,7 @@ export const Infobox: FC<InfoBoxProps> = ({ activeTechId, activeInstitute }: Inf
 
   return (
     <Popover>
+      <FontAwesomeIcon icon={solid('chevron-down')} color={styles.colors.gray_80} />
       <Slider leftFrame={leftFrame}>
         <SlideContainer>
           <LogoArea>

@@ -3,6 +3,7 @@ export default {
     white: '#FFFFFF',
     gray_05: '#F6F6F6',
     gray_70: '#6f6f6E',
+    gray_80: '#565656',
     text: '#3b3b3a',
     testMarker: '#FF49B9',
     lineProgramming: '#E60032',

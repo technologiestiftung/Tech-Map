@@ -24,6 +24,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - [Typescript](https://www.typescriptlang.org/)
 - [leaflet](https://leafletjs.com/)
+- [FontAwesome](https://fontawesome.com/)
 - Linting with [ESLint](https://eslint.org/)
 - Formatting with [Prettier](https://prettier.io/)
 
