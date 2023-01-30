@@ -95,6 +95,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ThorstenDiekhof"><img src="https://avatars.githubusercontent.com/u/121924163?v=4?s=100" width="100px;" alt="ThorstenDiekhof"/><br /><sub><b>ThorstenDiekhof</b></sub></a><br /><a href="https://github.com/technologiestiftung/Tech-Map/pulls?q=is%3Apr+reviewed-by%3AThorstenDiekhof" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ZenVega"><img src="https://avatars.githubusercontent.com/u/50147356?v=4?s=100" width="100px;" alt="Urs Schmidt"/><br /><sub><b>Urs Schmidt</b></sub></a><br /><a href="https://github.com/technologiestiftung/Tech-Map/commits?author=ZenVega" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://marcoka.de"><img src="https://avatars.githubusercontent.com/u/6945881?v=4?s=100" width="100px;" alt="Marco"/><br /><sub><b>Marco</b></sub></a><br /><a href="#design-marcoka2000" title="Design">🎨</a></td>
     </tr>
   </tbody>
 </table>
