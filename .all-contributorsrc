@@ -14,7 +14,16 @@
       "contributions": [
         "review"
       ]
-    }
+    },
+    { 
+      "login": "marcoka2000",
+      "name": "Marco",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6945881?v=4",
+      "profile": "http://marcoka.de",
+      "contributions": [
+        "design"
+      ]
+    },
   ],
   "contributorsPerLine": 7,
   "skipCi": true,
