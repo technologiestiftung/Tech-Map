@@ -1,52 +1,87 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Built%20with%20%E2%9D%A4%EF%B8%8F-at%20Technologiestiftung%20Berlin-blue)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+# TSB Tech-map
+
+This is an open source React application that displays the technologies, tools, and hardware used by different teams of Technologiestifung Berlin in the form of a subway map. It uses a Leaflet map to provide an interactive and visual representation.
+
+## Features
+
+- Display of technologies, tools, and hardware used by a company
+- Interactive Leaflet map for a visually appealing representation
+- Easy generation of new stations using the `/generator` slug, which opens a UI to position the station
+- JSON data for stations can be easily added by copying and pasting into the equivalent file in the `src/data` folder
+
+## License
+
+This project is licensed under the MIT License, making it free to use for everyone.
+
+## Tech stack
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+- [Typescript](https://www.typescriptlang.org/)
+- [leaflet](https://leafletjs.com/)
+- Linting with [ESLint](https://eslint.org/)
+- Formatting with [Prettier](https://prettier.io/)
 
-In the project directory, you can run:
+### Installation
 
-### `yarn start`
+#### Node.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is a Create-React-App which requires you to have [Node.js](https://nodejs.org/en/) installed.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+Clone the repository to your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone git@github.com:technologiestiftung/Tech-Map.git
+```
 
-### `yarn build`
+Move into the repository folder:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd Tech-Map
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Make sure you use the Node.js version specified in `.nvmrc`. Find out which Node version you're currently on with:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+node --version
+```
 
-### `yarn eject`
+If this version differs from the one specified in `.nvmrc`, please install the required version, either manually, or using a tool such as [nvm](https://github.com/nvm-sh/nvm), which allows switching to the correct version via:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+nvm use
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+With the correct Node version, install the dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm install
+```
+or
+```bash
+yarn
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Since our fonts are not free to use, you have to provide your own in the 'src/fonts' folder and replace the '@font-face...' implimentations in the global.css'
 
-## Learn More
+You are now ready to start a local development server on http://localhost:3000 via:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run start
+```
+or
+```bash
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Adding New Stations
+To add new stations to the subway map, you can use 'http://localhost:3000/generator', which opens a UI for positioning the station. Simply copy and paste the generated JSON into the respective file in the src/data folder.
 
 ## Contributors ✨
 
@@ -69,3 +104,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+

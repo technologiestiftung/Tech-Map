@@ -4,12 +4,12 @@ import { Polygon, useMapEvents, Marker } from 'react-leaflet'
 import { TechnologyLine } from '../data/digital-services'
 import styles from '../styles'
 
-interface LabelProps {
+interface LineLabelProps {
   position: LatLngExpression
   label: string
   line: TechnologyLine
 }
-export const LineLabel: FC<LabelProps> = ({ position, label, line }: LabelProps) => {
+export const LineLabel: FC<LineLabelProps> = ({ position, label, line }: LineLabelProps) => {
   const defineText = (zoomLevel) => {
     return L.divIcon({
       html: `<span class='invisible-marker' style="font-size: ${
