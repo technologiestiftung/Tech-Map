@@ -14,6 +14,7 @@ import { LineLabel } from './LineLabel'
 import content, { TechnologyLine } from '../data/digital-services'
 import { HeadquaterIcon } from './HeadquaterIcon'
 import styles from '../styles'
+import { Controls } from './Controls'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -102,6 +103,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         style={mapContainerStyles}
         ref={mapRef}
       >
+        <Controls mapRef={mapRef} />
         <Markers
           activeTechIdSet={setTechId}
           activeTechId={activeTechId}
@@ -147,8 +149,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
 
         <DisplayLines bounds={baseLayerBounds} />
-
-        <ZoomControl position="bottomright" />
       </StyledMapContainer>
 
       {generator && (
