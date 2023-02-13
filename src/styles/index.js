@@ -13,4 +13,5 @@ export default {
     corporateBlue: '#1E3791',
     corporateBlueMedium: '#375AA5',
   },
+  boxShadow: '0px 0px 1px rgba(59, 59, 58, 0.16), 0px 0px 24px rgba(59, 59, 58, 0.16)',
 }

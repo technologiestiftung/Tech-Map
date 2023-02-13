@@ -6,10 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 const Popover = styled.div<{ infoboxVisible }>`
-  width: 30rem;
-  height: ${(props) => (props.infoboxVisible ? `calc(100vh - 2rem)` : `3rem`)};
-  width: 22.5rem;
-  max-width: 90%;
+  height: 100%;
+  width: 29rem;
   z-index: 2000;
   background: ${styles.colors.white};
   box-shadow: 0px 0px 1px rgba(59, 59, 58, 0.16), 0px 0px 24px rgba(59, 59, 58, 0.16);
@@ -18,8 +16,6 @@ const Popover = styled.div<{ infoboxVisible }>`
   position: absolute;
   bottom: 0;
   left: 0;
-  margin: 1rem;
-  padding-top: 1rem;
 
   @media (min-width: 1044px) {
     position: relative;
@@ -36,19 +32,22 @@ const Slider = styled.div<{ leftFrame }>`
   transition: transform 330ms ease-in-out;
   width: 45rem;
   max-width: 200%;
+  box-shadow: ${styles.boxShadow};
 `
 
 const SlideContainer = styled.div`
   flex: 1;
-  padding: 1.5rem;
+  padding: 1.5rem 3.5rem 1.5rem 2.5rem;
   max-height: 100vh;
   overflow-y: scroll;
 `
 
-const LogoArea = styled.div`
+const LogoArea = styled.div<{ leftFrame }>`
   display: flex;
+  align-items: center;
   gap: 1.5rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem 2rem;
+  width: 50%;
 `
 
 const Logo = styled.img`
@@ -128,12 +127,13 @@ const Paragraph = styled.p<{ marginLeft? }>`
 `
 
 const BackButton = styled.button`
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border: none;
   padding: 0;
-  margin-bottom: 2.25rem;
+  padding-left: 2.25rem;
   background: none;
   color: ${styles.colors.corporateBlue};
   font-size: 12px;
@@ -165,7 +165,7 @@ export const Infobox: FC<InfoBoxProps> = ({
 
   return (
     <Popover infoboxVisible={infoboxVisible}>
-      <FontAwesomeIcon
+      {/* <FontAwesomeIcon
         icon={solid('chevron-down')}
         color={styles.colors.gray_80}
         onClick={() => infoboxVisibleSet(!infoboxVisible)}
@@ -173,19 +173,25 @@ export const Infobox: FC<InfoBoxProps> = ({
           transition: 'transform ease-in-out 0.3s',
           transform: infoboxVisible ? 'rotate(0deg)' : 'rotate(180deg)',
         }}
-      />
+      /> */}
+      <Slider leftFrame={leftFrame}>
+        <LogoArea leftFrame={leftFrame}>
+          <Logo src={'assets/tsb-logo.png'} alt="Logo" />
+          <HeaderDivider>
+            <Header>Tech Map</Header>
+            <Subheader>
+              {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
+            </Subheader>
+          </HeaderDivider>
+        </LogoArea>
+        <BackButton onClick={() => leftFrameSet(true)}>
+          <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
+          <ButtonLabel>Zurück zum Index</ButtonLabel>
+        </BackButton>
+      </Slider>
       {infoboxVisible && (
         <Slider leftFrame={leftFrame}>
           <SlideContainer>
-            <LogoArea>
-              <Logo src={'assets/tsb-logo.png'} alt="Logo" />
-              <HeaderDivider>
-                <Header>Tech Map</Header>
-                <Subheader>
-                  {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
-                </Subheader>
-              </HeaderDivider>
-            </LogoArea>
             <Paragraph>
               Auf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und
               kategorisieren diese.
@@ -206,10 +212,6 @@ export const Infobox: FC<InfoBoxProps> = ({
           <SlideContainer>
             {activeTechObj && (
               <>
-                <BackButton onClick={() => leftFrameSet(true)}>
-                  <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
-                  <ButtonLabel>Zurück zum Index</ButtonLabel>
-                </BackButton>
                 <Header center>{activeTechObj.title}</Header>
                 <LabeledTitle>
                   <Title>Description</Title>
