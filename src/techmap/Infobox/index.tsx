@@ -3,51 +3,88 @@ import styled from 'styled-components'
 import styles from '../../styles'
 import { Technology, content } from '../../data/digital-services'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { solid, thin, light, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
-const Popover = styled.div<{ infoboxVisible }>`
-  height: 100%;
-  width: 29rem;
+const Popover = styled.div`
+  width: 100%;
   z-index: 2000;
   background: ${styles.colors.white};
-  box-shadow: 0px 0px 1px rgba(59, 59, 58, 0.16), 0px 0px 24px rgba(59, 59, 58, 0.16);
-  border-radius: 4px;
   overflow: hidden;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  margin: auto;
+  transition: ${styles.transitions.hight};
 
-  @media (min-width: 1044px) {
-    position: relative;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    z-index: 0;
+    width: 29rem;
     height: 100vh;
+    position: relative;
+    bottom: 0;
+    left: 0;
   }
-
-  transition: height ease-in-out 0.3s;
 `
 
-const Slider = styled.div<{ leftFrame }>`
+const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  transition: ${styles.transitions.maxHeight};
+  width: 200%;
+  overflow-x: hidden;
   transform: translateX(${(props) => (props.leftFrame ? 0 : '-50%')});
-  transition: transform 330ms ease-in-out;
-  width: 45rem;
-  max-width: 200%;
-  box-shadow: ${styles.boxShadow};
+  z-index: 40000;
+  max-height: ${(props) => (props.inactive ? 0 : '100vh')};
+
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    transition: ${styles.transitions.all};
+    width: 45rem;
+    max-width: 200%;
+    max-height: 100vh;
+    z-index: 0;
+    box-shadow: ${styles.boxShadow};
+    position: relative;
+  }
 `
 
-const SlideContainer = styled.div`
-  flex: 1;
-  padding: 1.5rem 3.5rem 1.5rem 2.5rem;
+const HeaderSlideContainer = styled.div<{ side: string; inactive?: boolean }>`
   max-height: 100vh;
+  max-width: 50%;
+  height: auto;
+  padding: 0;
+  display: flex;
   overflow-y: scroll;
+  transition: ${styles.transitions.all};
+  transition-delay: 0.25s;
+  flex: 1;
+  background-color: white;
 `
 
-const LogoArea = styled.div<{ leftFrame }>`
-  display: flex;
+const SlideContainer = styled.div<{ side: string }>`
+  max-height: 100vh;
+  max-width: 50%;
+  height: 100vh;
+  padding: 1.5rem 3.5rem 1.5rem 2.5rem;
+  display: block;
+  overflow-y: scroll;
+  transition: ${styles.transitions.all};
+  transition-delay: 0.25s;
+  flex: 1;
+`
+
+const LogoArea = styled.div<{ hideMobile: boolean; inactive?: boolean }>`
   align-items: center;
+  justify-content: center;
+  padding: ${(props) => (props.inactive ? '0' : '1rem 0')};
   gap: 1.5rem;
-  padding: 1.5rem 2rem;
-  width: 50%;
+  width: 100%;
+  display: ${(props) => (props.hideMobile ? 'none' : 'flex')};
+  position: relative;
+  max-height: ${(props) => (props.inactive ? '0' : '100px')};
+  transition: ${styles.transitions.all};
+
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    display: ${(props) => (props.hideMobile ? 'flex' : 'none')};
+  }
 `
 
 const Logo = styled.img`
@@ -63,8 +100,12 @@ const HeaderDivider = styled.div`
 const Header = styled.h1<{ center? }>`
   font-weight: 700;
   font-size: 1.25rem;
-  text-align: ${(props) => (props.center ? 'center' : 'left')};
+  text-align: left;
   margin-bottom: ${(props) => (props.center ? '2rem' : 0)};
+
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    text-align: ${(props) => (props.center ? 'center' : 'left')};
+  }
 `
 
 const Subheader = styled.p`
@@ -127,33 +168,60 @@ const Paragraph = styled.p<{ marginLeft? }>`
 `
 
 const BackButton = styled.button`
-  width: 50%;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  width: 100%;
   border: none;
   padding: 0;
-  padding-left: 2.25rem;
   background: none;
-  color: ${styles.colors.corporateBlue};
-  font-size: 12px;
 `
 
+const DesktopContent = styled.div`
+  flex: 1;
+  font-size: 12px;
+  padding-left: 2.25rem;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  color: ${styles.colors.corporateBlue};
+  height: 100%;
+  width: 100%;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    display: flex;
+    width: 50%;
+  }
+`
+const MobileContent = styled.div`
+  flex: 1;
+  font-size: 14px;
+  padding: 1rem 2rem;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: ${styles.colors.white};
+  background-color: ${styles.colors.corporateBlueMedium};
+  height: 100%;
+  width: 100%;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    width: 50%;
+    display: none;
+  }
+`
+
+const CloseIcon = styled.img``
 const ButtonLabel = styled.span``
 const ButtonIcon = styled.img``
 
 interface InfoBoxProps {
   activeTechId: string
   activeInstitute: string
-  infoboxVisible: boolean
-  infoboxVisibleSet: Dispatch<SetStateAction<boolean>>
+  unmountTechnology: () => void
 }
 
 export const Infobox: FC<InfoBoxProps> = ({
   activeTechId,
   activeInstitute,
-  infoboxVisible,
-  infoboxVisibleSet,
+  unmountTechnology,
 }: InfoBoxProps) => {
   const [leftFrame, leftFrameSet] = useState<boolean>(true)
   const [activeTechObj, activeTechObjSet] = useState<Technology | null>(null)
@@ -163,75 +231,96 @@ export const Infobox: FC<InfoBoxProps> = ({
     leftFrameSet(activeTechId ? false : true)
   }, [activeTechId])
 
+  const slideBack = () => {
+    activeTechObjSet(null)
+    unmountTechnology()
+    leftFrameSet(true)
+  }
+  const hideInfobox = () => {
+    activeTechObjSet(null)
+    leftFrameSet(false)
+  }
+
   return (
-    <Popover infoboxVisible={infoboxVisible}>
-      {/* <FontAwesomeIcon
-        icon={solid('chevron-down')}
-        color={styles.colors.gray_80}
-        onClick={() => infoboxVisibleSet(!infoboxVisible)}
-        style={{
-          transition: 'transform ease-in-out 0.3s',
-          transform: infoboxVisible ? 'rotate(0deg)' : 'rotate(180deg)',
-        }}
-      /> */}
-      <Slider leftFrame={leftFrame}>
-        <LogoArea leftFrame={leftFrame}>
-          <Logo src={'assets/tsb-logo.png'} alt="Logo" />
-          <HeaderDivider>
-            <Header>Tech Map</Header>
-            <Subheader>
-              {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
-            </Subheader>
-          </HeaderDivider>
-        </LogoArea>
-        <BackButton onClick={() => leftFrameSet(true)}>
-          <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
-          <ButtonLabel>Zurück zum Index</ButtonLabel>
-        </BackButton>
+    <Popover>
+      <LogoArea hideMobile={false} inactive={activeTechObj != null}>
+        <Logo src={'assets/tsb-logo.png'} alt="Logo" />
+        <HeaderDivider>
+          <Header>Tech Map</Header>
+          <Subheader>
+            {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
+          </Subheader>
+        </HeaderDivider>
+      </LogoArea>
+      <Slider leftFrame={leftFrame} inactive={activeTechObj == null}>
+        <HeaderSlideContainer side="left">
+          <LogoArea hideMobile={true}>
+            <Logo src={'assets/tsb-logo.png'} alt="Logo" />
+            <HeaderDivider>
+              <Header>Tech Map</Header>
+              <Subheader>
+                {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
+              </Subheader>
+            </HeaderDivider>
+          </LogoArea>
+          <MobileContent onClick={() => hideInfobox()}>
+            <ButtonLabel>Infobox schließen</ButtonLabel>
+            <CloseIcon width="26" height="26" src={'assets/x-circle.svg'} alt="close icon" />
+          </MobileContent>
+        </HeaderSlideContainer>
+        <HeaderSlideContainer side="right">
+          <BackButton onClick={() => slideBack()}>
+            <DesktopContent>
+              <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
+              <ButtonLabel>Zurück zum Index</ButtonLabel>
+            </DesktopContent>
+            <MobileContent onClick={() => hideInfobox()}>
+              <ButtonLabel>Infobox schließen</ButtonLabel>
+              <CloseIcon width="26" height="26" src={'assets/x-circle.svg'} alt="close icon" />
+            </MobileContent>
+          </BackButton>
+        </HeaderSlideContainer>
       </Slider>
-      {infoboxVisible && (
-        <Slider leftFrame={leftFrame}>
-          <SlideContainer>
-            <Paragraph>
-              Auf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und
-              kategorisieren diese.
-            </Paragraph>
-            <Title>Status</Title>
-            <Paragraph>
-              Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten
-              arbeiten wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert
-              werden.
-            </Paragraph>
-            {Object.keys(content.description.zones).map((zone) => (
-              <Fragment key={zone}>
-                <ZoneLabel>{zone}</ZoneLabel>
-                <Paragraph marginLeft>{content.description.zones[zone]}</Paragraph>
-              </Fragment>
-            ))}
-          </SlideContainer>
-          <SlideContainer>
-            {activeTechObj && (
-              <>
-                <Header center>{activeTechObj.title}</Header>
-                <LabeledTitle>
-                  <Title>Description</Title>
-                  <LineLabel zone={activeTechObj.technologyLine}>
-                    {activeTechObj.technologyLine}
-                  </LineLabel>
-                </LabeledTitle>
-                <Paragraph>{activeTechObj.description}</Paragraph>
-                <LabeledTitle>
-                  <Title>Status</Title>
-                  <ZoneLabel>{activeTechObj.status}</ZoneLabel>
-                </LabeledTitle>
-                <Paragraph>
-                  {content.description.zones[content.technologies[activeTechId].status]}
-                </Paragraph>
-              </>
-            )}
-          </SlideContainer>
-        </Slider>
-      )}
+      <Slider leftFrame={leftFrame} inactive={activeTechObj == null}>
+        <SlideContainer side="left">
+          <Paragraph>
+            Auf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und
+            kategorisieren diese.
+          </Paragraph>
+          <Title>Status</Title>
+          <Paragraph>
+            Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten
+            wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.
+          </Paragraph>
+          {Object.keys(content.description.zones).map((zone) => (
+            <Fragment key={zone}>
+              <ZoneLabel>{zone}</ZoneLabel>
+              <Paragraph marginLeft>{content.description.zones[zone]}</Paragraph>
+            </Fragment>
+          ))}
+        </SlideContainer>
+        <SlideContainer side="right">
+          {activeTechObj && (
+            <>
+              <Header center>{activeTechObj.title}</Header>
+              <LabeledTitle>
+                <Title>Description</Title>
+                <LineLabel zone={activeTechObj.technologyLine}>
+                  {activeTechObj.technologyLine}
+                </LineLabel>
+              </LabeledTitle>
+              <Paragraph>{activeTechObj.description}</Paragraph>
+              <LabeledTitle>
+                <Title>Status</Title>
+                <ZoneLabel>{activeTechObj.status}</ZoneLabel>
+              </LabeledTitle>
+              <Paragraph>
+                {content.description.zones[content.technologies[activeTechId].status]}
+              </Paragraph>
+            </>
+          )}
+        </SlideContainer>
+      </Slider>
     </Popover>
   )
 }

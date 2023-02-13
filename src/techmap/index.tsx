@@ -13,6 +13,7 @@ import { Station } from './Markers/Station'
 import { LineLabel } from './LineLabel'
 import content, { TechnologyLine } from '../data/digital-services'
 import { HeadquaterIcon } from './HeadquaterIcon'
+import styles from '../styles'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -21,8 +22,19 @@ const baseLayerBounds: LatLngBoundsLiteral = [
 
 const MapWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
+
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    height: 100vh;
+  }
+`
+
+const StyledMapContainer = styled(MapContainer)`
+  transform: translateY(100px);
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    transform: translateY(0);
+  }
 `
 
 const GeneratorWrapper = styled.div`
@@ -47,7 +59,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const frameworkLineRef = createRef<PolyLineType>()
   const toolLineRef = createRef<PolyLineType>()
 
-  const [infoboxVisible, infoboxVisibleSet] = useState<boolean>(true)
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
@@ -57,7 +68,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   )
 
   const setTechId = (id: string) => {
-    infoboxVisibleSet(true)
     activeTechIdSet(id)
   }
 
@@ -77,10 +87,9 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
       <Infobox
         activeTechId={activeTechId}
         activeInstitute={activeInstitute}
-        infoboxVisible={infoboxVisible}
-        infoboxVisibleSet={infoboxVisibleSet}
+        unmountTechnology={() => activeTechIdSet(null)}
       />
-      <MapContainer
+      <StyledMapContainer
         center={[1024, 2048]}
         crs={CRS.Simple}
         bounds={baseLayerBounds}
@@ -89,7 +98,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         maxZoom={2}
         minZoom={-1.75}
         zoomControl={false}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         style={mapContainerStyles}
         ref={mapRef}
       >
@@ -140,7 +149,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         <DisplayLines bounds={baseLayerBounds} />
 
         <ZoomControl position="bottomright" />
-      </MapContainer>
+      </StyledMapContainer>
 
       {generator && (
         <GeneratorWrapper>
