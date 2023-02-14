@@ -14,8 +14,9 @@ const ControlsWrapper = styled.div`
 `
 interface ControlsProps {
   mapRef: RefObject<Map>
+  activeTechIdSet: (id: string) => void
 }
-export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
+export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: ControlsProps) => {
   const [zoomLevel, setZoomLevel] = useState(-1.75) // initial zoom level provided for MapContainer
 
   const mapEvents = useMapEvents({
@@ -32,9 +33,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
         },
       },
       icon: 'assets/info.svg',
-      clickHandler: () => {
-        console.log('info')
-      },
+      clickHandler: () => activeTechIdSet('general_info'),
     },
     {
       position: {
@@ -64,7 +63,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
         },
       },
       icon: 'assets/minus.svg',
-      clickHandler: () => console.log(mapRef?.current.setZoom(zoomLevel - 1)),
+      clickHandler: () => mapRef?.current.setZoom(zoomLevel - 1),
     },
     {
       position: {
@@ -78,7 +77,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
         },
       },
       icon: 'assets/plus.svg',
-      clickHandler: () => console.log(mapRef?.current.setZoom(zoomLevel + 1)),
+      clickHandler: () => mapRef?.current.setZoom(zoomLevel + 1),
     },
   ]
   return (

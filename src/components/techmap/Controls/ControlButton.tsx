@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import styles from '../../styles'
+import styles from '../../../styles'
 
 const ButtonWrapper = styled.button<{ left?: number; bottom?: number; right?: number; position }>`
   width: 3rem;

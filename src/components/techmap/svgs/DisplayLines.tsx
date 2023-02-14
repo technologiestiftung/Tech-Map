@@ -1,7 +1,7 @@
 import { LatLngBoundsExpression } from 'leaflet'
 import { FC } from 'react'
 import { SVGOverlay } from 'react-leaflet'
-import styles from '../../styles'
+import styles from '../../../styles'
 
 export const frameworkPath = () => {
   return (

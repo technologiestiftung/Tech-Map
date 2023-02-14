@@ -3,18 +3,19 @@ import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineTy
 import styled from 'styled-components'
 import { createRef, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import content, { TechnologyLine } from '../../data/digital-services'
+import styles from '../../styles'
+import { Controls } from './Controls'
+import { HeadquaterIcon } from './HeadquaterIcon'
+import { Infobox } from './Infobox'
+import { LineLabel } from './LineLabel'
 import { MarkerGenerator } from './MarkerGenerator'
 import { Markers } from './Markers'
-import { lineData } from './polygonData'
-import { Infobox } from './Infobox'
+
 import { DisplayLines } from './svgs/DisplayLines'
+import { lineData } from './polygonData'
 import { Station } from './Markers/Station'
-import { LineLabel } from './LineLabel'
-import content, { TechnologyLine } from '../data/digital-services'
-import { HeadquaterIcon } from './HeadquaterIcon'
-import styles from '../styles'
-import { Controls } from './Controls'
+import { Popover } from '../Popover'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -85,6 +86,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
   return (
     <MapWrapper>
+      <Popover />
       <Infobox
         activeTechId={activeTechId}
         activeInstitute={activeInstitute}
@@ -103,7 +105,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         style={mapContainerStyles}
         ref={mapRef}
       >
-        <Controls mapRef={mapRef} />
+        <Controls mapRef={mapRef} activeTechIdSet={setTechId} />
         <Markers
           activeTechIdSet={setTechId}
           activeTechId={activeTechId}

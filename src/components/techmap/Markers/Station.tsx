@@ -2,9 +2,9 @@ import { divIcon, LatLngExpression } from 'leaflet'
 import { FC, useEffect, useState } from 'react'
 import * as ReactDOMServer from 'react-dom/server'
 import { Circle, Marker, useMapEvents } from 'react-leaflet'
-import { TechnologyLine } from '../../data/digital-services'
+import { TechnologyLine } from '../../../data/digital-services'
 
-import styles from '../../styles'
+import styles from '../../../styles'
 
 interface StationProps {
   position: LatLngExpression

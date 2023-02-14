@@ -36,7 +36,7 @@ export const content: Content = {
     title: 'Tech Map',
     subTitle: 'Digital Service Team',
     disclaimer:
-      'Auf dieser Karte verorten wir die  wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.',
+      'Herzlich Willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.\n\nWeitere Informationen zur Benutzung der Karte findest du in unserer Infobox, die sich über den Button unten öffnen lässt.',
     status:
       'Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.',
     zones: {

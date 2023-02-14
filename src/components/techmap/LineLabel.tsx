@@ -1,8 +1,9 @@
 import L, { LatLngExpression } from 'leaflet'
 import { FC, useState } from 'react'
 import { Polygon, useMapEvents, Marker } from 'react-leaflet'
-import { TechnologyLine } from '../data/digital-services'
-import styles from '../styles'
+import { TechnologyLine } from '../../data/digital-services'
+
+import styles from '../../styles'
 
 interface LineLabelProps {
   position: LatLngExpression
