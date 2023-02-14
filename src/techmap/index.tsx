@@ -1,4 +1,4 @@
-import { MapContainer, Polyline, ImageOverlay, ZoomControl } from 'react-leaflet'
+import { MapContainer, Polyline, ImageOverlay } from 'react-leaflet'
 import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineType } from 'leaflet'
 import styled from 'styled-components'
 import { createRef, FC, useState } from 'react'

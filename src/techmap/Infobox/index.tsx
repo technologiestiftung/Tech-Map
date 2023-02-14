@@ -1,9 +1,7 @@
-import { Dispatch, FC, Fragment, SetStateAction, useEffect, useState } from 'react'
+import { FC, Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import styles from '../../styles'
 import { Technology, content } from '../../data/digital-services'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, thin, light, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 const Popover = styled.div`
   width: 100%;

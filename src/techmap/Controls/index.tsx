@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, RefObject, SetStateAction, useState } from 'react'
+import React, { FC, RefObject, useState } from 'react'
 import { useMapEvents } from 'react-leaflet'
 
 import { Map } from 'leaflet'
@@ -26,8 +26,10 @@ export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
   const controlButtons = [
     {
       position: {
-        left: 8,
-        bottom: 72,
+        mobile: {
+          left: 8,
+          bottom: 72,
+        },
       },
       icon: 'assets/info.svg',
       clickHandler: () => {
@@ -36,8 +38,14 @@ export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
     },
     {
       position: {
-        left: 8,
-        bottom: 16,
+        mobile: {
+          left: 8,
+          bottom: 16,
+        },
+        desktop: {
+          right: 24,
+          top: 24,
+        },
       },
       icon: 'assets/globe.svg',
       clickHandler: () => {
@@ -46,16 +54,28 @@ export const Controls: FC<ControlsProps> = ({ mapRef }: ControlsProps) => {
     },
     {
       position: {
-        right: 8,
-        bottom: 16,
+        mobile: {
+          right: 8,
+          bottom: 16,
+        },
+        desktop: {
+          right: 24,
+          bottom: 16,
+        },
       },
       icon: 'assets/minus.svg',
       clickHandler: () => console.log(mapRef?.current.setZoom(zoomLevel - 1)),
     },
     {
       position: {
-        right: 8,
-        bottom: 72,
+        mobile: {
+          right: 8,
+          bottom: 72,
+        },
+        desktop: {
+          right: 24,
+          bottom: 72,
+        },
       },
       icon: 'assets/plus.svg',
       clickHandler: () => console.log(mapRef?.current.setZoom(zoomLevel + 1)),
