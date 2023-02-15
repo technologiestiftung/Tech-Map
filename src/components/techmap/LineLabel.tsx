@@ -1,7 +1,7 @@
 import L, { LatLngExpression } from 'leaflet'
 import { FC, useState } from 'react'
 import { Polygon, useMapEvents, Marker } from 'react-leaflet'
-import { TechnologyLine } from '../../data/digital-services'
+import { TechnologyLine } from '../../i18n/digital-services-de'
 
 import styles from '../../styles'
 

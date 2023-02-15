@@ -2,7 +2,7 @@ import { divIcon, LatLngExpression } from 'leaflet'
 import { FC, useEffect, useState } from 'react'
 import * as ReactDOMServer from 'react-dom/server'
 import { Circle, Marker, useMapEvents } from 'react-leaflet'
-import { TechnologyLine } from '../../../data/digital-services'
+import { TechnologyLine } from '../../../i18n/digital-services-de'
 
 import styles from '../../../styles'
 

@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import content, { Technology } from '../../../data/digital-services'
+import { useTranslation } from 'react-i18next'
 import styles from '../../../styles'
 import { ZoneLabel } from './GeneralInfo'
 import { Header } from './LogoArea'
 import { Paragraph } from './Paragraph'
+import { Technology } from '../../../i18n/digital-services-de'
 
 const Title = styled.h2`
   font-weight: 700;
@@ -41,21 +42,21 @@ interface ActtiveTechInfoProps {
 }
 export const ActiveTechInfo: FC<ActtiveTechInfoProps> = ({
   activeTechObj,
-  activeTechId,
 }: ActtiveTechInfoProps) => {
+  const { t } = useTranslation()
   return (
     <>
       <Header center>{activeTechObj.title}</Header>
       <LabeledTitle>
-        <Title>Description</Title>
+        <Title>{t(`functionality.description`)}</Title>
         <LineLabel zone={activeTechObj.technologyLine}>{activeTechObj.technologyLine}</LineLabel>
       </LabeledTitle>
       <Paragraph text={activeTechObj.description} />
       <LabeledTitle>
-        <Title>Status</Title>
-        <ZoneLabel>{activeTechObj.status}</ZoneLabel>
+        <Title>{t(`functionality.status`)}</Title>
+        <ZoneLabel>{t(`description.zones.${activeTechObj.status}.title`)}</ZoneLabel>
       </LabeledTitle>
-      <Paragraph text={content.description.zones[content.technologies[activeTechId].status]} />
+      <Paragraph text={t(`description.zones.${activeTechObj.status}.description`)} />
     </>
   )
 }

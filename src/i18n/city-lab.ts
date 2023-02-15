@@ -1,41 +1,4 @@
-import { LatLngExpression } from 'leaflet'
-
-interface Icon {
-  coordinates: LatLngExpression
-  orientation: 'NE' | 'E' | 'SE' | 'NW' | 'W' | 'SW'
-}
-
-export type TechnologyLine = 'tools' | 'frameworks' | 'programming' | 'hardware'
-export type Zone = 'hauptzone' | 'neue zone' | 'haltezone' | 'wunschzone'
-export type Manual = 'usage' | 'zones'
-
-export interface Technology {
-  title: string
-  description: string
-  link: string
-  status: Zone
-  technologyLine: TechnologyLine
-  icon: Icon
-}
-
-interface Topic {
-  title: string
-  description: string
-}
-
-interface Description {
-  title: string
-  subTitle: string
-  disclaimer: string
-  manual: { [key in Manual]: Topic }
-  zones: { [key in Zone]: string }
-  lines: { [key in TechnologyLine]: string }
-}
-
-export interface Content {
-  description: Description
-  technologies: { [id: string]: Technology }
-}
+import { Content } from './digital-services-de'
 
 export const content: Content = {
   description: {
@@ -56,14 +19,26 @@ export const content: Content = {
       },
     },
     zones: {
-      hauptzone:
-        'Die Technologien, die sich über einen längeren Zeitraum und mehrere Projekt hinweg als stabil erwiesen haben sammeln wir hier unter diesem Punkt.',
-      'neue zone':
-        'Technologien, die erste Male benutzt wurden aber Potential besitzen nach weiterem testen ins Standartrepertoir aufgenommen zu werden',
-      haltezone:
-        'Info Haltezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
-      wunschzone:
-        'Info Wartezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+      hauptzone: {
+        title: 'Hauptzone',
+        description:
+          'Die Technologien, die sich über einen längeren Zeitraum und mehrere Projekt hinweg als stabil erwiesen haben sammeln wir hier unter diesem Punkt.',
+      },
+      neueZone: {
+        title: 'Neue Zone',
+        description:
+          'Technologien, die erste Male benutzt wurden aber Potential besitzen nach weiterem testen ins Standartrepertoir aufgenommen zu werden',
+      },
+      haltezone: {
+        title: 'Haltezone',
+        description:
+          'Info Haltezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+      },
+      wunschzone: {
+        title: 'Wunschzone',
+        description:
+          'Info Wartezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+      },
     },
     lines: {
       tools: 'Tools',
@@ -86,7 +61,7 @@ export const content: Content = {
       title: 'ESP32',
       description: 'lorem ipsum',
       link: '',
-      status: 'neue zone',
+      status: 'neueZone',
       technologyLine: 'hardware',
       icon: { coordinates: [1284, 2785.353673693966], orientation: 'SW' },
     },
@@ -134,7 +109,7 @@ export const content: Content = {
       description:
         'Leaflet is an open source JavaScript library used to build web mapping applications. First released in 2011, it supports most mobile and desktop platforms, supporting HTML5 and CSS3. ',
       link: 'https://leafletjs.com/',
-      status: 'neue zone',
+      status: 'neueZone',
       technologyLine: 'frameworks',
       icon: { coordinates: [1396.8039365208926, 1844.5], orientation: 'W' },
     },
@@ -142,10 +117,13 @@ export const content: Content = {
       title: 'VS Code',
       description: 'lorem ipsum',
       link: '',
-      status: 'neue zone',
+      status: 'neueZone',
       technologyLine: 'tools',
       icon: { coordinates: [1220.5, 2059.6665915655126], orientation: 'SE' },
     },
+  },
+  functionality: {
+    buttonClosePopover: 'Map erkunden',
   },
 }
 export default content

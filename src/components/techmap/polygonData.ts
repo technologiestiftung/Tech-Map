@@ -1,6 +1,6 @@
 import { PolygonProps, PolylineProps } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet'
-import { TechnologyLine } from '../../data/digital-services'
+import { TechnologyLine } from '../../i18n/digital-services-de'
 
 export const baseLayer: PolygonProps = {
   positions: [

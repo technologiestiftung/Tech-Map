@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import content from '../data/digital-services'
 import styles from '../styles'
 import { Button } from './Button'
 import { LogoArea } from './techmap/Infobox/LogoArea'
 import { Paragraph } from './techmap/Infobox/Paragraph'
+import { useTranslation } from 'react-i18next'
 
 const Backdrop = styled.div`
   position: absolute;
@@ -31,12 +31,14 @@ interface PopoverProps {
 }
 
 export const Popover: FC<PopoverProps> = ({ closePopover }: PopoverProps) => {
+  const { t } = useTranslation()
+
   return (
     <Backdrop>
       <Screen>
         <LogoArea visible={true} activeInstitute={'digitalServices'} />
-        <Paragraph text={content.description.disclaimer} fontSize="1rem" />
-        <Button label="Map erkunden" clickHandler={() => closePopover()} />
+        <Paragraph text={t('description.disclaimer')} fontSize="1rem" />
+        <Button label={t('functionality.buttonClosePopover')} clickHandler={() => closePopover()} />
       </Screen>
     </Backdrop>
   )

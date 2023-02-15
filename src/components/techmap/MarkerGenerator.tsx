@@ -77,7 +77,7 @@ const StyledButton = styled.button``
 
 const eastOrientations = ['NE', 'E', 'SE']
 const westOrientations = ['NW', 'W', 'SW']
-const zones = ['hauptzone', 'neue zone', 'haltezone', 'wunschzone']
+const zones = ['hauptzone', 'neueZone', 'haltezone', 'wunschzone']
 
 interface MarkerGeneratorProps {
   position: LatLngExpression

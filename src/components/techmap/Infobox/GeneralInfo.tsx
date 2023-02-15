@@ -1,9 +1,10 @@
 import React, { FC, Fragment } from 'react'
 import styled from 'styled-components'
-import content from '../../../data/digital-services'
 import styles from '../../../styles'
 import { Paragraph } from './Paragraph'
 import { Title } from './Title'
+import { useTranslation } from 'react-i18next'
+import { content } from '../../../i18n/digital-services-de'
 
 export const ZoneLabel = styled.h3`
   display: flex;
@@ -26,18 +27,19 @@ interface GeneralInfoProps {
   mobile?: boolean
 }
 export const GeneralInfo: FC<GeneralInfoProps> = ({ mobile }: GeneralInfoProps) => {
+  const { t } = useTranslation()
   return (
     <>
-      {!mobile && <Paragraph text={content.description.disclaimer} />}
-      <Title label={content.description.manual.usage.title} />
-      <Paragraph text={content.description.manual.usage.description} />
-      <Title label={content.description.manual.zones.title} />
-      <Paragraph text={content.description.manual.zones.description} />
+      {!mobile && <Paragraph text={t('description.disclaimer')} />}
+      <Title label={t('description.manual.usage.title')} />
+      <Paragraph text={t('description.manual.usage.description')} />
+      <Title label={t('description.manual.zones.title')} />
+      <Paragraph text={t('description.manual.zones.description')} />
 
       {Object.keys(content.description.zones).map((zone) => (
         <Fragment key={zone}>
           <ZoneLabel>{zone}</ZoneLabel>
-          <Paragraph marginLeft text={content.description.zones[zone]} />
+          <Paragraph marginLeft text={t(`description.zones.${zone}.description`)} />
         </Fragment>
       ))}
     </>

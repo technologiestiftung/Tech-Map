@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import styles from '../../../styles'
-import { Technology, content } from '../../../data/digital-services'
 import { GeneralInfo } from './GeneralInfo'
 import { ActiveTechInfo } from './ActiveTechInfo'
 import { LogoArea } from './LogoArea'
+import content, { Technology } from '../../../i18n/digital-services-de'
+import { useTranslation } from 'react-i18next'
 
 const StyledInfobox = styled.div`
   width: 100%;
@@ -130,6 +131,7 @@ export const Infobox: FC<InfoBoxProps> = ({
   activeInstitute,
   unmountTechnology,
 }: InfoBoxProps) => {
+  const { t } = useTranslation()
   const [leftFrame, leftFrameSet] = useState<boolean>(true)
   const [activeTechObj, activeTechObjSet] = useState<Technology | null>(null)
   const [sliderVisible, sliderVisibleSet] = useState<boolean>(false)
@@ -166,13 +168,13 @@ export const Infobox: FC<InfoBoxProps> = ({
         <Slider leftFrame={leftFrame} inactive={!sliderVisible}>
           <HeaderSlideContainer>
             <BackButtonMobile onClick={() => hideInfobox()}>
-              <ButtonLabel>Infobox schließen</ButtonLabel>
+              <ButtonLabel>{t('functionality.buttonCloseInfobox')}</ButtonLabel>
               <CloseIcon width="26" height="26" src={'assets/x-circle.svg'} alt="close icon" />
             </BackButtonMobile>
           </HeaderSlideContainer>
           <HeaderSlideContainer>
             <BackButtonMobile onClick={() => hideInfobox()}>
-              <ButtonLabel>Beschreibung schließen</ButtonLabel>
+              <ButtonLabel>{t('functionality.buttonCloseExplanation')}</ButtonLabel>
               <CloseIcon width="26" height="26" src={'assets/x-circle.svg'} alt="close icon" />
             </BackButtonMobile>
           </HeaderSlideContainer>
@@ -197,7 +199,7 @@ export const Infobox: FC<InfoBoxProps> = ({
           <HeaderSlideContainer>
             <BackButtonDesktop onClick={() => slideBack()}>
               <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
-              <ButtonLabel>Zurück zum Index</ButtonLabel>
+              <ButtonLabel>{t('functionality.buttonBackToIndex')}</ButtonLabel>
             </BackButtonDesktop>
           </HeaderSlideContainer>
         </Slider>

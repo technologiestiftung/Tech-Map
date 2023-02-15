@@ -1,9 +1,9 @@
 import { MapContainer, Polyline, ImageOverlay } from 'react-leaflet'
 import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineType } from 'leaflet'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 import { createRef, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
-import content, { TechnologyLine } from '../../data/digital-services'
 import styles from '../../styles'
 import { Controls } from './Controls'
 import { HeadquaterIcon } from './HeadquaterIcon'
@@ -16,6 +16,7 @@ import { DisplayLines } from './svgs/DisplayLines'
 import { lineData } from './polygonData'
 import { Station } from './Markers/Station'
 import { Popover } from '../Popover'
+import { TechnologyLine } from '../../i18n/digital-services-de'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -55,6 +56,7 @@ interface TechMapProps {
 }
 
 export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
+  const { t } = useTranslation()
   const mapRef = createRef<null | Map>()
   const programmingLineRef = createRef<PolyLineType>()
   const hardwareLineRef = createRef<PolyLineType>()
@@ -118,7 +120,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
             <LineLabel
               key={lineKey + index}
               position={lineData[lineKey].labels[index]}
-              label={content.description.lines[lineKey]}
+              label={t(`description.lines.${lineKey}`)}
               line={lineKey as TechnologyLine}
             />
           ))

@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { Station } from './Station'
 
-import { content as contentDigiServices } from '../../../data/digital-services'
-import { content as contentCityLab } from '../../../data/city-lab'
+import { content as contentDigiServices } from '../../../i18n/digital-services-de'
+import { content as contentCityLab } from '../../../i18n/city-lab'
 
 interface MarkersProps {
   activeTechIdSet: (id: string) => void
