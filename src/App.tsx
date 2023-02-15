@@ -1,10 +1,17 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom'
 import { TechMap } from './components/techmap'
 import './styles/global.css'
 
 const App: FC = (): JSX.Element => {
+  const { i18n } = useTranslation()
+  const locale = useParams().locale
+  useEffect(() => {
+    console.log('CHANGE LANG')
+    i18n.changeLanguage(locale)
+  }, [i18n, locale])
   return (
     <Router>
       <div className="App">

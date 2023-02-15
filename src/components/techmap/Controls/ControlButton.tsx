@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import styles from '../../../styles'
 
-const ButtonWrapper = styled.button<{ left?: number; bottom?: number; right?: number; position }>`
+const ButtonWrapper = styled.button<{ position }>`
   width: 3rem;
   height: 3rem;
   box-shadow: ${styles.boxShadow};
@@ -12,6 +12,8 @@ const ButtonWrapper = styled.button<{ left?: number; bottom?: number; right?: nu
   border: none;
   position: absolute;
   pointer-events: auto;
+  background-color: ${styles.colors.white};
+  padding: 1rem;
 
   @media (max-width: ${styles.breakpoints.desktop}) {
     display: ${(props) => (props.position.mobile ? 'flex' : 'none')};
@@ -24,6 +26,8 @@ const ButtonWrapper = styled.button<{ left?: number; bottom?: number; right?: nu
   }
 
   @media (min-width: ${styles.breakpoints.desktop}) {
+    width: 2rem;
+    height: 2rem;
     display: ${(props) => (props.position.desktop ? 'flex' : 'none')};
     left: ${(props) => (props.position.desktop?.left ? props.position.desktop?.left + 'px' : null)};
     bottom: ${(props) =>
@@ -33,7 +37,14 @@ const ButtonWrapper = styled.button<{ left?: number; bottom?: number; right?: nu
     top: ${(props) => (props.position.desktop?.top ? props.position.desktop?.top + 'px' : null)};
   }
 `
-interface Positions {
+
+const Icon = styled.img`
+  width: 2rem;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    width: 1rem;
+  }
+`
+export interface Positions {
   left?: number
   bottom?: number
   top?: number
@@ -55,7 +66,7 @@ export const ControlButton: FC<ControlButtonProps> = ({
 }: ControlButtonProps) => {
   return (
     <ButtonWrapper position={position} onClick={() => clickHandler()}>
-      <img src={icon} alt="control-icon" />
+      <Icon src={icon} alt="control-icon" />
     </ButtonWrapper>
   )
 }

@@ -1,9 +1,9 @@
-import { MapContainer, Polyline, ImageOverlay } from 'react-leaflet'
+import { MapContainer, Polyline, ImageOverlay, AttributionControl } from 'react-leaflet'
 import { CRS, LatLngBoundsLiteral, LatLngExpression, Map, Polyline as PolyLineType } from 'leaflet'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { createRef, FC, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { createRef, FC, useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import styles from '../../styles'
 import { Controls } from './Controls'
 import { HeadquaterIcon } from './HeadquaterIcon'
@@ -56,12 +56,18 @@ interface TechMapProps {
 }
 
 export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const mapRef = createRef<null | Map>()
   const programmingLineRef = createRef<PolyLineType>()
   const hardwareLineRef = createRef<PolyLineType>()
   const frameworkLineRef = createRef<PolyLineType>()
   const toolLineRef = createRef<PolyLineType>()
+
+  const locale = useParams().locale
+
+  useEffect(() => {
+    i18n.changeLanguage(locale)
+  }, [locale, i18n])
 
   const [showPopover, showPopoverSet] = useState<boolean>(true)
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
@@ -107,8 +113,10 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
         scrollWheelZoom={true}
         style={mapContainerStyles}
         ref={mapRef}
+        attributionControl={false}
       >
         <Controls mapRef={mapRef} activeTechIdSet={setTechId} />
+        <AttributionControl position="topleft" />
         <Markers
           activeTechIdSet={setTechId}
           activeTechId={activeTechId}

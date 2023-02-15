@@ -15,6 +15,10 @@ const Backdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    display: none;
+  }
 `
 
 const Screen = styled.div`

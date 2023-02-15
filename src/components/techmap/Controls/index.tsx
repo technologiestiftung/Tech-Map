@@ -4,6 +4,7 @@ import { useMapEvents } from 'react-leaflet'
 import { Map } from 'leaflet'
 import styled from 'styled-components'
 import { ControlButton } from './ControlButton'
+import { LanguageToggle } from '../../LanguageToggle'
 
 const ControlsWrapper = styled.div`
   position: absolute;
@@ -24,6 +25,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
       setZoomLevel(mapEvents.getZoom())
     },
   })
+
   const controlButtons = [
     {
       position: {
@@ -34,22 +36,6 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
       },
       icon: '../assets/info.svg',
       clickHandler: () => activeTechIdSet('general_info'),
-    },
-    {
-      position: {
-        mobile: {
-          left: 8,
-          bottom: 16,
-        },
-        desktop: {
-          right: 24,
-          top: 24,
-        },
-      },
-      icon: '../assets/globe.svg',
-      clickHandler: () => {
-        console.log('lang')
-      },
     },
     {
       position: {
@@ -73,7 +59,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
         },
         desktop: {
           right: 24,
-          bottom: 72,
+          bottom: 56,
         },
       },
       icon: '../assets/plus.svg',
@@ -90,6 +76,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
           clickHandler={button.clickHandler}
         />
       ))}
+      <LanguageToggle />
     </ControlsWrapper>
   )
 }
