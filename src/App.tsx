@@ -9,8 +9,10 @@ const App: FC = (): JSX.Element => {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<TechMap />}></Route>
+          <Route path="/:locale/:institute" element={<TechMap />}></Route>
+          <Route path="/:locale" element={<TechMap />}></Route>
           <Route path="/generator" element={<TechMap generator />}></Route>
+          <Route path="/" element={<TechMap />}></Route>
         </Routes>
       </div>
     </Router>

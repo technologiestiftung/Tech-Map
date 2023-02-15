@@ -169,13 +169,13 @@ export const Infobox: FC<InfoBoxProps> = ({
           <HeaderSlideContainer>
             <BackButtonMobile onClick={() => hideInfobox()}>
               <ButtonLabel>{t('functionality.buttonCloseInfobox')}</ButtonLabel>
-              <CloseIcon width="26" height="26" src={'assets/x-circle.svg'} alt="close icon" />
+              <CloseIcon width="26" height="26" src={'../assets/x-circle.svg'} alt="close icon" />
             </BackButtonMobile>
           </HeaderSlideContainer>
           <HeaderSlideContainer>
             <BackButtonMobile onClick={() => hideInfobox()}>
               <ButtonLabel>{t('functionality.buttonCloseExplanation')}</ButtonLabel>
-              <CloseIcon width="26" height="26" src={'assets/x-circle.svg'} alt="close icon" />
+              <CloseIcon width="26" height="26" src={'../assets/x-circle.svg'} alt="close icon" />
             </BackButtonMobile>
           </HeaderSlideContainer>
         </Slider>
@@ -198,7 +198,7 @@ export const Infobox: FC<InfoBoxProps> = ({
           </HeaderSlideContainer>
           <HeaderSlideContainer>
             <BackButtonDesktop onClick={() => slideBack()}>
-              <ButtonIcon src={'assets/arrow-left.svg'} alt="arrow left" />
+              <ButtonIcon src={'../assets/arrow-left.svg'} alt="arrow left" />
               <ButtonLabel>{t('functionality.buttonBackToIndex')}</ButtonLabel>
             </BackButtonDesktop>
           </HeaderSlideContainer>

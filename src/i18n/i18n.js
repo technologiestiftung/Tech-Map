@@ -2,6 +2,7 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { content as dsContentDe } from './digital-services-de'
+import { content as dsContentEn } from './digital-services-en'
 
 i18n
   // detect user language
@@ -21,6 +22,11 @@ i18n
       de: {
         translation: {
           ...dsContentDe,
+        },
+      },
+      en: {
+        translation: {
+          ...dsContentEn,
         },
       },
     },

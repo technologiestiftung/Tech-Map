@@ -53,7 +53,7 @@ interface LogoAreaProps {
 export const LogoArea: FC<LogoAreaProps> = ({ visible, activeInstitute }: LogoAreaProps) => {
   return (
     <StyledLogoArea visible={visible}>
-      <Logo src={'assets/tsb-logo.png'} alt="Logo" />
+      <Logo src={'../assets/tsb-logo.png'} alt="Logo" />
       <HeaderDivider>
         <Header>Tech Map</Header>
         <Subheader>

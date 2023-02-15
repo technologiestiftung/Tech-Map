@@ -32,7 +32,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
           bottom: 72,
         },
       },
-      icon: 'assets/info.svg',
+      icon: '../assets/info.svg',
       clickHandler: () => activeTechIdSet('general_info'),
     },
     {
@@ -46,7 +46,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
           top: 24,
         },
       },
-      icon: 'assets/globe.svg',
+      icon: '../assets/globe.svg',
       clickHandler: () => {
         console.log('lang')
       },
@@ -62,7 +62,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
           bottom: 16,
         },
       },
-      icon: 'assets/minus.svg',
+      icon: '../assets/minus.svg',
       clickHandler: () => mapRef?.current.setZoom(zoomLevel - 1),
     },
     {
@@ -76,7 +76,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
           bottom: 72,
         },
       },
-      icon: 'assets/plus.svg',
+      icon: '../assets/plus.svg',
       clickHandler: () => mapRef?.current.setZoom(zoomLevel + 1),
     },
   ]
