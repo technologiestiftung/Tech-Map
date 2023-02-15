@@ -5,6 +5,7 @@ export default {
     gray_70: '#6f6f6E',
     gray_80: '#565656',
     text: '#3b3b3a',
+    text_transparent: '#3b3b3a99',
     testMarker: '#FF49B9',
     lineProgramming: '#E60032',
     lineTools: '#91C882',
@@ -23,4 +24,5 @@ export default {
     maxHeight: 'max-height 330ms ease-in-out',
     transform: 'transform 330ms ease-in-out',
   },
+  borderRadius: '.25rem',
 }

@@ -61,6 +61,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const frameworkLineRef = createRef<PolyLineType>()
   const toolLineRef = createRef<PolyLineType>()
 
+  const [showPopover, showPopoverSet] = useState<boolean>(true)
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
@@ -86,7 +87,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
   return (
     <MapWrapper>
-      <Popover />
+      {showPopover && <Popover closePopover={() => showPopoverSet(false)} />}
       <Infobox
         activeTechId={activeTechId}
         activeInstitute={activeInstitute}

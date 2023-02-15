@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { FC, Fragment } from 'react'
 import styled from 'styled-components'
 import content from '../../../data/digital-services'
 import styles from '../../../styles'
@@ -22,18 +22,17 @@ export const ZoneLabel = styled.h3`
   border-radius: 0.25rem;
 `
 
-export const GeneralInfo = () => {
+interface GeneralInfoProps {
+  mobile?: boolean
+}
+export const GeneralInfo: FC<GeneralInfoProps> = ({ mobile }: GeneralInfoProps) => {
   return (
     <>
-      <Paragraph
-        text="Auf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und
-        kategorisieren diese."
-      />
-      <Title label="Status" />
-      <Paragraph
-        text="Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten wir
-        mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden."
-      />
+      {!mobile && <Paragraph text={content.description.disclaimer} />}
+      <Title label={content.description.manual.usage.title} />
+      <Paragraph text={content.description.manual.usage.description} />
+      <Title label={content.description.manual.zones.title} />
+      <Paragraph text={content.description.manual.zones.description} />
 
       {Object.keys(content.description.zones).map((zone) => (
         <Fragment key={zone}>

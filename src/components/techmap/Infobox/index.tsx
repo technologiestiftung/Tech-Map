@@ -5,7 +5,6 @@ import { Technology, content } from '../../../data/digital-services'
 import { GeneralInfo } from './GeneralInfo'
 import { ActiveTechInfo } from './ActiveTechInfo'
 import { LogoArea } from './LogoArea'
-import { Popover } from '../../Popover'
 
 const StyledInfobox = styled.div`
   width: 100%;
@@ -44,7 +43,7 @@ const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-end;
-  transition: ${styles.transitions.maxHeight};
+  /* transition: ${styles.transitions.maxHeight}; */
   width: 200%;
   overflow-x: hidden;
   transform: translateX(${(props) => (props.leftFrame ? 0 : '-50%')});
@@ -180,7 +179,7 @@ export const Infobox: FC<InfoBoxProps> = ({
         </Slider>
         <Slider leftFrame={leftFrame} inactive={!sliderVisible}>
           <SlideContainer>
-            <GeneralInfo />
+            <GeneralInfo mobile />
           </SlideContainer>
           <SlideContainer>
             {activeTechObj && (
