@@ -17,6 +17,30 @@ export const frameworkPath = () => {
   )
 }
 
+export const frameworkPathOutline = () => {
+  return (
+    <path
+      d="M1054.5 547H52.6059C34.8915 547 20.5475 532.609 20.6061 514.894L21.8946 124.894C21.9529 107.263 36.2626 93 53.8944 93H253.164C275.579 93 293.619 74.583 293.155 52.1726L292.5 20.5"
+      stroke="white"
+      strokeWidth="40"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  )
+}
+
+export const toolPathOutline = () => {
+  return (
+    <path
+      d="M20.5 20.5H939C965.51 20.5 987 41.9903 987 68.5V344C987 370.51 965.51 392 939 392H728.5C697.572 392 672.5 417.072 672.5 448V536"
+      stroke="white"
+      strokeWidth="40"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  )
+}
+
 export const hardwarePath = () => {
   return (
     <path
@@ -41,6 +65,18 @@ export const programmingPath = () => {
   )
 }
 
+export const programmingPathOutline = () => {
+  return (
+    <path
+      d="M20 617V90.5C20 63.9903 41.4903 42.5 68 42.5H860C883.196 42.5 902 23.696 902 0.5V0.5"
+      stroke="white"
+      strokeWidth="40"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  )
+}
+
 export const toolPath = () => {
   return (
     <path
@@ -53,22 +89,61 @@ export const toolPath = () => {
   )
 }
 
-const pathes = [toolPath, programmingPath, frameworkPath, hardwarePath]
+const pathes = [
+  {
+    path: hardwarePath,
+    type: 'line',
+  },
+  {
+    path: programmingPathOutline,
+    type: 'outline',
+    width: '922',
+    height: '637',
+    viewBox: '-1594 -718 4096 2048',
+  },
+  {
+    path: programmingPath,
+    type: 'line',
+  },
+  {
+    path: frameworkPathOutline,
+    type: 'outline',
+    viewBox: '-1553 -699 4096 2048',
+  },
+  {
+    path: frameworkPath,
+    type: 'line',
+  },
+  {
+    path: toolPathOutline,
+    type: 'outline',
+    viewBox: '-1461 -807 4096 2048',
+  },
+  {
+    path: toolPath,
+    type: 'line',
+  },
+]
 
 interface DisplayLinesProps {
   bounds: LatLngBoundsExpression
 }
 
 export const DisplayLines: FC<DisplayLinesProps> = ({ bounds }) => {
+  console.log(`${bounds[0][1]} ${bounds[0][0]} ${bounds[1][1]} ${bounds[1][0]}`)
   return (
     <>
       {pathes.map((path, i) => (
         <SVGOverlay bounds={bounds} key={i}>
           <svg
-            viewBox={`${bounds[0][1]} ${bounds[0][0]} ${bounds[1][1]} ${bounds[1][0]}`}
+            viewBox={
+              path.viewBox
+                ? path.viewBox
+                : `${bounds[0][1]} ${bounds[0][0]} ${bounds[1][1]} ${bounds[1][0]}`
+            }
             fill="none"
           >
-            {path()}
+            {path.path()}
           </svg>
         </SVGOverlay>
       ))}
