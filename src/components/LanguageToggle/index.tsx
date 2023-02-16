@@ -89,7 +89,7 @@ const LangButton = styled(Link)<{ active: boolean }>`
 export const LanguageToggle: FC = () => {
   const [toggleOpen, toggleOpenSet] = useState(false)
   const params = useParams()
-  const locale = params.locale
+  const locale = params.locale ? params.locale : 'de'
 
   return (
     <>
