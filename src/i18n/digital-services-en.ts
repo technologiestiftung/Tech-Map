@@ -129,6 +129,8 @@ export const content: Content = {
     buttonBackToIndex: 'Zurück zum Index',
     buttonCloseInfobox: 'Infobox schließen',
     buttonCloseExplanation: 'Beschreibung schließen',
+    impressum: 'Impressum',
+    privacyNotice: 'Datenschutzerklärung',
   },
 }
 export default content

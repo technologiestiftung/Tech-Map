@@ -17,11 +17,20 @@ import { lineData } from './polygonData'
 import { Station } from './Markers/Station'
 import { Popover } from '../Popover'
 import { TechnologyLine } from '../../i18n/digital-services-de'
+import { Footer } from '../Footer'
+import { NONAME } from 'dns'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
   [2048, 4096],
 ]
+
+const PageWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
 
 const MapWrapper = styled.div`
   width: 100vw;
@@ -29,7 +38,7 @@ const MapWrapper = styled.div`
   display: flex;
 
   @media (min-width: ${styles.breakpoints.desktop}) {
-    height: 100vh;
+    height: calc(100vh - 3.25rem);
   }
 `
 
@@ -49,6 +58,13 @@ const BackLink = styled(Link)`
   margin: 1rem auto;
   display: flex;
   align-items: center;
+`
+
+const DesktopFooterWrapper = styled.div`
+  display: none;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    display: block;
+  }
 `
 
 interface TechMapProps {
@@ -94,93 +110,98 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   }
 
   return (
-    <MapWrapper>
-      {showPopover && <Popover closePopover={() => showPopoverSet(false)} />}
-      <Infobox
-        activeTechId={activeTechId}
-        activeInstitute={activeInstitute}
-        unmountTechnology={() => activeTechIdSet(null)}
-      />
-      <StyledMapContainer
-        center={[1024, 2048]}
-        crs={CRS.Simple}
-        bounds={baseLayerBounds}
-        maxBounds={baseLayerBounds}
-        zoom={-1.75}
-        maxZoom={2}
-        minZoom={-1.75}
-        zoomControl={false}
-        scrollWheelZoom={true}
-        style={mapContainerStyles}
-        ref={mapRef}
-        attributionControl={false}
-      >
-        <Controls mapRef={mapRef} activeTechIdSet={setTechId} />
-        <AttributionControl position="topleft" />
-        <Markers
-          activeTechIdSet={setTechId}
+    <PageWrapper>
+      <MapWrapper>
+        {showPopover && <Popover closePopover={() => showPopoverSet(false)} />}
+        <Infobox
           activeTechId={activeTechId}
           activeInstitute={activeInstitute}
+          unmountTechnology={() => activeTechIdSet(null)}
         />
+        <StyledMapContainer
+          center={[1024, 2048]}
+          crs={CRS.Simple}
+          bounds={baseLayerBounds}
+          maxBounds={baseLayerBounds}
+          zoom={-1.75}
+          maxZoom={2}
+          minZoom={-1.75}
+          zoomControl={false}
+          scrollWheelZoom={true}
+          style={mapContainerStyles}
+          ref={mapRef}
+          attributionControl={false}
+        >
+          <Controls mapRef={mapRef} activeTechIdSet={setTechId} />
+          <AttributionControl position="topleft" />
+          <Markers
+            activeTechIdSet={setTechId}
+            activeTechId={activeTechId}
+            activeInstitute={activeInstitute}
+          />
 
-        {Object.keys(lineData).map((lineKey) =>
-          [0, 1].map((index) => (
-            <LineLabel
-              key={lineKey + index}
-              position={lineData[lineKey].labels[index]}
-              label={t(`description.lines.${lineKey}`)}
-              line={lineKey as TechnologyLine}
+          {Object.keys(lineData).map((lineKey) =>
+            [0, 1].map((index) => (
+              <LineLabel
+                key={lineKey + index}
+                position={lineData[lineKey].labels[index]}
+                label={t(`description.lines.${lineKey}`)}
+                line={lineKey as TechnologyLine}
+              />
+            ))
+          )}
+
+          <ImageOverlay
+            url={'./assets/Zonen.svg'}
+            bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
+          />
+
+          {/* These are invisible helper pathes to distribute markers */}
+          {Object.keys(lineData).map((key) => (
+            <Polyline
+              key={key}
+              pathOptions={lineData[key].line.pathOptions}
+              positions={lineData[key].line.positions}
+              ref={lineRefs[key]}
             />
-          ))
-        )}
+          ))}
+          {generator && (
+            <Station
+              position={slidePosition as LatLngExpression}
+              label={slideLabel}
+              orientation={slideOrientation}
+              stationId="testmarker"
+              technologyLine="programming"
+              generator
+            />
+          )}
 
-        <ImageOverlay
-          url={'./assets/Zonen.svg'}
-          bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
-        />
+          <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
 
-        {/* These are invisible helper pathes to distribute markers */}
-        {Object.keys(lineData).map((key) => (
-          <Polyline
-            key={key}
-            pathOptions={lineData[key].line.pathOptions}
-            positions={lineData[key].line.positions}
-            ref={lineRefs[key]}
-          />
-        ))}
+          <DisplayLines bounds={baseLayerBounds} />
+        </StyledMapContainer>
+
         {generator && (
-          <Station
-            position={slidePosition as LatLngExpression}
-            label={slideLabel}
-            orientation={slideOrientation}
-            stationId="testmarker"
-            technologyLine="programming"
-            generator
-          />
+          <GeneratorWrapper>
+            <MarkerGenerator
+              position={slidePosition}
+              changePosition={slidePositionSet}
+              label={slideLabel}
+              changeLabel={slideLabelSet}
+              orientation={slideOrientation}
+              changeOrientation={slideOrientationSet}
+              mapRef={mapRef}
+            />
+            <BackLink to="/">
+              <img src="./assets/arrow-left.svg" alt="arrow left" />
+              Main Page
+            </BackLink>
+          </GeneratorWrapper>
         )}
-
-        <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
-
-        <DisplayLines bounds={baseLayerBounds} />
-      </StyledMapContainer>
-
-      {generator && (
-        <GeneratorWrapper>
-          <MarkerGenerator
-            position={slidePosition}
-            changePosition={slidePositionSet}
-            label={slideLabel}
-            changeLabel={slideLabelSet}
-            orientation={slideOrientation}
-            changeOrientation={slideOrientationSet}
-            mapRef={mapRef}
-          />
-          <BackLink to="/">
-            <img src="./assets/arrow-left.svg" alt="arrow left" />
-            Main Page
-          </BackLink>
-        </GeneratorWrapper>
-      )}
-    </MapWrapper>
+      </MapWrapper>
+      <DesktopFooterWrapper>
+        <Footer />
+      </DesktopFooterWrapper>
+    </PageWrapper>
   )
 }

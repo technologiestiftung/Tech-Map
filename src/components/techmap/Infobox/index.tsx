@@ -6,10 +6,12 @@ import { ActiveTechInfo } from './ActiveTechInfo'
 import { LogoArea } from './LogoArea'
 import content, { Technology } from '../../../i18n/digital-services-de'
 import { useTranslation } from 'react-i18next'
+import { Footer } from '../../Footer'
 
 const StyledInfobox = styled.div`
   width: 100%;
   z-index: 2000;
+  max-height: 100%;
   background: ${styles.colors.white};
   overflow: hidden;
   position: absolute;
@@ -19,7 +21,7 @@ const StyledInfobox = styled.div`
   @media (min-width: ${styles.breakpoints.desktop}) {
     z-index: 0;
     width: 29rem;
-    height: 100vh;
+    height: 100%;
     position: relative;
     bottom: 0;
     left: 0;
@@ -44,7 +46,6 @@ const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-end;
-  /* transition: ${styles.transitions.maxHeight}; */
   width: 200%;
   overflow-x: hidden;
   transform: translateX(${(props) => (props.leftFrame ? 0 : '-50%')});
@@ -55,7 +56,7 @@ const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
     transition: ${styles.transitions.all};
     width: 45rem;
     max-width: 200%;
-    max-height: 100vh;
+    max-height: calc(100vh - 7rem);
     z-index: 0;
     box-shadow: ${styles.boxShadow};
     position: relative;
@@ -63,7 +64,6 @@ const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
 `
 
 const HeaderSlideContainer = styled.div`
-  max-height: 100vh;
   max-width: 50%;
   height: auto;
   padding: 0;
@@ -76,15 +76,17 @@ const HeaderSlideContainer = styled.div`
 `
 
 const SlideContainer = styled.div`
-  max-height: 100vh;
   max-width: 50%;
-  height: 100vh;
-  padding: 1.5rem 3.5rem 1.5rem 2.5rem;
+  padding: 1.5rem 3.5rem 3.5rem 2.5rem;
   display: block;
   overflow-y: scroll;
   transition: ${styles.transitions.all};
   transition-delay: 0.25s;
   flex: 1;
+
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    padding: 1.5rem 3.5rem 1.5rem 2.5rem;
+  }
 `
 
 const BackButtonMobile = styled.button`
@@ -114,6 +116,13 @@ const BackButtonDesktop = styled.button`
   color: ${styles.colors.corporateBlue};
   height: 100%;
   width: 50%;
+`
+const MobileFooterWrapper = styled.div`
+  display: block;
+  margin-left: -2.5rem;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    display: none;
+  }
 `
 
 const CloseIcon = styled.img``
@@ -182,6 +191,9 @@ export const Infobox: FC<InfoBoxProps> = ({
         <Slider leftFrame={leftFrame} inactive={!sliderVisible}>
           <SlideContainer>
             <GeneralInfo mobile />
+            <MobileFooterWrapper>
+              <Footer />
+            </MobileFooterWrapper>
           </SlideContainer>
           <SlideContainer>
             {activeTechObj && (
