@@ -31,7 +31,7 @@ export const Station: FC<StationProps> = ({
   const [transformation, transformationSet] = useState<string>(`rotate(0) translate3d(30%, 0, 0)`)
 
   const [zoomLevel, setZoomLevel] = useState(-1.75) // initial zoom level provided for MapContainer
-  const [circleWeight, circleWeightSet] = useState(Math.max(1, (zoomLevel + 2) * 3))
+  const [circleWeight, circleWeightSet] = useState(Math.max(1, (zoomLevel + 2) * 3) + 0.5)
 
   const mapEvents = useMapEvents({
     zoomend: () => {
@@ -81,7 +81,7 @@ export const Station: FC<StationProps> = ({
         break
     }
 
-    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3))
+    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3) + 0.5)
   }, [orientation, position, zoomLevel, circleWeight])
 
   useEffect(() => {
