@@ -5,9 +5,8 @@ import { Marker, MarkerProps, useMapEvents } from 'react-leaflet'
 interface HeadquaterIconProps {
   activeInstituteSet: Dispatch<SetStateAction<'cityLab' | 'digitalServices'>>
 }
-export const HeadquaterIcon: FC<HeadquaterIconProps> = ({
-  activeInstituteSet,
-}: HeadquaterIconProps) => {
+export const HeadquaterIcon: FC<HeadquaterIconProps> = ({}: // activeInstituteSet,
+HeadquaterIconProps) => {
   const [iconSize, iconSizeSet] = useState(20)
 
   const mapEvents = useMapEvents({
@@ -39,16 +38,16 @@ export const HeadquaterIcon: FC<HeadquaterIconProps> = ({
       <Marker
         position={TSBMarkerOptions.position}
         icon={TSBMarkerIcon}
-        eventHandlers={{
-          click: () => activeInstituteSet('digitalServices'),
-        }}
+        // eventHandlers={{
+        //   click: () => activeInstituteSet('digitalServices'),
+        // }}
       />
       <Marker
         position={CityLabMarkerOptions.position}
         icon={CityLabMarkerIcon}
-        eventHandlers={{
-          click: () => activeInstituteSet('cityLab'),
-        }}
+        // eventHandlers={{
+        //   click: () => activeInstituteSet('cityLab'),
+        // }}
       />
     </>
   )

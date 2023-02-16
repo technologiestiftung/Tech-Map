@@ -18,7 +18,6 @@ import { Station } from './Markers/Station'
 import { Popover } from '../Popover'
 import { TechnologyLine } from '../../i18n/digital-services-de'
 import { Footer } from '../Footer'
-import { NONAME } from 'dns'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
