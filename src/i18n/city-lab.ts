@@ -53,6 +53,7 @@ export const content: Content = {
       description:
         'Arduino designs, manufactures, and supports electronic devices and software, allowing people around the world to easily access advanced technologies that interact with the physical world. Our products are straightforward, simple, and powerful, ready to satisfy users’ needs from students to makers and all the way to professional developers.',
       link: 'https://www.arduino.cc/',
+      displayLink: 'www.figma.com',
       status: 'hauptzone',
       technologyLine: 'hardware',
       icon: { coordinates: [1153.1538978526582, 2516.3060969315156], orientation: 'E' },
@@ -61,6 +62,7 @@ export const content: Content = {
       title: 'ESP32',
       description: 'lorem ipsum',
       link: '',
+      displayLink: 'www.figma.com',
       status: 'neueZone',
       technologyLine: 'hardware',
       icon: { coordinates: [1284, 2785.353673693966], orientation: 'SW' },
@@ -70,6 +72,7 @@ export const content: Content = {
       description:
         'Figma ist unser Go-To-Tool, wenn es um grafische Arbeiten geht und deckt dabei den Workflow von Konzeption und Wireframing, über Prototyping bis zum Development-Handover des Visual Designs ab.',
       link: 'https://www.figma.com/de/',
+      displayLink: 'www.figma.com',
       status: 'hauptzone',
       technologyLine: 'tools',
       icon: { coordinates: [1114.7941992048732, 2476], orientation: 'W' },
@@ -79,6 +82,7 @@ export const content: Content = {
       description:
         'Figma ist unser Go-To-Tool, wenn es um grafische Arbeiten geht und deckt dabei den Workflow von Konzeption und Wireframing, über Prototyping bis zum Development-Handover des Visual Designs ab.',
       link: 'https://www.figma.com/de/',
+      displayLink: 'www.figma.com',
       status: 'hauptzone',
       technologyLine: 'tools',
       icon: { coordinates: [1050.7941992048732, 2476], orientation: 'W' },
@@ -88,6 +92,7 @@ export const content: Content = {
       description:
         'The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.',
       link: 'https://www.w3schools.com/html/',
+      displayLink: 'www.figma.com',
       status: 'hauptzone',
       technologyLine: 'programming',
       icon: { coordinates: [893.5394459170407, 1614], orientation: 'E' },
@@ -97,6 +102,7 @@ export const content: Content = {
       description:
         'Zur Organisation unserer Zusammenarbeit nutzen wir die verschiedenen Arten von Boards, die uns Jira zur Verfügung stellt.',
       link: 'https://jira.atlassian.com',
+      displayLink: 'www.figma.com',
       status: 'hauptzone',
       technologyLine: 'tools',
       icon: {
@@ -109,6 +115,7 @@ export const content: Content = {
       description:
         'Leaflet is an open source JavaScript library used to build web mapping applications. First released in 2011, it supports most mobile and desktop platforms, supporting HTML5 and CSS3. ',
       link: 'https://leafletjs.com/',
+      displayLink: 'www.figma.com',
       status: 'neueZone',
       technologyLine: 'frameworks',
       icon: { coordinates: [1396.8039365208926, 1844.5], orientation: 'W' },
@@ -117,6 +124,7 @@ export const content: Content = {
       title: 'VS Code',
       description: 'lorem ipsum',
       link: '',
+      displayLink: 'www.figma.com',
       status: 'neueZone',
       technologyLine: 'tools',
       icon: { coordinates: [1220.5, 2059.6665915655126], orientation: 'SE' },
