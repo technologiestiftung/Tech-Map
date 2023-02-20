@@ -71,12 +71,12 @@ export const content: Content = {
       haltezone: {
         title: 'Haltezone',
         description:
-          'Info Haltezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+          'Hier sind Technologien, die wir nicht weiter empfehlen, aber noch vereinzelt bei bereits bestehenden Projekten verwendet werden.',
       },
       wunschzone: {
         title: 'Wunschzone',
         description:
-          'Info Wartezone Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure dolorem voluptatum soluta commodi modi optio repellendus blanditiis illo nostrum id at perspiciatis ut, nobis, porro sint fuga voluptates dolorum.',
+          'Hier sammeln wir Technologien, die vielversprechend aussehen und mit denen wir vielleicht sogar bereits prototypisch gearbeitet haben, uns aber noch Erfahrungen auf Produktivumgebungen fehlen.',
       },
     },
     lines: {
@@ -106,8 +106,8 @@ export const content: Content = {
       status: 'neueZone',
       technologyLine: 'tools',
       icon: {
-        coordinates: [581, 1902.0686638121729],
-        orientation: 'SW',
+        coordinates: [489.8431110884367, 1785.5],
+        orientation: 'E',
       },
     },
     arduino: {
@@ -202,14 +202,14 @@ export const content: Content = {
     jira: {
       title: 'Atlassian Jira',
       description:
-        'Zur Organisation unserer Zusammenarbeit nutzen wir die verschiedenen Arten von Boards, die uns Jira zur Verfügung stellt.',
+        'Zur Organisation unserer Zusammenarbeit nutzten wir die verschiedenen Arten von Boards, die uns Jira zur Verfügung stellt. Wir werden zukünftig jedoch zu Asana wechselnhaltezone',
       link: 'https://jira.atlassian.com',
       displayLink: 'www.figma.com',
-      status: 'hauptzone',
+      status: 'haltezone',
       technologyLine: 'tools',
       icon: {
-        coordinates: [849, 2233.8138644783044],
-        orientation: 'NW',
+        coordinates: [400, 1785.5],
+        orientation: 'E',
       },
     },
     leaflet: {
