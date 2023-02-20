@@ -18,6 +18,14 @@ const LabeledTitle = styled.div`
   justify-content: space-between;
 `
 
+const TechnologyLink = styled.a`
+  display: block;
+  color: ${styles.colors.corporateBlue};
+  text-align: left;
+  margin-bottom: 3.25rem;
+  align-self: flex-start;
+`
+
 const LineLabel = styled(ZoneLabel)<{ zone }>`
   font-weight: 475;
   font-size: 12px;
@@ -52,6 +60,9 @@ export const ActiveTechInfo: FC<ActtiveTechInfoProps> = ({
         <LineLabel zone={activeTechObj.technologyLine}>{activeTechObj.technologyLine}</LineLabel>
       </LabeledTitle>
       <Paragraph text={activeTechObj.description} />
+      <TechnologyLink href={activeTechObj.link} target="_blank">
+        {activeTechObj.displayLink}
+      </TechnologyLink>
       <LabeledTitle>
         <Title>{t(`functionality.status`)}</Title>
         <ZoneLabel>{t(`description.zones.${activeTechObj.status}.title`)}</ZoneLabel>

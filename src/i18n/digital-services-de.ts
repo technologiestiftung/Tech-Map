@@ -14,9 +14,9 @@ export interface Technology {
   description: string
   link: string
   displayLink: string
-  status: Zone
-  technologyLine: TechnologyLine
-  icon: Icon
+  status?: Zone
+  technologyLine?: TechnologyLine
+  icon?: Icon
 }
 
 interface Topic {
@@ -334,7 +334,7 @@ export const content: Content = {
       description:
         'Node.js ist eine Laufzeitumgebung, mit der JavaScript außerhalb des Browsers ausgeführt werden kann. Als Entwicklungsserver ist es unverzichtbar, wir verwenden es aber auch in production.',
       link: 'https://nodejs.org/de/',
-      displayLink: 'https://nodejs.org/de/',
+      displayLink: 'https://nodejs.org/',
       status: 'hauptzone',
       technologyLine: 'frameworks',
       icon: { coordinates: [802, 1961.1250086655186], orientation: 'NW' },
