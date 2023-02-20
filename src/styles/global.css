@@ -77,10 +77,6 @@ button {
 .leaflet-container {background: #DBDBDB}
 .leaflet-leaflet-interactive {z-index: 1000 !important}
 .leaflet-image-layer {z-index: 0 !important}
-.leaflet-control-container.leaflet-control {
-  top: 0!important;
-  left: 0!important;
-}
 
 .invisible-marker {
   text-transform: uppercase;

@@ -179,25 +179,24 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
           <DisplayLines bounds={baseLayerBounds} />
         </StyledMapContainer>
-
-        {generator && (
-          <GeneratorWrapper>
-            <MarkerGenerator
-              position={slidePosition}
-              changePosition={slidePositionSet}
-              label={slideLabel}
-              changeLabel={slideLabelSet}
-              orientation={slideOrientation}
-              changeOrientation={slideOrientationSet}
-              mapRef={mapRef}
-            />
-            <BackLink to="/">
-              <img src="./assets/arrow-left.svg" alt="arrow left" />
-              Main Page
-            </BackLink>
-          </GeneratorWrapper>
-        )}
       </MapWrapper>
+      {generator && (
+        <GeneratorWrapper>
+          <MarkerGenerator
+            position={slidePosition}
+            changePosition={slidePositionSet}
+            label={slideLabel}
+            changeLabel={slideLabelSet}
+            orientation={slideOrientation}
+            changeOrientation={slideOrientationSet}
+            mapRef={mapRef}
+          />
+          <BackLink to="/">
+            <img src="./assets/arrow-left.svg" alt="arrow left" />
+            Main Page
+          </BackLink>
+        </GeneratorWrapper>
+      )}
       <DesktopFooterWrapper>
         <Footer />
       </DesktopFooterWrapper>
