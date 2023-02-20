@@ -49,6 +49,7 @@ const InputWrapper = styled.label`
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  margin-bottom: 1rem;
 `
 
 const DescriptionInputWrapper = styled.label`
@@ -105,6 +106,7 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
     title: label,
     description: '',
     link: '',
+    displayLink: '',
     status: 'hauptzone',
     technologyLine: activeLine,
     icon: {
@@ -134,6 +136,9 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
         break
       case 'LINK':
         dataJSONSet({ ...dataJSON, link: value })
+        break
+      case 'DISPLAYLINK':
+        dataJSONSet({ ...dataJSON, displayLink: value })
         break
       case 'TECHNOLOGY':
         dataJSONSet({ ...dataJSON, technologyLine: value })
@@ -251,9 +256,17 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
         <InputWrapper>
           Link:
           <input
-            placeholder="https://www.example.com"
+            placeholder="https://www.example.com/de/etc"
             value={dataJSON.link}
             onChange={(e) => update('LINK', e.target.value)}
+          />
+        </InputWrapper>
+        <InputWrapper>
+          Displayed Link name:
+          <input
+            placeholder="https://www.example.com"
+            value={dataJSON.displayLink}
+            onChange={(e) => update('DISPLAYLINK', e.target.value)}
           />
         </InputWrapper>
         <p>Copy\paste into data/:team.ts</p>
