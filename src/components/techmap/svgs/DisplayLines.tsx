@@ -130,7 +130,6 @@ interface DisplayLinesProps {
 }
 
 export const DisplayLines: FC<DisplayLinesProps> = ({ bounds }) => {
-  console.log(`${bounds[0][1]} ${bounds[0][0]} ${bounds[1][1]} ${bounds[1][0]}`)
   return (
     <>
       {pathes.map((path, i) => (

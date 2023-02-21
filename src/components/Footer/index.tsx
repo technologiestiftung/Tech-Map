@@ -14,7 +14,7 @@ const FooterWrapper = styled.div`
   min-height: 3.25rem;
   color: ${styles.colors.white};
   font-size: 14px;
-  font-family: Clan Pro;
+  font-family: Clan;
   background-color: ${styles.colors.corporateBlueMedium};
 
   @media (min-width: ${styles.breakpoints.desktop}) {

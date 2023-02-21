@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   border: none;
   color: ${styles.colors.white};
   background-color: ${styles.colors.corporateBlueMedium};
-  font-family: Clan Pro;
+  font-family: Clan;
   font-size: 14px;
   line-height: 24px;
   padding: 0.5rem 1rem;
