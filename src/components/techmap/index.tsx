@@ -8,7 +8,6 @@ import styles from '../../styles'
 import { Controls } from './Controls'
 import { HeadquaterIcon } from './HeadquaterIcon'
 import { Infobox } from './Infobox'
-import { LineLabel } from './LineLabel'
 import { MarkerGenerator } from './MarkerGenerator'
 import { Markers } from './Markers'
 
@@ -16,7 +15,6 @@ import { DisplayLines } from './svgs/DisplayLines'
 import { lineData } from './polygonData'
 import { Station } from './Markers/Station'
 import { Popover } from '../Popover'
-import { TechnologyLine } from '../../i18n/digital-services-de'
 import { Footer } from '../Footer'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
@@ -71,7 +69,7 @@ interface TechMapProps {
 }
 
 export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const mapRef = createRef<null | Map>()
   const programmingLineRef = createRef<PolyLineType>()
   const hardwareLineRef = createRef<PolyLineType>()
@@ -138,17 +136,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
             activeTechId={activeTechId}
             activeInstitute={activeInstitute}
           />
-
-          {Object.keys(lineData).map((lineKey) =>
-            [0, 1].map((index) => (
-              <LineLabel
-                key={lineKey + index}
-                position={lineData[lineKey].labels[index]}
-                label={t(`description.lines.${lineKey}`)}
-                line={lineKey as TechnologyLine}
-              />
-            ))
-          )}
 
           <ImageOverlay
             url={'./assets/Zonen.svg'}
