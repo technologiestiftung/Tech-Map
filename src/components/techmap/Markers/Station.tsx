@@ -66,7 +66,7 @@ export const Station: FC<StationProps> = ({
         break
       case 'NW':
         transformationSet(
-          `rotate(${'45deg'}) translate3d(calc(-100% - ${XOffset}px), ${YOffset}px, 0)`
+          `rotate(${'45deg'}) translate3d(calc(-100% - ${XOffset + 1}px), ${YOffset - 2}px, 0)`
         )
         break
       case 'W':
@@ -74,7 +74,7 @@ export const Station: FC<StationProps> = ({
         break
       case 'SW':
         transformationSet(
-          `rotate(${'-45deg'}) translate3d(calc(-100% - ${XOffset}px), ${YOffset}px, 0)`
+          `rotate(${'-45deg'}) translate3d(calc(-100% - ${XOffset}px), ${YOffset + 1}px, 0)`
         )
         break
       default:

@@ -8,10 +8,11 @@ import content, { Technology } from '../../../i18n/digital-services-de'
 import { useTranslation } from 'react-i18next'
 import { Footer } from '../../Footer'
 
-const StyledInfobox = styled.div`
+const StyledInfobox = styled.div<{ visible }>`
   width: 100%;
   z-index: 2000;
   max-height: 100%;
+  height: ${(props) => (props.visible ? '6rem' : '100vh')};
   background: ${styles.colors.white};
   overflow: hidden;
   position: absolute;
@@ -30,6 +31,7 @@ const StyledInfobox = styled.div`
 
 const MobileContent = styled.div`
   display: block;
+  height: 100vh;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: none;
   }
@@ -87,6 +89,13 @@ const SlideContainer = styled.div`
   @media (min-width: ${styles.breakpoints.desktop}) {
     padding: 1.5rem 3.5rem 1.5rem 2.5rem;
   }
+`
+
+const SlideContainerIncludingFooter = styled(SlideContainer)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 `
 
 const BackButtonMobile = styled.button`
@@ -171,7 +180,7 @@ export const Infobox: FC<InfoBoxProps> = ({
   }
 
   return (
-    <StyledInfobox>
+    <StyledInfobox visible={!sliderVisible}>
       <MobileContent>
         <LogoArea visible={!sliderVisible} activeInstitute={activeInstitute} />
         <Slider leftFrame={leftFrame} inactive={!sliderVisible}>
@@ -189,12 +198,12 @@ export const Infobox: FC<InfoBoxProps> = ({
           </HeaderSlideContainer>
         </Slider>
         <Slider leftFrame={leftFrame} inactive={!sliderVisible}>
-          <SlideContainer>
+          <SlideContainerIncludingFooter>
             <GeneralInfo mobile />
             <MobileFooterWrapper>
               <Footer />
             </MobileFooterWrapper>
-          </SlideContainer>
+          </SlideContainerIncludingFooter>
           <SlideContainer>
             {activeTechObj && (
               <ActiveTechInfo activeTechObj={activeTechObj} activeTechId={activeTechId} />
