@@ -81,7 +81,7 @@ export const Station: FC<StationProps> = ({
         break
     }
 
-    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3) + 0.5)
+    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3) + 1)
   }, [orientation, position, zoomLevel, circleWeight])
 
   useEffect(() => {
@@ -109,9 +109,12 @@ export const Station: FC<StationProps> = ({
           position: 'absolute',
           transformOrigin: 'left',
           transform: transformation,
-          fontSize: `${16 * Math.pow(2, zoomLevel)}px`,
-          color:
-            activeTechId === stationId ? styles.colors.corporateBlueMedium : styles.colors.text,
+          fontSize:
+            activeTechId === stationId
+              ? `${16 * Math.pow(2, zoomLevel) * 1.2}px`
+              : `${16 * Math.pow(2, zoomLevel)}px`,
+          fontWeight: activeTechId === stationId ? 'bold' : 'normal',
+          color: activeTechId === stationId ? rimColor : styles.colors.text,
         }}
       >
         {label}
@@ -124,12 +127,12 @@ export const Station: FC<StationProps> = ({
       <Circle
         center={position}
         pathOptions={{
-          color: activeTechId === stationId ? styles.colors.corporateBlueMedium : rimColor,
+          color: rimColor,
           fillColor: generator ? rimColor : 'white',
           fillOpacity: 1,
-          weight: circleWeight,
+          weight: activeTechId === stationId ? circleWeight * 2 : circleWeight,
         }}
-        radius={18}
+        radius={activeTechId === stationId ? 15 : 18}
         eventHandlers={{
           click: () => {
             activeTechIdSet(stationId)
