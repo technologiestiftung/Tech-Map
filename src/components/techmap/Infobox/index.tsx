@@ -122,7 +122,7 @@ const BackButtonDesktop = styled.button`
   font-size: 12px;
   padding: 0;
   padding-left: 2.25rem;
-  color: ${styles.colors.corporateBlue};
+  color: ${styles.colors.corporateBlueMedium};
   height: 100%;
   width: 50%;
 `

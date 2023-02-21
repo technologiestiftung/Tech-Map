@@ -13,7 +13,7 @@ export const ZoneLabel = styled.h3`
   font-size: 18px;
   margin-bottom: 0.5rem;
   background: ${styles.colors.gray_05};
-  color: ${styles.colors.corporateBlue};
+  color: ${styles.colors.corporateBlueMedium};
   font-weight: 450;
   font-size: 14px;
   height: 1.5rem;

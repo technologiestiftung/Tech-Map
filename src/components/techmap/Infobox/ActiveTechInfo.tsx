@@ -20,7 +20,7 @@ const LabeledTitle = styled.div`
 
 const TechnologyLink = styled.a`
   display: block;
-  color: ${styles.colors.corporateBlue};
+  color: ${styles.colors.corporateBlueMedium};
   text-align: left;
   margin-bottom: 3.25rem;
   align-self: flex-start;
@@ -37,7 +37,7 @@ const LineLabel = styled(ZoneLabel)<{ zone }>`
       ? styles.colors.lineHardware
       : props.zone == 'programming'
       ? styles.colors.lineProgramming
-      : styles.colors.corporateBlue};
+      : styles.colors.corporateBlueMedium};
   color: ${styles.colors.white};
   padding: 0 0.5rem;
   width: fit-content;

@@ -27,7 +27,7 @@ export const Station: FC<StationProps> = ({
   activeTechIdSet,
   activeTechId,
 }: StationProps) => {
-  const [rimColor, rimColorSet] = useState(styles.colors.corporateBlue)
+  const [rimColor, rimColorSet] = useState(styles.colors.corporateBlueMedium)
   const [transformation, transformationSet] = useState<string>(`rotate(0) translate3d(30%, 0, 0)`)
 
   const [zoomLevel, setZoomLevel] = useState(-1.75) // initial zoom level provided for MapContainer
@@ -93,7 +93,7 @@ export const Station: FC<StationProps> = ({
       ? styles.colors.lineTools
       : technologyLine === 'hardware'
       ? styles.colors.lineHardware
-      : styles.colors.corporateBlue
+      : styles.colors.corporateBlueMedium
 
     rimColorSet(newRimColor)
     setZoomLevel(mapEvents.getZoom())
