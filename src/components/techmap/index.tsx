@@ -29,10 +29,11 @@ const PageWrapper = styled.div`
   flex-direction: column;
 `
 
-const MapWrapper = styled.div`
+const MapWrapper = styled.div<{ generator }>`
   width: 100vw;
   height: calc(100vh - 100px);
   display: flex;
+  padding-top: ${(props) => (props.generator ? '16rem' : '')};
 
   @media (min-width: ${styles.breakpoints.desktop}) {
     height: calc(100vh - 3.25rem);
@@ -108,13 +109,15 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
   return (
     <PageWrapper>
-      <MapWrapper>
+      <MapWrapper generator={generator}>
         {showPopover && <Popover closePopover={() => showPopoverSet(false)} />}
-        <Infobox
-          activeTechId={activeTechId}
-          activeInstitute={activeInstitute}
-          unmountTechnology={() => activeTechIdSet(null)}
-        />
+        {!generator && (
+          <Infobox
+            activeTechId={activeTechId}
+            activeInstitute={activeInstitute}
+            unmountTechnology={() => activeTechIdSet(null)}
+          />
+        )}
         <StyledMapContainer
           center={[1024, 2048]}
           crs={CRS.Simple}

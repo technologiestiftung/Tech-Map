@@ -40,6 +40,7 @@ const DesktopContent = styled.div`
   display: none;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: block;
+    height: 100%;
   }
 `
 
@@ -62,7 +63,12 @@ const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
     z-index: 0;
     box-shadow: ${styles.boxShadow};
     position: relative;
+    justify-content: stretch;
   }
+`
+
+const BottomSlider = styled(Slider)`
+  height: 100%;
 `
 
 const HeaderSlideContainer = styled.div`
@@ -224,7 +230,7 @@ export const Infobox: FC<InfoBoxProps> = ({
             </BackButtonDesktop>
           </HeaderSlideContainer>
         </Slider>
-        <Slider leftFrame={leftFrame} inactive={sliderVisible}>
+        <BottomSlider leftFrame={leftFrame} inactive={sliderVisible}>
           <SlideContainer>
             <GeneralInfo />
           </SlideContainer>
@@ -233,7 +239,7 @@ export const Infobox: FC<InfoBoxProps> = ({
               <ActiveTechInfo activeTechObj={activeTechObj} activeTechId={activeTechId} />
             )}
           </SlideContainer>
-        </Slider>
+        </BottomSlider>
       </DesktopContent>
     </StyledInfobox>
   )

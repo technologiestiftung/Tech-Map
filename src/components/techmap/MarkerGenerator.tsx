@@ -12,11 +12,22 @@ const SliderWrapper = styled.div`
   width: 100vw;
 `
 
+const FreeObjects = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100vw;
+  background-color: white;
+  top: 0;
+  align-items: center;
+  padding: 1rem;
+`
+
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0 auto 2rem;
+  margin: 0 1rem 2rem;
   flex: 1;
   max-width: 600px;
 `
@@ -30,15 +41,24 @@ const OrientationWrapper = styled.div`
 
 const RadioWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 0.5rem;
   text-align: left;
   margin: 1rem 0;
+  border: solid 1px gray;
+  padding: 1rem;
 `
 
 const RangeSlider = styled.input`
   width: 100%;
   margin: 1rem 0;
+`
+
+const FlexRow = styled.div`
+  display: flex;
+  width: 100vw;
+  gap: 1rem;
+  padding: 0 1rem;
 `
 
 const Input = styled.input`
@@ -165,67 +185,59 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
 
   return (
     <SliderWrapper>
+      <FreeObjects>
+        <FlexRow>
+          <InputWrapper>
+            Title:
+            <input value={label} onChange={(e) => update('TITLE', e.target.value)} />
+          </InputWrapper>
+          <SliderInputWrapper>
+            Position:
+            <RangeSlider
+              type="range"
+              min="0"
+              max="100"
+              value={initialRange}
+              onChange={(e) => update('POSITION', e.target.value)}
+            />
+          </SliderInputWrapper>
+        </FlexRow>
+        <FlexRow>
+          <RadioWrapper>
+            Line:
+            {Object.keys(lineData).map((line) => (
+              <label key={line}>
+                <Input
+                  type="radio"
+                  name="line"
+                  value={line}
+                  checked={line === activeLine}
+                  onChange={(e) => update('TECHNOLOGY', e.target.value)}
+                />
+                {line}
+              </label>
+            ))}
+          </RadioWrapper>
+          <OrientationWrapper>
+            <RadioWrapper>
+              Orientation:
+              {[...eastOrientations, ...westOrientations].map((direction) => (
+                <label key={direction}>
+                  <Input
+                    type="radio"
+                    name="orientation"
+                    value={direction}
+                    checked={direction === orientation}
+                    onChange={(e) => update('ORIENTATION', e.target.value)}
+                  />
+                  {direction}
+                </label>
+              ))}
+            </RadioWrapper>
+          </OrientationWrapper>
+        </FlexRow>
+      </FreeObjects>
       <Column>
-        <RadioWrapper>
-          Line:
-          {Object.keys(lineData).map((line) => (
-            <label key={line}>
-              <Input
-                type="radio"
-                name="line"
-                value={line}
-                checked={line === activeLine}
-                onChange={(e) => update('TECHNOLOGY', e.target.value)}
-              />
-              {line}
-            </label>
-          ))}
-        </RadioWrapper>
-        <SliderInputWrapper>
-          Position:
-          <RangeSlider
-            type="range"
-            min="0"
-            max="100"
-            value={initialRange}
-            onChange={(e) => update('POSITION', e.target.value)}
-          />
-        </SliderInputWrapper>
-        <InputWrapper>
-          Title:
-          <input value={label} onChange={(e) => update('TITLE', e.target.value)} />
-        </InputWrapper>
-        <OrientationWrapper>
-          <RadioWrapper>
-            {westOrientations.map((direction) => (
-              <label key={direction}>
-                <Input
-                  type="radio"
-                  name="orientation"
-                  value={direction}
-                  checked={direction === orientation}
-                  onChange={(e) => update('ORIENTATION', e.target.value)}
-                />
-                {direction}
-              </label>
-            ))}
-          </RadioWrapper>
-          <p>Orientation:</p>
-          <RadioWrapper>
-            {eastOrientations.map((direction) => (
-              <label key={direction}>
-                <Input
-                  type="radio"
-                  name="orientation"
-                  value={direction}
-                  checked={direction === orientation}
-                  onChange={(e) => update('ORIENTATION', e.target.value)}
-                />
-                {direction}
-              </label>
-            ))}
-          </RadioWrapper>
-        </OrientationWrapper>
         <RadioWrapper>
           Zone:
           {zones.map((zone) => (
@@ -241,8 +253,6 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
             </label>
           ))}
         </RadioWrapper>
-      </Column>
-      <Column>
         <DescriptionInputWrapper>
           Description:
           <textarea
@@ -269,6 +279,8 @@ export const MarkerGenerator: FC<MarkerGeneratorProps> = ({
             onChange={(e) => update('DISPLAYLINK', e.target.value)}
           />
         </InputWrapper>
+      </Column>
+      <Column>
         <p>Copy\paste into data/:team.ts</p>
         <JSONDisplay>{JSON.stringify(dataJSON, null, 2)}</JSONDisplay>
         <StyledButton onClick={copyJSON}>Copy JSON</StyledButton>
