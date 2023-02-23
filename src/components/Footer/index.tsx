@@ -39,11 +39,11 @@ export const Footer = () => {
     <FooterWrapper>
       <Copyright> © 2022 Technologiestiftung Berlin</Copyright>
       <LinkWrapper>
-        <StyledLink href="https://www.technologiestiftung-berlin.de/impressum" target="_blank">
-          {t('functionality.impressum')}
-        </StyledLink>
         <StyledLink href="https://www.technologiestiftung-berlin.de/datenschutz" target="_blank">
           {t('functionality.privacyNotice')}
+        </StyledLink>
+        <StyledLink href="https://www.technologiestiftung-berlin.de/impressum" target="_blank">
+          {t('functionality.impressum')}
         </StyledLink>
       </LinkWrapper>
     </FooterWrapper>
