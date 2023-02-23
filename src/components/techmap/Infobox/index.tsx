@@ -182,7 +182,7 @@ export const Infobox: FC<InfoBoxProps> = ({
   const hideInfobox = () => {
     unmountTechnology()
     activeTechObjSet(null)
-    leftFrameSet(false)
+    leftFrameSet(true)
   }
 
   return (

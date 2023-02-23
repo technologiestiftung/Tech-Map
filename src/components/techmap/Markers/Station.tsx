@@ -31,11 +31,16 @@ export const Station: FC<StationProps> = ({
   const [transformation, transformationSet] = useState<string>(`rotate(0) translate3d(30%, 0, 0)`)
 
   const [zoomLevel, setZoomLevel] = useState(-1.75) // initial zoom level provided for MapContainer
+  const [markerOpacity, markerOpacitySet] = useState(1) // initial zoom level provided for MapContainer
   const [circleWeight, circleWeightSet] = useState(Math.max(1, (zoomLevel + 2) * 3) + 0.5)
 
   const mapEvents = useMapEvents({
+    zoomstart: () => {
+      markerOpacitySet(0)
+    },
     zoomend: () => {
       setZoomLevel(mapEvents.getZoom())
+      markerOpacitySet(1)
     },
   })
 
@@ -141,6 +146,7 @@ export const Station: FC<StationProps> = ({
       />
       <Marker
         position={position}
+        opacity={markerOpacity}
         icon={stationDivIcon}
         eventHandlers={{
           click: () => {
