@@ -2,7 +2,7 @@ import React, { FC, RefObject, useState } from 'react'
 import { useMapEvents } from 'react-leaflet'
 
 import { Map } from 'leaflet'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { ControlButton } from './ControlButton'
 import { LanguageToggle } from '../../LanguageToggle'
 

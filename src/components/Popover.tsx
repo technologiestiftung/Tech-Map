@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import styles from '../styles'
 import { Button } from './Button'
 import { LogoArea } from './techmap/Infobox/LogoArea'

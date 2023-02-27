@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { useTranslation } from 'react-i18next'
 import styles from '../../../styles'
 import { ZoneLabel } from './GeneralInfo'
@@ -22,7 +22,8 @@ const TechnologyLink = styled.a`
   display: block;
   color: ${styles.colors.corporateBlueMedium};
   text-align: left;
-  margin-bottom: 3.25rem;
+  margin-bottom: 3.5rem;
+  margin-top: -1rem;
   align-self: flex-start;
 `
 

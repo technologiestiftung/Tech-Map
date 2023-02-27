@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import styles from '../../../styles'
 import { GeneralInfo } from './GeneralInfo'
 import { ActiveTechInfo } from './ActiveTechInfo'
@@ -21,7 +21,7 @@ const StyledInfobox = styled.div<{ visible }>`
 
   @media (min-width: ${styles.breakpoints.desktop}) {
     z-index: 0;
-    width: 29rem;
+    width: 30.5rem;
     height: 100%;
     position: relative;
     bottom: 0;
@@ -41,6 +41,7 @@ const DesktopContent = styled.div`
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: block;
     height: 100%;
+    padding-bottom: 5rem;
   }
 `
 
@@ -85,7 +86,7 @@ const HeaderSlideContainer = styled.div`
 
 const SlideContainer = styled.div`
   max-width: 50%;
-  padding: 1.5rem 3.5rem 3.5rem 2.5rem;
+  padding: 1.375rem 2.75rem 3.5rem 1.5rem;
   display: block;
   overflow-y: scroll;
   transition: ${styles.transitions.all};
@@ -110,7 +111,7 @@ const BackButtonMobile = styled.button`
   align-items: center;
   border: none;
   font-size: 14px;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2rem;
   gap: 0.5rem;
   color: ${styles.colors.white};
   background-color: ${styles.colors.corporateBlueMedium};
@@ -134,7 +135,7 @@ const BackButtonDesktop = styled.button`
 `
 const MobileFooterWrapper = styled.div`
   display: block;
-  margin-left: -2.5rem;
+  margin-left: -1.5rem;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: none;
   }

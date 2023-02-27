@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import styles from '../../styles'
 import { useTranslation } from 'react-i18next'
 
@@ -8,8 +8,9 @@ const FooterWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  flex-direction: column-reverse;
+  padding: 2rem 1rem;
   gap: 2rem;
-  padding: 1rem 4.5rem;
   width: 100vw;
   min-height: 3.25rem;
   color: ${styles.colors.white};
@@ -19,6 +20,7 @@ const FooterWrapper = styled.div`
 
   @media (min-width: ${styles.breakpoints.desktop}) {
     flex-direction: row;
+    padding: 1rem 4.5rem;
   }
 `
 

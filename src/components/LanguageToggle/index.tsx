@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import styles from '../../styles'
 import { ControlButton } from '../techmap/Controls/ControlButton'
 

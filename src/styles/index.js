@@ -16,7 +16,7 @@ export default {
   },
   boxShadow: '0px 0px 1px rgba(59, 59, 58, 0.16), 0px 8px 16px rgba(59, 59, 58, 0.08)',
   breakpoints: {
-    desktop: '1040px',
+    desktop: '768px',
   },
   transitions: {
     all: 'all 330ms ease-in-out',

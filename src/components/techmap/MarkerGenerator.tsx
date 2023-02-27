@@ -1,7 +1,7 @@
 import GeometryUtil from 'leaflet-geometryutil'
 import { LatLngExpression, Map } from 'leaflet'
 import { FC, RefObject, useState } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { lineData } from './polygonData'
 
 const SliderWrapper = styled.div`

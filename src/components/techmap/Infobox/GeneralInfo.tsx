@@ -1,5 +1,5 @@
 import React, { FC, Fragment } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import styles from '../../../styles'
 import { Paragraph } from './Paragraph'
 import { Title } from './Title'
@@ -32,6 +32,10 @@ export const GeneralInfo: FC<GeneralInfoProps> = ({ mobile }: GeneralInfoProps) 
     <>
       {mobile && (
         <div>
+          <Title label={t('description.manual.usage.title')} />
+          <Paragraph text={t('description.manual.usage.description')} />
+          <Title label={t('description.manual.zones.title')} />
+          <Paragraph text={t('description.manual.zones.description')} />
           {Object.keys(content.description.zones).map((zone) => (
             <Fragment key={zone}>
               <ZoneLabel>{zone}</ZoneLabel>

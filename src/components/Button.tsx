@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import styles from '../styles'
 
 const StyledButton = styled.button`
@@ -8,8 +8,7 @@ const StyledButton = styled.button`
   background-color: ${styles.colors.corporateBlueMedium};
   font-family: Clan;
   font-size: 14px;
-  line-height: 24px;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.1rem;
   border-radius: ${styles.borderRadius};
 `
 
