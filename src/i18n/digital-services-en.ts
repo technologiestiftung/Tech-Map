@@ -193,6 +193,16 @@ export const content: Content = {
       link: 'https://www.office.com',
       displayLink: 'https://www.office.com',
     },
+    netlify: {
+      title: 'Netlify',
+      description:
+        'Netlify is our first choice for deploying all web applications thanks to its easy integration and dynamic updating. ',
+      link: 'https://www.netlify.com/',
+      displayLink: 'https://www.netlify.com/',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 1700.4509841302233], orientation: 'SE' },
+    },
     netlifyCMS: {
       title: 'NetlifyCMS',
       description:

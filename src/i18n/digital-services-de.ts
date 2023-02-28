@@ -118,7 +118,7 @@ export const content: Content = {
       displayLink: 'https://www.arduino.cc/',
       status: 'hauptzone',
       technologyLine: 'hardware',
-      icon: { coordinates: [1153.1538978526582, 2516.3060969315156], orientation: 'E' },
+      icon: { coordinates: [1140, 2516.3060969315156], orientation: 'E' },
     },
     bullseye: {
       title: 'OS Bullseye',
@@ -127,7 +127,7 @@ export const content: Content = {
       displayLink: 'https://www.raspberrypi.com',
       status: 'neueZone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [1485.0637258300196, 1844.5], orientation: 'W' },
+      icon: { coordinates: [1490, 1844.5], orientation: 'W' },
     },
     c: {
       title: 'C/C++',
@@ -157,7 +157,19 @@ export const content: Content = {
       displayLink: 'https://www.figma.com',
       status: 'hauptzone',
       technologyLine: 'tools',
-      icon: { coordinates: [1114.7941992048732, 2476], orientation: 'W' },
+      icon: { coordinates: [1100, 2476], orientation: 'W' },
+    },
+    folium: {
+      title: 'Folium',
+      description: '',
+      link: 'https://python-visualization.github.io/folium/',
+      displayLink: 'https://python-visualization.github.io/folium/',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: {
+        coordinates: [182.5, 3060],
+        orientation: 'SW',
+      },
     },
     github: {
       title: 'Github',
@@ -167,7 +179,7 @@ export const content: Content = {
       displayLink: 'https://github.com',
       status: 'hauptzone',
       technologyLine: 'tools',
-      icon: { coordinates: [890.2844445578171, 2476], orientation: 'W' },
+      icon: { coordinates: [1020, 2476], orientation: 'W' },
     },
     html: {
       title: 'HTML/CSS3',
@@ -197,7 +209,7 @@ export const content: Content = {
       displayLink: 'https://jekyllrb.com/',
       status: 'haltezone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [383, 2645], orientation: 'SW' },
+      icon: { coordinates: [370, 2720], orientation: 'SW' },
     },
     jira: {
       title: 'Atlassian Jira',
@@ -220,7 +232,7 @@ export const content: Content = {
       displayLink: 'https://leafletjs.com/',
       status: 'neueZone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [1396.8039365208926, 1844.5], orientation: 'W' },
+      icon: { coordinates: [1430, 1844.5], orientation: 'W' },
     },
     linux: {
       title: 'Linux',
@@ -231,7 +243,7 @@ export const content: Content = {
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
-        coordinates: [182.5, 2998.6423175996047],
+        coordinates: [182.5, 2990],
         orientation: 'SW',
       },
     },
@@ -254,7 +266,7 @@ export const content: Content = {
       displayLink: 'https://www.mapbox.com/',
       status: 'haltezone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [370, 2732.7377676963506], orientation: 'SW' },
+      icon: { coordinates: [370, 2790], orientation: 'SW' },
     },
     maplibre: {
       title: 'maplibre',
@@ -264,7 +276,7 @@ export const content: Content = {
       displayLink: 'https://maplibre.org',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [1882.2327777210912, 1844.5], orientation: 'E' },
+      icon: { coordinates: [1890, 1844.5], orientation: 'E' },
     },
     matomo: {
       title: 'Matomo',
@@ -309,6 +321,16 @@ export const content: Content = {
         orientation: 'SE',
       },
     },
+    netlify: {
+      title: 'Netlify',
+      description:
+        'Netlify ist danke seiner einfachen Integrierung und dem dynamischen Updaten unsere erste Wahl zum deployen von allen Web-Anwendungen. ',
+      link: 'https://www.netlify.com/',
+      displayLink: 'https://www.netlify.com/',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 1700.4509841302233], orientation: 'SE' },
+    },
     netlifyCMS: {
       title: 'NetlifyCMS',
       description:
@@ -317,7 +339,7 @@ export const content: Content = {
       displayLink: 'https://www.netlifycms.org/',
       status: 'hauptzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [802, 1872.8652193563917], orientation: 'NW' },
+      icon: { coordinates: [802, 1870], orientation: 'NW' },
     },
     newsletterToGo: {
       title: 'Newsletter2Go/SendInBlue',
@@ -337,7 +359,7 @@ export const content: Content = {
       displayLink: 'https://nodejs.org/',
       status: 'hauptzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [802, 1961.1250086655186], orientation: 'NW' },
+      icon: { coordinates: [802, 1960], orientation: 'NW' },
     },
     penpot: {
       title: 'Penpot',
@@ -356,7 +378,7 @@ export const content: Content = {
       displayLink: '',
       status: 'hauptzone',
       technologyLine: 'programming',
-      icon: { coordinates: [1140, 1614], orientation: 'E' },
+      icon: { coordinates: [1110, 1614], orientation: 'E' },
     },
     raspberryPy: {
       title: 'Raspberry Pi',
@@ -366,7 +388,7 @@ export const content: Content = {
       displayLink: 'https://www.raspberrypi.com',
       status: 'hauptzone',
       technologyLine: 'hardware',
-      icon: { coordinates: [1046.8976958554254, 2516.493669410175], orientation: 'E' },
+      icon: { coordinates: [1060, 2516.493669410175], orientation: 'E' },
     },
     react: {
       title: 'React/Next.js',
@@ -376,7 +398,7 @@ export const content: Content = {
       displayLink: 'https://nextjs.org/',
       status: 'hauptzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [802, 2049.384797974645], orientation: 'NW' },
+      icon: { coordinates: [802, 2050], orientation: 'NW' },
     },
     sass: {
       title: 'Sass/SCSS',
@@ -409,7 +431,19 @@ export const content: Content = {
       displayLink: 'https://www.solidjs.com/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [1838.1028830665273, 1844.5], orientation: 'E' },
+      icon: { coordinates: [1830, 1844.5], orientation: 'E' },
+    },
+    strapi: {
+      title: 'Strapi',
+      description: '',
+      link: '',
+      displayLink: '',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: {
+        coordinates: [182.5, 3130],
+        orientation: 'SW',
+      },
     },
     tailwind: {
       title: 'Tailwind',
@@ -439,7 +473,7 @@ export const content: Content = {
       displayLink: 'https://typo3.org/',
       status: 'haltezone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [1749.8430937574008, 1844.5], orientation: 'W' },
+      icon: { coordinates: [1710, 1844.5], orientation: 'W' },
     },
     vscode: {
       title: 'VS Code',
@@ -459,7 +493,7 @@ export const content: Content = {
       displayLink: 'https://vuejs.org/',
       status: 'haltezone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [1630, 1844.5], orientation: 'W' },
+      icon: { coordinates: [1650, 1844.5], orientation: 'W' },
     },
     wordpress: {
       title: 'Wordpress',
@@ -469,7 +503,7 @@ export const content: Content = {
       displayLink: 'https://wordpress.com/',
       status: 'haltezone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [370, 2820.997557005478], orientation: 'SW' },
+      icon: { coordinates: [370, 2860], orientation: 'SW' },
     },
   },
   functionality: {
