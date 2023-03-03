@@ -31,7 +31,7 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
       position: {
         mobile: {
           left: 8,
-          bottom: 72,
+          bottom: 82,
         },
       },
       icon: '../assets/info.svg',
@@ -41,11 +41,11 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
       position: {
         mobile: {
           right: 8,
-          bottom: 16,
+          bottom: 26,
         },
         desktop: {
           right: 24,
-          bottom: 16,
+          bottom: 40,
         },
       },
       icon: '../assets/minus.svg',
@@ -55,11 +55,11 @@ export const Controls: FC<ControlsProps> = ({ mapRef, activeTechIdSet }: Control
       position: {
         mobile: {
           right: 8,
-          bottom: 72,
+          bottom: 82,
         },
         desktop: {
           right: 24,
-          bottom: 56,
+          bottom: 80,
         },
       },
       icon: '../assets/plus.svg',

@@ -8,7 +8,7 @@ const buttonStats = {
   buttonPosition: {
     mobile: {
       left: 8,
-      bottom: 16,
+      bottom: 26,
     },
     desktop: {
       right: 24,
@@ -18,7 +18,7 @@ const buttonStats = {
   togglePosition: {
     mobile: {
       left: 64,
-      bottom: 16,
+      bottom: 26,
     },
     desktop: {
       right: 24,

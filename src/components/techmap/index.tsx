@@ -154,10 +154,8 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           scrollWheelZoom={true}
           style={mapContainerStyles}
           ref={mapRef}
-          attributionControl={false}
         >
           <Controls mapRef={mapRef} activeTechIdSet={setTechId} />
-          <AttributionControl position="topleft" />
           <Markers
             activeTechIdSet={setTechId}
             activeTechId={activeTechId}
