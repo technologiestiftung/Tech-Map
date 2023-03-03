@@ -10,9 +10,9 @@ import { Footer } from '../../Footer'
 
 const StyledInfobox = styled.div<{ visible }>`
   width: 100%;
-  z-index: 2000;
+  z-index: 20000;
   max-height: 100%;
-  height: ${(props) => (props.visible ? '6rem' : '100vh')};
+  height: ${(props) => (props.visible ? '0' : '100vh')};
   background: ${styles.colors.white};
   overflow: hidden;
   position: absolute;
@@ -20,11 +20,12 @@ const StyledInfobox = styled.div<{ visible }>`
   transition: ${styles.transitions.hight};
 
   @media (min-width: ${styles.breakpoints.desktop}) {
-    z-index: 0;
-    width: 30.5rem;
+    z-index: 3000;
+    grid-area: infobox;
+    width: 21.25rem;
     height: 100%;
     position: relative;
-    bottom: 0;
+    top: 0;
     left: 0;
   }
 `
@@ -94,7 +95,7 @@ const SlideContainer = styled.div`
   flex: 1;
 
   @media (min-width: ${styles.breakpoints.desktop}) {
-    padding: 1.5rem 3.5rem 1.5rem 2.5rem;
+    padding: 1.5rem 3.5rem 3.5rem 2.5rem;
   }
 `
 
@@ -189,7 +190,6 @@ export const Infobox: FC<InfoBoxProps> = ({
   return (
     <StyledInfobox visible={!sliderVisible}>
       <MobileContent>
-        <LogoArea visible={!sliderVisible} activeInstitute={activeInstitute} />
         <Slider leftFrame={leftFrame} inactive={!sliderVisible}>
           <HeaderSlideContainer>
             <BackButtonMobile onClick={() => hideInfobox()}>

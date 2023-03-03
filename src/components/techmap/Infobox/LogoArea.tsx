@@ -5,8 +5,9 @@ import styles from '../../../styles'
 const StyledLogoArea = styled.div<{ visible?: boolean }>`
   align-items: center;
   justify-content: center;
+  grid-area: logo;
   gap: 1.5rem;
-  width: 100%;
+  width: inherit;
   display: ${(props) => (props.visible ? 'flex' : 'none')};
   position: relative;
   padding: 1.3rem 0 1.3rem;
@@ -14,6 +15,8 @@ const StyledLogoArea = styled.div<{ visible?: boolean }>`
 
   @media (min-width: ${styles.breakpoints.desktop}) {
     padding: 29px 0 24px;
+    grid-area: none;
+    width: 100%;
   }
 `
 

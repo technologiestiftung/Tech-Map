@@ -16,6 +16,7 @@ import { lineData } from './polygonData'
 import { Station } from './Markers/Station'
 import { Popover } from '../Popover'
 import { Footer } from '../Footer'
+import { LogoArea } from './Infobox/LogoArea'
 
 const baseLayerBounds: LatLngBoundsLiteral = [
   [0, 0],
@@ -25,25 +26,39 @@ const baseLayerBounds: LatLngBoundsLiteral = [
 const PageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 `
 
 const MapWrapper = styled.div<{ generator }>`
+  display: grid;
   width: 100vw;
-  height: calc(100vh - 100px);
-  display: flex;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas:
+    'logo'
+    'map';
   padding-top: ${(props) => (props.generator ? '16rem' : '')};
 
   @media (min-width: ${styles.breakpoints.desktop}) {
-    height: calc(100vh - 3.25rem);
+    grid-template-columns: 21.25rem 1fr;
+    grid-template-rows: 1fr 3.5rem;
+    grid-template-areas: ${(props) =>
+      props.generator
+        ? `
+        'map map'
+        'footer footer'
+      `
+        : `
+        'infobox map'
+        'footer footer'
+      `};
   }
 `
 
 const StyledMapContainer = styled(MapContainer)`
-  transform: translateY(100px);
   @media (min-width: ${styles.breakpoints.desktop}) {
     transform: translateY(0);
+    grid-area: map;
   }
 `
 
@@ -58,10 +73,16 @@ const BackLink = styled(Link)`
   align-items: center;
 `
 
-const DesktopFooterWrapper = styled.div`
+const ShowDesktop = styled.div`
   display: none;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: block;
+  }
+`
+const ShowMobile = styled.div`
+  display: block;
+  @media (min-width: ${styles.breakpoints.desktop}) {
+    display: none;
   }
 `
 
@@ -71,13 +92,13 @@ interface TechMapProps {
 
 export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
   const { i18n } = useTranslation()
-  const mapRef = createRef<null | Map>()
+  const mapRef = createRef<Map>()
   const programmingLineRef = createRef<PolyLineType>()
   const hardwareLineRef = createRef<PolyLineType>()
   const frameworkLineRef = createRef<PolyLineType>()
   const toolLineRef = createRef<PolyLineType>()
 
-  const locale = useParams().locale
+  const { locale } = useParams()
 
   useEffect(() => {
     i18n.changeLanguage(locale)
@@ -111,6 +132,9 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
     <PageWrapper>
       <MapWrapper generator={generator}>
         {showPopover && <Popover closePopover={() => showPopoverSet(false)} />}
+        <ShowMobile>
+          <LogoArea visible={true} activeInstitute={activeInstitute} />
+        </ShowMobile>
         {!generator && (
           <Infobox
             activeTechId={activeTechId}
@@ -169,6 +193,9 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
 
           <DisplayLines bounds={baseLayerBounds} />
         </StyledMapContainer>
+        <ShowDesktop>
+          <Footer />
+        </ShowDesktop>
       </MapWrapper>
       {generator && (
         <GeneratorWrapper>
@@ -187,9 +214,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           </BackLink>
         </GeneratorWrapper>
       )}
-      <DesktopFooterWrapper>
-        <Footer />
-      </DesktopFooterWrapper>
     </PageWrapper>
   )
 }

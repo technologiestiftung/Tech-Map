@@ -22,12 +22,15 @@ const Backdrop = styled.div`
 `
 
 const Screen = styled.div`
-  padding: 0 1.5rem 2rem;
+  padding: 0 auto 2rem;
   max-width: 90%;
   max-height: 90%;
   width: 20rem;
   background-color: ${styles.colors.white};
   border-radius: ${styles.borderRadius};
+`
+const ContentArea = styled.div`
+  padding: 0 1.5rem 1.5rem;
 `
 
 interface PopoverProps {
@@ -41,8 +44,13 @@ export const Popover: FC<PopoverProps> = ({ closePopover }: PopoverProps) => {
     <Backdrop>
       <Screen>
         <LogoArea visible={true} activeInstitute={'digitalServices'} />
-        <Paragraph text={t('description.disclaimer')} fontSize="1rem" />
-        <Button label={t('functionality.buttonClosePopover')} clickHandler={() => closePopover()} />
+        <ContentArea>
+          <Paragraph text={t('description.disclaimer')} fontSize="1rem" />
+          <Button
+            label={t('functionality.buttonClosePopover')}
+            clickHandler={() => closePopover()}
+          />
+        </ContentArea>
       </Screen>
     </Backdrop>
   )

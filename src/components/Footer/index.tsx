@@ -4,10 +4,10 @@ import styles from '../../styles'
 import { useTranslation } from 'react-i18next'
 
 const FooterWrapper = styled.div`
+  grid-area: footer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: column;
   flex-direction: column-reverse;
   padding: 2rem 1rem;
   gap: 2rem;
@@ -21,6 +21,7 @@ const FooterWrapper = styled.div`
   @media (min-width: ${styles.breakpoints.desktop}) {
     flex-direction: row;
     padding: 1rem 4.5rem;
+    z-index: 4000;
   }
 `
 

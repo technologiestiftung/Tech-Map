@@ -41,7 +41,6 @@ const OrientationWrapper = styled.div`
 
 const RadioWrapper = styled.div`
   display: flex;
-  /* flex-direction: column; */
   gap: 0.5rem;
   text-align: left;
   margin: 1rem 0;
