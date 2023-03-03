@@ -4,7 +4,9 @@ export const content: Content = {
   description: {
     title: 'Tech Map',
     subTitle: 'Digital Service Team',
-    disclaimer:
+    disclaimerDesktop:
+      'Welcome to our Tech Map. \n\nOn this map we locate and categorize the technologies we use.\n\n To get more information about a tool you can select the individual stations on the map.',
+    disclaimerMobile:
       'Welcome to our Tech Map. \n\nOn this map we locate and categorize the technologies we use.\n\n More information on how to use the map can be found in our info box, which can be opened by clicking the button below.',
     manual: {
       usage: {

@@ -26,9 +26,6 @@ const buttonStats = {
     },
   },
   icon: '../assets/globe.svg',
-  clickHandler: () => {
-    console.log('lang')
-  },
 }
 
 const MobileToggle = styled.div<{ position }>`
@@ -94,16 +91,17 @@ export const LanguageToggle: FC = () => {
   return (
     <>
       <ControlButton
+        languageToggle
         icon={buttonStats.icon}
         position={buttonStats.buttonPosition}
         clickHandler={() => toggleOpenSet(!toggleOpen)}
       />
       {toggleOpen && (
         <MobileToggle position={buttonStats.togglePosition}>
-          <LangButton active={locale === 'de'} to="/de">
+          <LangButton active={locale === 'de'} to="/de" onClick={() => toggleOpenSet(!toggleOpen)}>
             DE
           </LangButton>
-          <LangButton active={locale === 'en'} to="/en">
+          <LangButton active={locale === 'en'} to="/en" onClick={() => toggleOpenSet(!toggleOpen)}>
             EN
           </LangButton>
         </MobileToggle>

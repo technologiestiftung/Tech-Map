@@ -38,7 +38,7 @@ export const GeneralInfo: FC<GeneralInfoProps> = ({ mobile }: GeneralInfoProps) 
           <Paragraph text={t('description.manual.zones.description')} />
           {Object.keys(content.description.zones).map((zone) => (
             <Fragment key={zone}>
-              <ZoneLabel>{zone}</ZoneLabel>
+              <ZoneLabel>{t(`description.zones.${zone}.title`)}</ZoneLabel>
               <Paragraph marginLeft text={t(`description.zones.${zone}.description`)} />
             </Fragment>
           ))}
@@ -46,9 +46,7 @@ export const GeneralInfo: FC<GeneralInfoProps> = ({ mobile }: GeneralInfoProps) 
       )}
       {!mobile && (
         <>
-          <Paragraph text={t('description.disclaimer')} />
-          <Title label={t('description.manual.usage.title')} />
-          <Paragraph text={t('description.manual.usage.description')} />
+          <Paragraph text={t('description.disclaimerDesktop')} />
           <Title label={t('description.manual.zones.title')} />
           <Paragraph text={t('description.manual.zones.description')} />
 

@@ -45,7 +45,7 @@ export const Popover: FC<PopoverProps> = ({ closePopover }: PopoverProps) => {
       <Screen>
         <LogoArea visible={true} activeInstitute={'digitalServices'} />
         <ContentArea>
-          <Paragraph text={t('description.disclaimer')} fontSize="1rem" />
+          <Paragraph text={t('description.disclaimerMobile')} fontSize="1rem" />
           <Button
             label={t('functionality.buttonClosePopover')}
             clickHandler={() => closePopover()}

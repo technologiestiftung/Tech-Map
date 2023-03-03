@@ -38,10 +38,10 @@ const ButtonWrapper = styled.button<{ position }>`
   }
 `
 
-const Icon = styled.img`
+const Icon = styled.img<{ languageToggle }>`
   width: 2rem;
   @media (min-width: ${styles.breakpoints.desktop}) {
-    width: 1rem;
+    width: ${(props) => (props.languageToggle ? '1.25rem' : '1rem')};
   }
 `
 export interface Positions {
@@ -53,6 +53,7 @@ export interface Positions {
 
 interface ControlButtonProps {
   icon: string
+  languageToggle?: boolean
   position: {
     mobile?: Positions
     desktop?: Positions
@@ -61,12 +62,13 @@ interface ControlButtonProps {
 }
 export const ControlButton: FC<ControlButtonProps> = ({
   icon,
+  languageToggle,
   position,
   clickHandler,
 }: ControlButtonProps) => {
   return (
     <ButtonWrapper position={position} onClick={() => clickHandler()}>
-      <Icon src={icon} alt="control-icon" />
+      <Icon src={icon} alt="control-icon" languageToggle={languageToggle} />
     </ButtonWrapper>
   )
 }
