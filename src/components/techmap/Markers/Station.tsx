@@ -86,7 +86,7 @@ export const Station: FC<StationProps> = ({
         break
     }
 
-    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3) + 1)
+    circleWeightSet(Math.max(1, (zoomLevel + 2) * 3) + 1.5)
   }, [orientation, position, zoomLevel, circleWeight])
 
   useEffect(() => {

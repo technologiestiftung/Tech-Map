@@ -142,13 +142,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
             unmountTechnology={() => activeTechIdSet(null)}
           />
         )}
-        {/* 
-        fadeAnimation?: boolean | undefined;
-        markerZoomAnimation?: boolean | undefined;
-        transform3DLimit?: number | undefined;
-        zoomAnimation?: boolean | undefined;
-        zoomAnimationThreshold?: number | undefined;
-        */}
         <StyledMapContainer
           center={[1024, 2048]}
           crs={CRS.Simple}
@@ -173,7 +166,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           />
 
           <ImageOverlay
-            url={'./assets/Zonen.svg'}
+            url={'./assets/map-including-lines.svg'}
             bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
           />
 
@@ -198,8 +191,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           )}
 
           <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
-
-          <DisplayLines bounds={baseLayerBounds} />
         </StyledMapContainer>
         <ShowDesktop>
           <Footer />
