@@ -163,7 +163,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           />
 
           <ImageOverlay
-            url={'./assets/Zonen.svg'}
+            url={'./assets/map-including-lines.svg'}
             bounds={[baseLayerBounds[0], [baseLayerBounds[1][0] + 204, baseLayerBounds[1][1]]]}
           />
 
@@ -188,8 +188,6 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           )}
 
           <HeadquaterIcon activeInstituteSet={activeInstituteSet} />
-
-          <DisplayLines bounds={baseLayerBounds} />
         </StyledMapContainer>
         <ShowDesktop>
           <Footer />
