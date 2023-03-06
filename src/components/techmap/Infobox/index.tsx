@@ -32,7 +32,7 @@ const StyledInfobox = styled.div<{ visible }>`
 
 const MobileContent = styled.div`
   display: block;
-  height: 100vh;
+  height: 100%;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: none;
   }
@@ -41,7 +41,7 @@ const DesktopContent = styled.div`
   display: none;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: block;
-    height: 100%;
+    height: 100vh;
     padding-bottom: 5rem;
   }
 `

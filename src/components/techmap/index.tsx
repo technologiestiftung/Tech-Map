@@ -23,14 +23,13 @@ const baseLayerBounds: LatLngBoundsLiteral = [
 ]
 
 const PageWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
 `
 
 const MapWrapper = styled.div<{ generator }>`
   display: grid;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr;
   grid-template-areas:
@@ -39,6 +38,7 @@ const MapWrapper = styled.div<{ generator }>`
   padding-top: ${(props) => (props.generator ? '16rem' : '')};
 
   @media (min-width: ${styles.breakpoints.desktop}) {
+    height: 100vh;
     grid-template-columns: 21.25rem 1fr;
     grid-template-rows: 1fr 3.5rem;
     grid-template-areas: ${(props) =>

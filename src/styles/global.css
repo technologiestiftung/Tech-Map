@@ -18,6 +18,7 @@
 
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-header {
@@ -58,11 +59,17 @@ html {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  height: 100%;
 }
 
 body {
   margin: 0;
   font-family: Clan;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
 
 button {
