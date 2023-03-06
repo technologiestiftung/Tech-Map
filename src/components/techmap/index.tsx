@@ -11,7 +11,6 @@ import { Infobox } from './Infobox'
 import { MarkerGenerator } from './MarkerGenerator'
 import { Markers } from './Markers'
 
-import { DisplayLines } from './svgs/DisplayLines'
 import { lineData } from './polygonData'
 import { Station } from './Markers/Station'
 import { Popover } from '../Popover'
