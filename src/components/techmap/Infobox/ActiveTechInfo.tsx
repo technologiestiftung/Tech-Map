@@ -51,18 +51,19 @@ interface ActtiveTechInfoProps {
 }
 export const ActiveTechInfo: FC<ActtiveTechInfoProps> = ({
   activeTechObj,
+  activeTechId,
 }: ActtiveTechInfoProps) => {
   const { t } = useTranslation()
   return (
     <>
-      <Header center>{activeTechObj.title}</Header>
+      <Header center>{t(`technologies.${activeTechId}.title`)}</Header>
       <LabeledTitle>
         <Title>{t(`functionality.description`)}</Title>
         <LineLabel zone={activeTechObj.technologyLine}>{activeTechObj.technologyLine}</LineLabel>
       </LabeledTitle>
-      <Paragraph text={activeTechObj.description} />
-      <TechnologyLink href={activeTechObj.link} target="_blank">
-        {activeTechObj.displayLink}
+      <Paragraph text={t(`technologies.${activeTechId}.description`)} />
+      <TechnologyLink href={t(`technologies.${activeTechId}.link`)} target="_blank">
+        {t(`technologies.${activeTechId}.displayLink`)}
       </TechnologyLink>
       <LabeledTitle>
         <Title>{t(`functionality.status`)}</Title>

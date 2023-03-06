@@ -12,7 +12,7 @@ const StyledInfobox = styled.div<{ visible }>`
   width: 100%;
   z-index: 20000;
   max-height: 100%;
-  height: ${(props) => (props.visible ? '0' : '100vh')};
+  height: ${(props) => (props.visible ? '0' : '100%')};
   background: ${styles.colors.white};
   overflow: hidden;
   position: absolute;
