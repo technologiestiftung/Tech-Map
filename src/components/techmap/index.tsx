@@ -159,6 +159,8 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           minZoom={-1.75}
           zoomControl={false}
           zoomAnimation={false}
+          markerZoomAnimation={false}
+          fadeAnimation={false}
           scrollWheelZoom={true}
           style={mapContainerStyles}
           ref={mapRef}
