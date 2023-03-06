@@ -142,6 +142,13 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
             unmountTechnology={() => activeTechIdSet(null)}
           />
         )}
+        {/* 
+        fadeAnimation?: boolean | undefined;
+        markerZoomAnimation?: boolean | undefined;
+        transform3DLimit?: number | undefined;
+        zoomAnimation?: boolean | undefined;
+        zoomAnimationThreshold?: number | undefined;
+        */}
         <StyledMapContainer
           center={[1024, 2048]}
           crs={CRS.Simple}
@@ -151,6 +158,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
           maxZoom={2}
           minZoom={-1.75}
           zoomControl={false}
+          zoomAnimation={false}
           scrollWheelZoom={true}
           style={mapContainerStyles}
           ref={mapRef}

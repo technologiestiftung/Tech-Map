@@ -19,10 +19,14 @@ export default {
     desktop: '1040px',
   },
   transitions: {
-    all: 'all 330ms ease-in-out',
-    height: 'height 330ms ease-in-out',
-    maxHeight: 'max-height 330ms ease-in-out',
-    transform: 'transform 330ms ease-in-out',
+    all: 'none',
+    height: 'none',
+    maxHeight: 'none',
+    transform: 'none',
+    // all: 'all 330ms ease-in-out',
+    // height: 'height 330ms ease-in-out',
+    // maxHeight: 'max-height 330ms ease-in-out',
+    // transform: 'transform 330ms ease-in-out',
   },
   borderRadius: '.25rem',
 }
