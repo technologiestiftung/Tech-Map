@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 
 const Backdrop = styled.div`
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-color: #3b3b3a99;
   z-index: 20000;

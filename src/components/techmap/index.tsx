@@ -78,8 +78,10 @@ const ShowDesktop = styled.div`
     display: block;
   }
 `
-const ShowMobile = styled.div`
+const MobileHeader = styled.div`
   display: block;
+  box-shadow: ${styles.boxShadow};
+  z-index: 4000;
   @media (min-width: ${styles.breakpoints.desktop}) {
     display: none;
   }
@@ -131,9 +133,9 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
     <PageWrapper>
       <MapWrapper generator={generator}>
         {showPopover && <Popover closePopover={() => showPopoverSet(false)} />}
-        <ShowMobile>
+        <MobileHeader>
           <LogoArea visible={true} activeInstitute={activeInstitute} />
-        </ShowMobile>
+        </MobileHeader>
         {!generator && (
           <Infobox
             activeTechId={activeTechId}

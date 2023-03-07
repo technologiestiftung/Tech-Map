@@ -71,7 +71,9 @@ export const Station: FC<StationProps> = ({
         break
       case 'NW':
         transformationSet(
-          `rotate(${'45deg'}) translate3d(calc(-100% - ${XOffset + 1}px), ${YOffset - 2}px, 0)`
+          `rotate(${'45deg'}) translate3d(calc(-100% - ${XOffset + zoomLevel + 1}px), ${
+            YOffset - 3
+          }px, 0)`
         )
         break
       case 'W':
@@ -119,6 +121,7 @@ export const Station: FC<StationProps> = ({
               ? `${16 * Math.pow(2, zoomLevel) * 1.2}px`
               : `${16 * Math.pow(2, zoomLevel)}px`,
           fontWeight: activeTechId === stationId ? 'bold' : 'normal',
+          fontFamily: 'Clan',
           color: activeTechId === stationId ? rimColor : styles.colors.text,
         }}
       >
@@ -133,7 +136,7 @@ export const Station: FC<StationProps> = ({
         center={position}
         pathOptions={{
           color: rimColor,
-          fillColor: generator ? rimColor : 'white',
+          fillColor: activeTechId === stationId ? rimColor : 'white',
           fillOpacity: 1,
           weight: activeTechId === stationId ? circleWeight * 2 : circleWeight,
         }}
