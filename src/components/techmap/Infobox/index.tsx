@@ -55,7 +55,7 @@ const Slider = styled.div<{ leftFrame; inactive?: boolean }>`
   overflow-x: hidden;
   transform: translateX(${(props) => (props.leftFrame ? 0 : '-50%')});
   z-index: 40000;
-  max-height: ${(props) => (props.inactive ? 0 : '100vh')};
+  max-height: ${(props) => (props.inactive ? 0 : '100%')};
 
   @media (min-width: ${styles.breakpoints.desktop}) {
     transition: ${styles.transitions.all};
@@ -103,7 +103,7 @@ const SlideContainerIncludingFooter = styled(SlideContainer)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
 `
 
 const BackButtonMobile = styled.button`
