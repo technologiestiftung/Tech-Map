@@ -123,6 +123,16 @@ export const content: Content = {
       technologyLine: 'hardware',
       icon: { coordinates: [1140, 2516.3060969315156], orientation: 'E' },
     },
+    aws: {
+      title: 'AWS',
+      description:
+        'Amazon Web Services (AWS) ist eine von Amazon bereitgestellte Cloud-Computing-Plattform. Sie bietet eine breite Palette von Cloud-basierten Diensten, darunter Rechenleistung, Speicher, Datenbanken, Analysen und maschinelles Lernen, um die Skalierung und das Wachstum von Anwendungen und Infrastruktur zu unterstützen.',
+      link: 'https://aws.amazon.com/',
+      displayLink: 'https://aws.amazon.com/',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 2330], orientation: 'SE' },
+    },
     bullseye: {
       title: 'OS Bullseye',
       description: 'Bullseye ist die neuste Linux Destrubution für den Raspberry Pi',
@@ -142,6 +152,36 @@ export const content: Content = {
       technologyLine: 'programming',
       icon: { coordinates: [1410.4346493016192, 2496], orientation: 'W' },
     },
+    datasette: {
+      title: 'Datasette',
+      description:
+        'Datasette ist eine Open-Source-Webanwendung, mit der Benutzer Daten mithilfe von SQL-Abfragen untersuchen und veröffentlichen können. Sie wurde mit Python und SQLite entwickelt und bietet eine einfache Möglichkeit, CSV-, JSON- und andere Datenformate in eine SQLite-Datenbank zu konvertieren, die mit SQL-Anweisungen einfach abgefragt werden kann. Mit Datasette können Benutzer schnell eine webbasierte Schnittstelle für ihre Daten erstellen, die es ihnen ermöglicht, ihre Daten mit einer Reihe von Diagrammen und Grafiken zu untersuchen und zu visualisieren. Die Variante DatasetteLite läuft serverlos und vollständig im Browser.',
+      link: 'https://datasette.io/',
+      displayLink: 'https://datasette.io/',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: { coordinates: [182.5, 3307.5515801815486], orientation: 'SW' },
+    },
+    django: {
+      title: 'Django',
+      description:
+        'Django ist ein Open-Source-Web-Framework, das in Python geschrieben ist und dem MVC-Architekturmuster (Model-View-Controller) folgt. Es verwaltet den Datenbankzugriff, das URL-Routing, die Benutzerauthentifizierung, die Modellierung über ein eigenes ORM (Object-Relational Mapping), eine Template-Engine, die es Entwicklern ermöglicht, dynamische HTML-Seiten zu erstellen, indem sie Daten mit Templates rendern, und eine integrierte Verwaltungsschnittstelle, die es auch technisch nicht versierten Benutzern ermöglicht, die Daten in der Anwendung zu verwalten. Django wird häufig für die Erstellung von Webanwendungen verwendet und ist für seine Skalierbarkeit, Sicherheit und Robustheit bekannt.',
+      link: 'https://www.djangoproject.com/',
+      displayLink: 'https://www.djangoproject.com/',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: { coordinates: [182.5, 3484.071158799802], orientation: 'SW' },
+    },
+    docker: {
+      title: 'Docker',
+      description:
+        'Docker ist ein De-facto-Standard für Container, ein Softwarepaket, das alles enthält, was zur Ausführung einer Anwendung erforderlich ist: Code, Laufzeit, Systemtools, Systembibliotheken und Einstellungen.',
+      link: 'https://www.docker.com',
+      displayLink: 'https://www.docker.com',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [935.1863954872283, 2476], orientation: 'W' },
+    },
     esp32: {
       title: 'ESP-32',
       description:
@@ -151,6 +191,16 @@ export const content: Content = {
       status: 'neueZone',
       technologyLine: 'hardware',
       icon: { coordinates: [1284, 2785.353673693966], orientation: 'SW' },
+    },
+    fastapi: {
+      title: 'FastAPI',
+      description:
+        'FastAPI ist ein modernes, schnelles, asynchrones Web-Framework zur Erstellung von APIs mit Python 3.7+, das auf standardmäßigen Python-Typ-Hinweisen basiert. Es wurde entwickelt, um schnell und einfach zu sein und um Entwicklern zu helfen, APIs schnell und effizient zu erstellen. Es bietet automatische Datenvalidierung, Serialisierung und Dokumentation unter Verwendung der OpenAPI- und JSON-Schema-Standards, was es Entwicklern leicht macht, gut dokumentierte und einfach zu verwendende APIs zu erstellen.',
+      link: 'https://fastapi.tiangolo.com/',
+      displayLink: 'https://fastapi.tiangolo.com/',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: { coordinates: [182.5, 3395.811369490675], orientation: 'SW' },
     },
     figma: {
       title: 'Figma',
@@ -170,7 +220,7 @@ export const content: Content = {
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
-        coordinates: [182.5, 3060],
+        coordinates: [182.5, 3042.7722122541677],
         orientation: 'SW',
       },
     },
@@ -227,6 +277,16 @@ export const content: Content = {
         orientation: 'E',
       },
     },
+    jupyter: {
+      title: 'Jupyter Notebook',
+      description:
+        'Jupyter Notebook ist eine Open-Source-Webanwendung, mit der Benutzer Dokumente erstellen und freigeben können, die Live-Code, Gleichungen, Visualisierungen und erzählenden Text enthalten. Es wird häufig in den Bereichen Datenwissenschaft, wissenschaftliches Rechnen und maschinelles Lernen als bequeme und interaktive Umgebung für die Erstellung von Prototypen und die Erforschung von Daten verwendet. Es unterstützt mehrere Programmiersprachen, vor allem Python, und ermöglicht es Benutzern, Code in einem Webbrowser zu schreiben, auszuführen und zu analysieren. Die Variante JupyterLite arbeitet serverlos und läuft vollständig im Browser.',
+      link: 'https://jupyter.org/',
+      displayLink: 'https://jupyter.org/',
+      status: 'neueZone',
+      technologyLine: 'frameworks',
+      icon: { coordinates: [515.029454582558, 2629], orientation: 'W' },
+    },
     leaflet: {
       title: 'leaflet',
       description:
@@ -246,11 +306,10 @@ export const content: Content = {
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
-        coordinates: [182.5, 2990],
+        coordinates: [182.5, 3572.3309481089286],
         orientation: 'SW',
       },
     },
-
     lorawan: {
       title: 'LoRaWan',
       description:
@@ -311,6 +370,16 @@ export const content: Content = {
       technologyLine: 'hardware',
       icon: { coordinates: [1284, 2891.610041250511], orientation: 'SW' },
     },
+    mongodb: {
+      title: 'MongoDB',
+      description:
+        'MongoDB is an open-source document-oriented NoSQL database that uses a JSON-like format for storing and retrieving data, designed for high performance, scalability, and availability. It is a popular choice for modern web applications and big data solutions. MongoDB supports dynamic schemas, allowing data structures to change without downtime or complex migrations. It also includes advanced features such as automatic sharding, replica sets, geospatial indexing and full-text search.',
+      link: 'https://www.mongodb.com/',
+      displayLink: 'https://www.mongodb.com/',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 1969.8626897066902], orientation: 'SE' },
+    },
     msoffice: {
       title: 'Microsoft Office 365',
       description:
@@ -332,7 +401,7 @@ export const content: Content = {
       displayLink: 'https://www.netlify.com/',
       status: 'hauptzone',
       technologyLine: 'tools',
-      icon: { coordinates: [1220.5, 1700.4509841302233], orientation: 'SE' },
+      icon: { coordinates: [1220.5, 1790], orientation: 'SE' },
     },
     netlifyCMS: {
       title: 'NetlifyCMS',
@@ -374,11 +443,22 @@ export const content: Content = {
       technologyLine: 'tools',
       icon: { coordinates: [1717, 737.4214602235229], orientation: 'SW' },
     },
+    postgrsql: {
+      title: 'PostgreSQL',
+      description:
+        'PostgreSQL ist eine relationale Open-Source-Datenbank, die für ihre Robustheit, Skalierbarkeit und ihren erweiterten Funktionsumfang bekannt ist, insbesondere für ihre PostGIS-Erweiterung.',
+      link: 'https://www.postgresql.org/',
+      displayLink: 'https://www.postgresql.org/',
+      status: 'hauptzone',
+      technologyLine: 'tools',
+      icon: { coordinates: [1220.5, 2149.470493424335], orientation: 'SE' },
+    },
     python: {
       title: 'python',
-      description: '',
-      link: '',
-      displayLink: '',
+      description:
+        'Python ist eine der am häufigsten verwendeten Programmiersprachen, die in der Datenwissenschaft dominiert und wegen ihrer Einfachheit, Lesbarkeit und Benutzerfreundlichkeit beliebt ist. Es ist auch sehr interessant für die Interaktion mit Software, die in anderen Sprachen erstellt wurde.',
+      link: 'https://www.python.org/',
+      displayLink: 'https://www.python.org/',
       status: 'hauptzone',
       technologyLine: 'programming',
       icon: { coordinates: [1110, 1614], orientation: 'E' },
@@ -437,16 +517,27 @@ export const content: Content = {
       icon: { coordinates: [1830, 1844.5], orientation: 'E' },
     },
     strapi: {
-      title: 'Strapi',
-      description: '',
-      link: '',
-      displayLink: '',
+      title: 'Strapi (CL)',
+      description:
+        'Strapi ist ein quelloffenes, hochgradig anpassbares, headless Content Management System (CMS), das mit Node.js entwickelt wurde. Es ermöglicht Entwicklern die schnelle Erstellung und Verwaltung von Content-APIs, die von verschiedenen Frontend-Anwendungen, einschließlich Web- und Mobilanwendungen, genutzt werden können. Es bietet benutzerdefinierte Inhaltstypen, Zugriffskontrollen und Berechtigungen für verschiedene Benutzerrollen. Die Plattform umfasst eine benutzerfreundliche Verwaltungsoberfläche zum Erstellen und Verwalten von Inhalten.',
+      link: 'https://strapi.io/',
+      displayLink: 'https://strapi.io/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
         coordinates: [182.5, 3130],
         orientation: 'SW',
       },
+    },
+    streamit: {
+      title: 'streamlit',
+      description:
+        'Streamlit ist eine Open-Source-Python-Bibliothek für die Erstellung interaktiver Webanwendungen für Datenwissenschaft und maschinelles Lernen. Mit Streamlit können Entwickler schnell Benutzeroberflächen für ihre Datenanalyse- oder Machine-Learning-Modelle erstellen, ohne dass sie über Front-End-Entwicklungskenntnisse verfügen müssen, und sie in gemeinsam nutzbare Webanwendungen verwandeln.',
+      link: 'https://streamlit.io/',
+      displayLink: 'https://streamlit.io/',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: { coordinates: [182.5, 3219.291790872421], orientation: 'SW' },
     },
     tailwind: {
       title: 'Tailwind',

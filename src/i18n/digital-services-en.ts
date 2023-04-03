@@ -70,6 +70,13 @@ export const content: Content = {
       link: 'https://www.arduino.cc/',
       displayLink: 'https://www.arduino.cc/',
     },
+    aws: {
+      title: 'AWS',
+      description:
+        'Amazon Web Services (AWS) is a cloud computing platform provided by Amazon. It offers a wide range of cloud-based services, including computing power, storage, databases, analytics, and machine learning, to help scale and grow applications and infrastructure.',
+      link: 'https://aws.amazon.com/',
+      displayLink: 'https://aws.amazon.com/',
+    },
     bullseye: {
       title: 'OS Bullseye',
       description: 'Bullseye is the newest Linux Destrubution for the Raspberry Pi',
@@ -83,6 +90,27 @@ export const content: Content = {
       link: 'https://en.wikipedia.org/wiki/C_(programming_language)',
       displayLink: 'Wikipedia Link',
     },
+    datasette: {
+      title: 'Datasette',
+      description:
+        'Datasette is an open-source web application that allows users to explore and publish data using SQL queries. It is built with Python and SQLite and provides a simple way to convert CSV, JSON, and other data formats into an SQLite database that can be easily queried using SQL statements. With Datasette, users can quickly create a web-based interface for their data, which allows them to explore and visualize their data using a range of charts and graphs. Its variant DatasetteLite runs serverless, entirely inside the browser.',
+      link: 'https://datasette.io/',
+      displayLink: 'https://datasette.io/',
+    },
+    django: {
+      title: 'Django',
+      description:
+        'Django is a high-level open-source web framework written in Python that follows the model-view-controller (MVC) architectural pattern. It handles database access, URL routing, user authentication, modelling via its own ORM (Object-Relational Mapping), a templating engine that allows developers to create dynamic HTML pages by rendering data with templates and a built-in administration interface that allows non-technical users to manage the data in the application. Django is widely used for building web applications and is known for its scalability, security, and robustness.',
+      link: 'https://www.djangoproject.com/',
+      displayLink: 'https://www.djangoproject.com/',
+    },
+    docker: {
+      title: 'Docker',
+      description:
+        'Docker is a de facto standard for containers, a package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings',
+      link: 'https://www.docker.com',
+      displayLink: 'https://www.docker.com',
+    },
     esp32: {
       title: 'ESP-32',
       description:
@@ -90,12 +118,29 @@ export const content: Content = {
       link: 'https://www.espressif.com/en/products/socs/esp32',
       displayLink: 'https://www.espressif.com/',
     },
+    fastapi: {
+      title: 'FastAPI',
+      description:
+        'FastAPI is a modern, fast, asynchronous web framework for building APIs with Python 3.7+ based on standard Python type hints. It is designed to be fast, easy to use, and to help developers build APIs quickly and efficiently. It provides automatic data validation, serialization, and documentation using the OpenAPI and JSON Schema standards, making it easy for developers to create well-documented and easy-to-use APIs',
+      link: 'https://fastapi.tiangolo.com/',
+      displayLink: 'https://fastapi.tiangolo.com/',
+    },
     figma: {
       title: 'Figma',
       description:
         'Figma is our go-to-tool when it comes to design work. Our Figma workflow starts with Ideation and Conception, gives us the opportunity to prototype in every state and fidelity and in the end we use it for the Development Handover of the flows and Visual Designs. ',
       link: 'https://www.figma.com/',
       displayLink: 'https://www.figma.com',
+    },
+    folium: {
+      title: 'Folium',
+      description:
+        'Folium is a Python library used for creating interactive maps and visualizations. It is built on top of the Leaflet JavaScript library, an open-source library for interactive maps. Folium allows users to create maps using data from various sources such as GeoJSON files, Pandas DataFrames, and Python dictionaries.',
+      link: 'https://python-visualization.github.io/folium/',
+      displayLink: 'https://python-visualization.github.io/folium/',
+      status: 'wunschzone',
+      technologyLine: 'frameworks',
+      icon: { coordinates: [182.5, 3351.6814748361116], orientation: 'SW' },
     },
     github: {
       title: 'Github',
@@ -130,6 +175,13 @@ export const content: Content = {
         'To organize our collaboration, we used the different types of boards that Jira provides us. However, we will switch to Asana in the future.',
       link: 'https://jira.atlassian.com',
       displayLink: 'www.figma.com',
+    },
+    jupyter: {
+      title: 'Jupyter Notebook',
+      description:
+        'Jupyter Notebook is an open-source web application that allows users to create and share documents that contain live code, equations, visualizations, and narrative text. It is widely used in data science, scientific computing, and machine learning as a convenient and interactive environment for prototyping and data exploration. It supports multiple programming languages, mainly Python, and allows users to write, execute, and analyze code in a web browser. Its variant JupyterLite works serverless, living completely inside the browser.',
+      link: 'https://jupyter.org/',
+      displayLink: 'https://jupyter.org/',
     },
     leaflet: {
       title: 'leaflet',
@@ -188,6 +240,13 @@ export const content: Content = {
       link: 'https://en.wikipedia.org/wiki/Mesh_networking',
       displayLink: 'Wikipedia Link',
     },
+    mongodb: {
+      title: 'MongoDB',
+      description:
+        'MongoDB ist eine quelloffene, dokumentenorientierte NoSQL-Datenbank, die ein JSON-ähnliches Format zum Speichern und Abrufen von Daten verwendet und auf hohe Leistung, Skalierbarkeit und Verfügbarkeit ausgelegt ist. Sie ist eine beliebte Wahl für moderne Webanwendungen und Big-Data-Lösungen. MongoDB unterstützt dynamische Schemata, so dass Datenstrukturen ohne Ausfallzeiten oder komplexe Migrationen geändert werden können. Darüber hinaus bietet es fortschrittliche Funktionen wie automatisches Sharding, Replikatsätze, geografische Indizierung und Volltextsuche.',
+      link: 'https://www.mongodb.com/',
+      displayLink: 'https://www.mongodb.com/',
+    },
     msoffice: {
       title: 'Microsoft Office 365',
       description:
@@ -233,11 +292,19 @@ export const content: Content = {
       link: 'https://penpot.app',
       displayLink: 'https://penpot.app',
     },
+    postgrsql: {
+      title: 'PostgreSQL',
+      description:
+        'PostgreSQL ist eine relationale Open-Source-Datenbank, die für ihre Robustheit, Skalierbarkeit und ihren erweiterten Funktionsumfang bekannt ist, insbesondere für ihre PostGIS-Erweiterung.',
+      link: 'https://www.postgresql.org/',
+      displayLink: 'https://www.postgresql.org/',
+    },
     python: {
       title: 'python',
-      description: '',
-      link: '',
-      displayLink: '',
+      description:
+        'Python is one of the most used programming language, dominant in data science, popular for its simplicity, readability, and ease of use. It is also very interesting for interacting with software built in other languages.',
+      link: 'https://www.python.org/',
+      displayLink: 'https://www.python.org/',
     },
     raspberryPy: {
       title: 'Raspberry Pi',
@@ -273,6 +340,20 @@ export const content: Content = {
         'SolidJS is not yet used by us on a regular basis. We think the framework has potential and could offer an alternative to the React library in the future.',
       link: 'https://www.solidjs.com/',
       displayLink: 'https://www.solidjs.com/',
+    },
+    strapi: {
+      title: 'Strapi (CL)',
+      description:
+        'Strapi is an open-source, highly customizable, headless content management system (CMS) built with Node.js. It allows developers to quickly create and manage content APIs, which can be consumed by various frontend applications, including web and mobile apps. It features custom content types, access controls and permissions for different user roles. The platform includes a user-friendly admin interface to create and manage content.',
+      link: 'https://strapi.io/',
+      displayLink: 'https://strapi.io/',
+    },
+    streamit: {
+      title: 'streamlit',
+      description:
+        'Streamlit is an open-source Python library used for building interactive data science and machine learning web applications. With Streamlit, developers can quickly create user interfaces for their data analysis or machine learning models without the need for front-end development skills, turning them into shareable web apps.',
+      link: 'https://streamlit.io/',
+      displayLink: 'https://streamlit.io/',
     },
     tailwind: {
       title: 'Tailwind',
