@@ -160,7 +160,7 @@ export const content: Content = {
       displayLink: 'https://datasette.io/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [182.5, 3300], orientation: 'SW' },
+      icon: { coordinates: [182.5, 3340], orientation: 'SW' },
     },
     django: {
       title: 'Django',
@@ -170,7 +170,7 @@ export const content: Content = {
       displayLink: 'https://www.djangoproject.com/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [182.5, 3460], orientation: 'SW' },
+      icon: { coordinates: [182.5, 3500], orientation: 'SW' },
     },
     docker: {
       title: 'Docker',
@@ -200,7 +200,7 @@ export const content: Content = {
       displayLink: 'https://fastapi.tiangolo.com/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [182.5, 3380], orientation: 'SW' },
+      icon: { coordinates: [182.5, 3420], orientation: 'SW' },
     },
     figma: {
       title: 'Figma',
@@ -220,7 +220,7 @@ export const content: Content = {
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
-        coordinates: [182.5, 3060],
+        coordinates: [182.5, 3100],
         orientation: 'SW',
       },
     },
@@ -306,7 +306,7 @@ export const content: Content = {
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
-        coordinates: [182.5, 3540],
+        coordinates: [182.5, 3580],
         orientation: 'SW',
       },
     },
@@ -512,7 +512,7 @@ export const content: Content = {
       displayLink: 'https://www.solidjs.com/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [182.5, 2980], orientation: 'SW' },
+      icon: { coordinates: [182.5, 3020], orientation: 'SW' },
     },
     strapi: {
       title: 'Strapi (CL)',
@@ -523,7 +523,7 @@ export const content: Content = {
       status: 'wunschzone',
       technologyLine: 'frameworks',
       icon: {
-        coordinates: [182.5, 3140],
+        coordinates: [182.5, 3180],
         orientation: 'SW',
       },
     },
@@ -535,7 +535,7 @@ export const content: Content = {
       displayLink: 'https://streamlit.io/',
       status: 'wunschzone',
       technologyLine: 'frameworks',
-      icon: { coordinates: [182.5, 3220], orientation: 'SW' },
+      icon: { coordinates: [182.5, 3260], orientation: 'SW' },
     },
     tailwind: {
       title: 'Tailwind',
