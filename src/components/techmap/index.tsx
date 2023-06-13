@@ -105,7 +105,7 @@ export const TechMap: FC<TechMapProps> = ({ generator }: TechMapProps) => {
     i18n.changeLanguage(locale)
   }, [locale, i18n])
 
-  const [showPopover, showPopoverSet] = useState<boolean>(false)
+  const [showPopover, showPopoverSet] = useState<boolean>(true)
   const [slidePosition, slidePositionSet] = useState<LatLngExpression>([350, 500])
   const [slideLabel, slideLabelSet] = useState<string>('')
   const [slideOrientation, slideOrientationSet] = useState<string>('E')
