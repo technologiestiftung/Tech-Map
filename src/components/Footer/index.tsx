@@ -40,7 +40,7 @@ export const Footer = () => {
   const { t } = useTranslation()
   return (
     <FooterWrapper>
-      <Copyright> © 2022 Technologiestiftung Berlin</Copyright>
+      <Copyright> © 2023 Technologiestiftung Berlin</Copyright>
       <LinkWrapper>
         <StyledLink href="https://www.technologiestiftung-berlin.de/datenschutz" target="_blank">
           {t('functionality.privacyNotice')}
