@@ -22,8 +22,8 @@ This project is licensed under the MIT License, making it free to use for everyo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- [Typescript](https://www.typescriptlang.org/)
-- [leaflet](https://leafletjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Leaflet](https://leafletjs.com/)
 - [FontAwesome](https://fontawesome.com/)
 - Linting with [ESLint](https://eslint.org/)
 - Formatting with [Prettier](https://prettier.io/)
@@ -33,7 +33,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #### Node.js
 
 This project is a Create-React-App which requires you to have [Node.js](https://nodejs.org/en/) installed.
-
 
 Clone the repository to your local machine:
 
@@ -69,7 +68,7 @@ or
 yarn
 ```
 
-Since our fonts are not free to use, you have to provide your own in the 'src/fonts' folder and replace the '@font-face...' implimentations in the global.css'
+Since our fonts are not free to use, you have to provide your own in the `src/fonts` folder and replace the `@font-face...` implementations in the `src/styles/global.css`.
 
 You are now ready to start a local development server on http://localhost:3000 via:
 
