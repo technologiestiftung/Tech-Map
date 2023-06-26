@@ -3,7 +3,7 @@ import { Content } from './digital-services-de'
 export const content: Content = {
   description: {
     title: 'Tech Map',
-    subTitle: 'Digital Service Team',
+    subTitle: 'Digital Services Team',
     disclaimerDesktop:
       'Welcome to our Tech Map. \n\nOn this map we locate and categorize the technologies we use.\n\n To get more information about a tool you can select the individual stations on the map.',
     disclaimerMobile:
@@ -53,7 +53,7 @@ export const content: Content = {
     adobe: {
       title: 'Adobe Creative Cloud',
       description:
-        'The Adobe Creative Cloud is still in use by other departments of the Technologiestiftung, mainly for print based work. For the digital projects we work on as Digital Service Team we try to avoid it.',
+        'The Adobe Creative Cloud is still in use by other departments of the Technologiestiftung, mainly for print based work. For the digital projects we work on as Digital Services Team we try to avoid it.',
       link: 'https://www.adobe.com',
       displayLink: 'https://www.adobe.com',
     },
@@ -274,7 +274,7 @@ export const content: Content = {
     newsletterToGo: {
       title: 'Newsletter2Go/SendInBlue',
       description:
-        'The various newsletters of the Technology Foundation run via SendInBlue, but we in the Digital Service Team are also happy to look around for alternatives with more creative freedom.',
+        'The various newsletters of the Technology Foundation run via SendInBlue, but we in the Digital Services Team are also happy to look around for alternatives with more creative freedom.',
       link: 'https://sendinblue.com',
       displayLink: 'https://www.sendinblue.com',
     },

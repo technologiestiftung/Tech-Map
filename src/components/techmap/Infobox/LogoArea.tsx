@@ -59,7 +59,7 @@ export const LogoArea: FC<LogoAreaProps> = ({ visible, activeInstitute }: LogoAr
       <HeaderDivider>
         <Header>Tech Map</Header>
         <Subheader>
-          {activeInstitute === 'digitalServices' ? 'Digital Service Team' : 'CityLab Team'}
+          {activeInstitute === 'digitalServices' ? 'Digital Services Team' : 'CityLab Team'}
         </Subheader>
       </HeaderDivider>
     </StyledLogoArea>

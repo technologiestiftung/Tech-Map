@@ -43,7 +43,7 @@ export interface Content {
 export const content: Content = {
   description: {
     title: 'Tech Map',
-    subTitle: 'Digital Service Team',
+    subTitle: 'Digital Services Team',
     disclaimerDesktop:
       'Herzlich Willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.\n\nUm weitere Informationen über ein Tool zu bekommen kann man die einzelnen Stationen auf der Karte auswählen.',
     disclaimerMobile:
@@ -93,7 +93,7 @@ export const content: Content = {
     adobe: {
       title: 'Adobe Creative Cloud',
       description:
-        'Die Adobe Creative Cloud wird noch vereinzelt in anderen Bereichen der Technologiestiftung. vor allem im Print-Bereich, eingesetzt. Für die digitalen Projekt die wir im Digital Service Team bearbeiten wollen wir diese allerdings nicht mehr einsetzen. ',
+        'Die Adobe Creative Cloud wird noch vereinzelt in anderen Bereichen der Technologiestiftung. vor allem im Print-Bereich, eingesetzt. Für die digitalen Projekt die wir im Digital Services Team bearbeiten wollen wir diese allerdings nicht mehr einsetzen. ',
       link: 'https://www.adobe.com/de/creativecloud.html',
       displayLink: 'https://www.adobe.com',
       status: 'haltezone',
@@ -389,7 +389,8 @@ export const content: Content = {
       status: 'hauptzone',
       technologyLine: 'tools',
       icon: {
-        coordinates: [849, 2360], orientation: 'NW',
+        coordinates: [849, 2360],
+        orientation: 'NW',
       },
     },
     netlify: {
@@ -415,7 +416,7 @@ export const content: Content = {
     newsletterToGo: {
       title: 'Newsletter2Go/SendInBlue',
       description:
-        'Die verschiedenen Newsletter der Technologiestiftung laufen über SendInBlue, wir vom Digital Service Team schauen uns aber da auch gern nach Alternativen mit mehr Gestaltungsspielraum um.',
+        'Die verschiedenen Newsletter der Technologiestiftung laufen über SendInBlue, wir vom Digital Services Team schauen uns aber da auch gern nach Alternativen mit mehr Gestaltungsspielraum um.',
       link: 'https://de.sendinblue.com',
       displayLink: 'https://www.sendinblue.com',
       status: 'neueZone',
@@ -501,7 +502,8 @@ export const content: Content = {
       status: 'hauptzone',
       technologyLine: 'tools',
       icon: {
-        coordinates: [849, 2280], orientation: 'NW',
+        coordinates: [849, 2280],
+        orientation: 'NW',
       },
     },
     solidjs: {
