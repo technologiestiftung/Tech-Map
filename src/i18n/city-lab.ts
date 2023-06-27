@@ -3,7 +3,7 @@ import { Content } from './digital-services-de'
 export const content: Content = {
   description: {
     title: 'Tech Map',
-    subTitle: 'Digital Service Team',
+    subTitle: 'Digital Services Team',
     disclaimerDesktop:
       'Herzlich Willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.\n\nWeitere Informationen zur Benutzung der Karte findest du in unserer Infobox, die sich über den Button unten öffnen lässt.',
     disclaimerMobile:
