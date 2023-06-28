@@ -64,21 +64,13 @@ With the correct Node version, install the dependencies:
 ```bash
 npm install
 ```
-or
-```bash
-yarn
-```
 
 Since our fonts are not free to use, you have to provide your own in the 'src/fonts' folder and replace the '@font-face...' implimentations in the global.css'
 
 You are now ready to start a local development server on http://localhost:3000 via:
 
 ```bash
-npm run start
-```
-or
-```bash
-yarn start
+npm start
 ```
 
 ## Adding New Stations
