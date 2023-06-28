@@ -10,10 +10,9 @@
 
 # production
 /build
-/src/fonts
 
 # fonts
-/src/fonts
+/src/fonts/*.woff
 
 # misc
 .DS_Store
