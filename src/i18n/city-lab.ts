@@ -5,19 +5,19 @@ export const content: Content = {
     title: 'Tech Map',
     subTitle: 'Digital Services Team',
     disclaimerDesktop:
-      'Herzlich Willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.\n\nWeitere Informationen zur Benutzung der Karte findest du in unserer Infobox, die sich über den Button unten öffnen lässt.',
+      'Herzlich willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die Technologien, die bei uns im Einsatz sind, und kategorisieren diese.\n\nWeitere Informationen zur Benutzung der Karte findest du in unserer Infobox, die sich über den Button unten öffnen lässt.',
     disclaimerMobile:
-      'Herzlich Willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.\n\nWeitere Informationen zur Benutzung der Karte findest du in unserer Infobox, die sich über den Button unten öffnen lässt.',
+      'Herzlich willkommen auf unserer Tech Map. \n\nAuf dieser Karte verorten wir die Technologien, die bei uns im Einsatz sind, und kategorisieren diese.\n\nWeitere Informationen zur Benutzung der Karte findest du in unserer Infobox, die sich über den Button unten öffnen lässt.',
     manual: {
       usage: {
         title: 'Benutzung der Karte',
         description:
-          'Auf dieser Karte verorten wir die wir die Technologien die bei uns im Einsatz sind und kategorisieren diese.\n\nUm weitere Informationen über ein Tool zu bekommen kann man die einzelnen Stationen auf der Karte auswählen.',
+          'Auf dieser Karte verorten wir die Technologien, die bei uns im Einsatz sind, und kategorisieren diese.\n\nUm weitere Informationen über ein Tool zu bekommen, kann man die einzelnen Stationen auf der Karte auswählen.',
       },
       zones: {
         title: 'Erklärung der Zonen',
         description:
-          'Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten arbeiten wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.',
+          'Um den Stand der jeweiligen Technologie in unserer täglichen Arbeit zu verorten, arbeiten wir mit verschiedenen Kategorien, die auf der Map als “Zonen” visualisiert werden.',
       },
     },
     zones: {
